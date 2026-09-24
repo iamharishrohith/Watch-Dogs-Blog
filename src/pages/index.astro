@@ -47,42 +47,74 @@ import Layout from '../layouts/Layout.astro';
   <!-- ============================================================
        01. HERO VISUAL: INTERACTIVE TECHNICAL SIGNAL FIELD
        ============================================================ -->
-  <section id="signal-field" class="section-editorial" style="background: var(--bg-secondary);">
+  <section id="signal-field" class="section-editorial" style="background: #09090B; color: #ffffff; padding: 80px 0;">
     <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
         <div>
-          <div class="section-label">INTERACTIVE PROTOTYPE</div>
-          <h2 style="font-size: 2.0rem; font-weight: 800; letter-spacing: -0.03em;">Interactive In-Situ Signal Pathway</h2>
+          <div class="hero-pill" style="background: rgba(37, 99, 235, 0.15); border-color: rgba(37, 99, 235, 0.3); color: #60A5FA; margin-bottom: 8px;">
+            <span class="pulse-dot" style="background: #3B82F6; box-shadow: 0 0 10px #3B82F6;"></span>
+            LIVE AIR-GAPPED LORA TOPOLOGY
+          </div>
+          <h2 style="font-size: 2.2rem; font-weight: 900; letter-spacing: -0.03em; color: #ffffff;">
+            In-Situ Causal Signal Propagation Map
+          </h2>
         </div>
-        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">
-          CLICK ANY NODE TO TRACE PACKET PROPAGATION
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <button id="btn-fire-sim" style="background: #2563EB; color: #ffffff; border: none; padding: 8px 16px; border-radius: 6px; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 0 16px rgba(37, 99, 235, 0.4);">
+            <span>▶ TRIGGER DISASTER PULSE</span>
+          </button>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #71717A; text-transform: uppercase;">
+            CLICK ANY NODE TO INSPECT LIVE PACKET
+          </div>
         </div>
       </div>
 
-      <div id="signal-field-container">
-        <svg id="signal-svg" width="100%" height="100%" style="display: block; cursor: crosshair;"></svg>
+      <!-- Advanced Cyber-Physical Signal Canvas -->
+      <div id="signal-field-container" style="background: radial-gradient(circle at center, #111827 0%, #030712 100%); border: 1px solid #1F2937; height: 500px; border-radius: 12px; position: relative; overflow: hidden; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);">
+        <!-- Top Overlay HUD -->
+        <div style="position: absolute; top: 16px; left: 20px; z-index: 10; font-family: var(--font-mono); font-size: 0.72rem; color: #9CA3AF; display: flex; gap: 16px; align-items: center; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); padding: 6px 14px; border-radius: 100px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div><span style="color: #60A5FA;">BAND:</span> IN865–867 MHz</div>
+          <div><span style="color: #34D399;">MODULATION:</span> LoRa CSS (SF10)</div>
+          <div><span style="color: #F87171;">PACKET:</span> 32-Byte Binary Frame</div>
+          <div><span style="color: #FBBF24;">HOP LATENCY:</span> 42ms/Hop</div>
+        </div>
+
+        <!-- Legend Overlay -->
+        <div style="position: absolute; bottom: 16px; left: 20px; z-index: 10; font-family: var(--font-mono); font-size: 0.70rem; color: #9CA3AF; display: flex; gap: 12px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div style="display: flex; align-items: center; gap: 6px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #3B82F6;"></span> Ridge (Rain)</div>
+          <div style="display: flex; align-items: center; gap: 6px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981;"></span> Slope (Moisture)</div>
+          <div style="display: flex; align-items: center; gap: 6px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #F59E0B;"></span> Slip-Plane (Pore Press)</div>
+          <div style="display: flex; align-items: center; gap: 6px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #EF4444;"></span> Headscarp (Tilt)</div>
+          <div style="display: flex; align-items: center; gap: 6px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #8B5CF6;"></span> Valley (Gateway Pi 5)</div>
+        </div>
+
+        <svg id="signal-svg" width="100%" height="100%" style="display: block;"></svg>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; font-family: var(--font-mono); font-size: 0.78rem;">
-        <div style="background: #ffffff; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
-          <div style="color: var(--text-muted); margin-bottom: 4px;">ACTIVE SENSOR NODE</div>
-          <div id="active-node-id" style="font-size: 1.1rem; font-weight: 800; color: var(--accent-primary);">N07 (Headscarp Tilt)</div>
-          <div id="active-node-val" style="color: var(--text-secondary); margin-top: 2px;">Tilt = 8.4&deg; | d&beta;/dt = +1.2&deg;/h</div>
+      <!-- Real-Time Telemetry & Decision Hud Cards -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; font-family: var(--font-mono); font-size: 0.78rem; margin-top: 16px;">
+        <div style="background: #111827; padding: 18px; border: 1px solid #1F2937; border-top: 3px solid #3B82F6; border-radius: 8px;">
+          <div style="color: #6B7280; font-size: 0.70rem; margin-bottom: 4px;">ACTIVE SENSOR NODE</div>
+          <div id="active-node-id" style="font-size: 1.15rem; font-weight: 800; color: #60A5FA;">N07 (Headscarp Tilt)</div>
+          <div id="active-node-val" style="color: #9CA3AF; margin-top: 4px; font-size: 0.76rem;">Tilt = 8.4&deg; | d&beta;/dt = +1.2&deg;/h</div>
         </div>
-        <div style="background: #ffffff; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
-          <div style="color: var(--text-muted); margin-bottom: 4px;">RF PROTOCOL</div>
-          <div style="font-size: 1.1rem; font-weight: 800;">868 MHz LoRa</div>
-          <div style="color: var(--text-secondary); margin-top: 2px;">32-Byte Packed Binary Frame</div>
+
+        <div style="background: #111827; padding: 18px; border: 1px solid #1F2937; border-top: 3px solid #10B981; border-radius: 8px;">
+          <div style="color: #6B7280; font-size: 0.70rem; margin-bottom: 4px;">RADIO PACKET INTEGRITY</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #34D399;">CRC-16 OK &bull; RSSI -82 dBm</div>
+          <div style="color: #9CA3AF; margin-top: 4px; font-size: 0.76rem;">AES-128 Encrypted &bull; 0% Loss</div>
         </div>
-        <div style="background: #ffffff; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
-          <div style="color: var(--text-muted); margin-bottom: 4px;">EDGE GATEWAY</div>
-          <div style="font-size: 1.1rem; font-weight: 800;">GW01 &bull; RPi 5</div>
-          <div style="color: var(--text-secondary); margin-top: 2px;">14.2ms LibTorch PINN Pass</div>
+
+        <div style="background: #111827; padding: 18px; border: 1px solid #1F2937; border-top: 3px solid #8B5CF6; border-radius: 8px;">
+          <div style="color: #6B7280; font-size: 0.70rem; margin-bottom: 4px;">EDGE AI COMPUTATION</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #A78BFA;">GW01 &bull; RPi 5 (8GB)</div>
+          <div style="color: #9CA3AF; margin-top: 4px; font-size: 0.76rem;">14.2ms LibTorch PINN Mohr-Coulomb</div>
         </div>
-        <div style="background: #ffffff; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
-          <div style="color: var(--text-muted); margin-bottom: 4px;">SYSTEM STATUS</div>
-          <div id="active-system-state" style="font-size: 1.1rem; font-weight: 800; color: var(--accent-hazard);">CODE RED (Actuated)</div>
-          <div style="color: var(--text-secondary); margin-top: 2px;">Factor of Safety FS = 0.94</div>
+
+        <div style="background: #111827; padding: 18px; border: 1px solid #1F2937; border-top: 3px solid #EF4444; border-radius: 8px;">
+          <div style="color: #6B7280; font-size: 0.70rem; margin-bottom: 4px;">SYSTEM DEFENSE STATE</div>
+          <div id="active-system-state" style="font-size: 1.15rem; font-weight: 800; color: #F87171;">CODE RED (Actuated)</div>
+          <div style="color: #9CA3AF; margin-top: 4px; font-size: 0.76rem;">Factor of Safety FS = 0.88 &lt; 1.00</div>
         </div>
       </div>
     </div>
@@ -456,67 +488,244 @@ import Layout from '../layouts/Layout.astro';
        CLIENT-SIDE INTERACTIVE ENGINE
        ============================================================ -->
   <script is:inline>
-    // 1. Interactive Signal Field Canvas
+    // 1. High-Precision Cyber-Physical Signal Field Engine
     const svg = document.getElementById('signal-svg');
+    const btnSim = document.getElementById('btn-fire-sim');
 
     const nodes = [
-      { id: "N01", name: "Rainfall Gauge", x: 120, y: 140, type: "Rain", val: "42 mm/h", color: "#3B82F6" },
-      { id: "N03", name: "TDR Moisture", x: 280, y: 220, type: "Soil Moisture", val: "94.2 %", color: "#10B981" },
-      { id: "N05", name: "Piezometer", x: 440, y: 160, type: "Pore Pressure", val: "34.5 kPa", color: "#EF4444" },
-      { id: "N07", name: "Headscarp Tilt", x: 600, y: 280, type: "Tilt IMU", val: "8.4°", color: "#2563EB" },
-      { id: "GW01", name: "Edge Gateway RPi 5", x: 780, y: 200, type: "Edge Hub", val: "14.2ms PINN", color: "#09090B" }
+      { id: "N01", name: "Ridge Rain Gauge", x: 90, y: 110, elev: "1,840m", type: "Precipitation", val: "58.4 mm/h", color: "#3B82F6", sub: "Tipping Bucket Radar", status: "NORMAL" },
+      { id: "N02", name: "Upper Slope Pore Pressure", x: 230, y: 180, elev: "1,620m", type: "Hydraulic", val: "22.1 kPa", color: "#38BDF8", sub: "SS316 Piezometer", status: "WARNING" },
+      { id: "N03", name: "Mid-Slope TDR Saturation", x: 380, y: 260, elev: "1,410m", type: "Soil Moisture", val: "96.8 % VWC", color: "#10B981", sub: "1.5m Dual-Depth TDR", status: "CRITICAL" },
+      { id: "N07", name: "Headscarp Tilt IMU", x: 540, y: 190, elev: "1,550m", type: "Shear Vector", val: "8.4° (+1.2°/h)", color: "#EF4444", sub: "6-DOF Accel Ring", status: "CODE RED" },
+      { id: "N13", name: "Slip-Plane Acoustic Micro-Fracture", x: 690, y: 310, elev: "1,220m", type: "Rock Acoustic", val: "340 counts/s", color: "#F59E0B", sub: "200kHz Hydrophone", status: "ACTIVE TRIP" },
+      { id: "N16", name: "Chooralmala Bridge Radar", x: 840, y: 390, elev: "940m", type: "Riparian Stage", val: "h = 4.82m (dh/dt +0.6m/min)", color: "#EC4899", sub: "24GHz FMCW Radar", status: "BARRICADED" },
+      { id: "GW01", name: "Valley Command Gateway", x: 980, y: 240, elev: "860m", type: "RPi 5 + LoRa HAT", val: "PINN Mohr-Coulomb 14.2ms", color: "#8B5CF6", sub: "Air-Gapped SX1262 Hub", status: "ONLINE" }
     ];
 
-    function drawSignalField() {
+    let packets = [];
+    let animationFrame;
+
+    function renderGisGrid() {
       if (!svg) return;
       svg.innerHTML = '';
 
-      // Draw Connection Lines
-      for (let i = 0; i < nodes.length - 1; i++) {
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', nodes[i].x);
-        line.setAttribute('y1', nodes[i].y);
-        line.setAttribute('x2', nodes[i+1].x);
-        line.setAttribute('y2', nodes[i+1].y);
-        line.setAttribute('stroke', '#CBD5E1');
-        line.setAttribute('stroke-width', '2');
-        line.setAttribute('stroke-dasharray', '6,6');
-        svg.appendChild(line);
-      }
+      const width = svg.clientWidth || 1100;
+      const height = svg.clientHeight || 500;
 
-      // Draw Nodes
-      nodes.forEach(n => {
+      // Defs: Gradients and Glow Filters
+      const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+      defs.innerHTML = `
+        <linearGradient id="terrainGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#1E293B" stop-opacity="0.4"/>
+          <stop offset="50%" stop-color="#0F172A" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#020617" stop-opacity="0.9"/>
+        </linearGradient>
+        <linearGradient id="linkGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.8"/>
+          <stop offset="50%" stop-color="#10B981" stop-opacity="0.8"/>
+          <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.8"/>
+        </linearGradient>
+        <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <pattern id="gisGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1F2937" stroke-width="0.75" stroke-dasharray="2,2"/>
+        </pattern>
+      `;
+      svg.appendChild(defs);
+
+      // Background Grid
+      const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      rect.setAttribute('width', '100%');
+      rect.setAttribute('height', '100%');
+      rect.setAttribute('fill', 'url(#gisGrid)');
+      svg.appendChild(rect);
+
+      // Topographic Contour Lines (Stylized Mountain Relief)
+      const contourGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      contourGroup.setAttribute('opacity', '0.25');
+      const contours = [
+        "M 0 100 Q 300 80 600 160 T 1200 200 L 1200 500 L 0 500 Z",
+        "M 0 180 Q 350 140 700 240 T 1200 300 L 1200 500 L 0 500 Z",
+        "M 0 270 Q 400 220 800 320 T 1200 400 L 1200 500 L 0 500 Z"
+      ];
+      contours.forEach((d, idx) => {
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', d);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', '#38BDF8');
+        path.setAttribute('stroke-width', '1');
+        path.setAttribute('stroke-dasharray', '4,4');
+        contourGroup.appendChild(path);
+      });
+      svg.appendChild(contourGroup);
+
+      // LoRa Mesh Multi-Hop Transmission Links
+      const linkConnections = [
+        [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [3, 6], [5, 6], [1, 6]
+      ];
+
+      linkConnections.forEach(([from, to]) => {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', nodes[from].x);
+        line.setAttribute('y1', nodes[from].y);
+        line.setAttribute('x2', nodes[to].x);
+        line.setAttribute('y2', nodes[to].y);
+        line.setAttribute('stroke', '#374151');
+        line.setAttribute('stroke-width', '1.5');
+        line.setAttribute('stroke-dasharray', '3,3');
+        svg.appendChild(line);
+      });
+
+      // Packet container
+      const packetGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      packetGroup.setAttribute('id', 'packet-group');
+      svg.appendChild(packetGroup);
+
+      // Render Nodes with Pulsing Radar Rings & Interactive HUD
+      nodes.forEach((n, idx) => {
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         g.style.cursor = 'pointer';
 
-        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        circle.setAttribute('cx', n.x);
-        circle.setAttribute('cy', n.y);
-        circle.setAttribute('r', '16');
-        circle.setAttribute('fill', n.color);
+        // Outer radar pulse
+        const pulse = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        pulse.setAttribute('cx', n.x);
+        pulse.setAttribute('cy', n.y);
+        pulse.setAttribute('r', '24');
+        pulse.setAttribute('fill', 'none');
+        pulse.setAttribute('stroke', n.color);
+        pulse.setAttribute('stroke-width', '1');
+        pulse.setAttribute('opacity', '0.4');
 
+        const pulseAnim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        pulseAnim.setAttribute('attributeName', 'r');
+        pulseAnim.setAttribute('values', '16;36;16');
+        pulseAnim.setAttribute('dur', (2 + idx * 0.4) + 's');
+        pulseAnim.setAttribute('repeatCount', 'indefinite');
+        pulse.appendChild(pulseAnim);
+
+        const opacAnim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+        opacAnim.setAttribute('attributeName', 'opacity');
+        opacAnim.setAttribute('values', '0.6;0;0.6');
+        opacAnim.setAttribute('dur', (2 + idx * 0.4) + 's');
+        opacAnim.setAttribute('repeatCount', 'indefinite');
+        pulse.appendChild(opacAnim);
+
+        // Core Node Circle with Glow
+        const core = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        core.setAttribute('cx', n.x);
+        core.setAttribute('cy', n.y);
+        core.setAttribute('r', '15');
+        core.setAttribute('fill', '#0B0F19');
+        core.setAttribute('stroke', n.color);
+        core.setAttribute('stroke-width', '2.5');
+        core.setAttribute('filter', 'url(#nodeGlow)');
+
+        // Node ID Text
         const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         text.setAttribute('x', n.x);
         text.setAttribute('y', n.y + 4);
         text.setAttribute('fill', '#ffffff');
         text.setAttribute('font-family', "'JetBrains Mono', monospace");
         text.setAttribute('font-size', '10');
-        text.setAttribute('font-weight', 'bold');
+        text.setAttribute('font-weight', '900');
         text.setAttribute('text-anchor', 'middle');
         text.textContent = n.id;
 
-        g.appendChild(circle);
+        // Label pill beneath
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', n.x);
+        label.setAttribute('y', n.y + 28);
+        label.setAttribute('fill', '#9CA3AF');
+        label.setAttribute('font-family', "'JetBrains Mono', monospace");
+        label.setAttribute('font-size', '9');
+        label.setAttribute('font-weight', '600');
+        label.setAttribute('text-anchor', 'middle');
+        label.textContent = n.elev;
+
+        g.appendChild(pulse);
+        g.appendChild(core);
         g.appendChild(text);
+        g.appendChild(label);
 
         g.addEventListener('click', () => {
-          document.getElementById('active-node-id').innerText = n.id + ' (' + n.name + ')';
-          document.getElementById('active-node-val').innerText = 'Telemetry: ' + n.val + ' | ' + n.type;
+          document.getElementById('active-node-id').innerText = n.id + ' — ' + n.name;
+          document.getElementById('active-node-val').innerHTML = '<span style="color:#ffffff;">' + n.val + '</span> &bull; ' + n.sub;
+          triggerPacketBurst(idx);
         });
 
         svg.appendChild(g);
       });
     }
-    drawSignalField();
+
+    // Packet Animation Loop
+    function triggerPacketBurst(fromIdx = 0) {
+      const targets = [fromIdx + 1, 6];
+      targets.forEach(tIdx => {
+        if (tIdx < nodes.length && tIdx !== fromIdx) {
+          packets.push({
+            startX: nodes[fromIdx].x,
+            startY: nodes[fromIdx].y,
+            endX: nodes[tIdx].x,
+            endY: nodes[tIdx].y,
+            progress: 0,
+            speed: 0.025 + Math.random() * 0.015,
+            color: nodes[fromIdx].color
+          });
+        }
+      });
+    }
+
+    function animatePackets() {
+      const group = document.getElementById('packet-group');
+      if (group) {
+        group.innerHTML = '';
+        for (let i = packets.length - 1; i >= 0; i--) {
+          const p = packets[i];
+          p.progress += p.speed;
+
+          if (p.progress >= 1) {
+            packets.splice(i, 1);
+            continue;
+          }
+
+          const curX = p.startX + (p.endX - p.startX) * p.progress;
+          const curY = p.startY + (p.endY - p.startY) * p.progress;
+
+          const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          circle.setAttribute('cx', curX);
+          circle.setAttribute('cy', curY);
+          circle.setAttribute('r', '4');
+          circle.setAttribute('fill', p.color);
+          circle.setAttribute('filter', 'url(#nodeGlow)');
+          group.appendChild(circle);
+        }
+      }
+
+      // Auto spawn heartbeat packets
+      if (Math.random() < 0.08 && nodes.length > 0) {
+        const randFrom = Math.floor(Math.random() * (nodes.length - 1));
+        triggerPacketBurst(randFrom);
+      }
+
+      animationFrame = requestAnimationFrame(animatePackets);
+    }
+
+    renderGisGrid();
+    animatePackets();
+
+    if (btnSim) {
+      btnSim.addEventListener('click', () => {
+        for (let i = 0; i < nodes.length - 1; i++) {
+          setTimeout(() => triggerPacketBurst(i), i * 140);
+        }
+      });
+    }
+
 
     // 2. Sensor Wall Modal Interaction
     const sensorData = {
