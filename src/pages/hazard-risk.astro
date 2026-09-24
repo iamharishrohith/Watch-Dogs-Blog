@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Multi-Hazard Detection & Dynamic Risk Assessment" activeNav="hazard-risk">
+  <div class="container-wide" style="padding-top: 28px;">
+
+    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; font-size: 0.8rem;">
+      <a href="/" style="color: var(--text-muted); text-decoration: none;">Platform</a>
+      <span style="color: var(--border-medium);">/</span>
+      <span style="color: var(--brand-primary); font-weight: 700;">Hazard &amp; Risk</span>
+    </div>
+
+    <section style="margin-bottom: 32px;">
+      <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+        <span class="top-tag"><span class="pulse-dot"></span> PILLAR 04: MULTI-DISASTER FORMULATIONS</span>
+        <span class="card-badge badge-danger">REAL-TIME FACTOR OF SAFETY</span>
+        <span class="card-badge badge-brand">MULTI-HAZARD COUPLING</span>
+      </div>
+      
+      <h1 style="font-size: 2.4rem; font-weight: 900; line-height: 1.2; margin-bottom: 14px; max-width: 960px; color: var(--text-primary);">
+        Physics-Informed Hazard Detection &amp; Dynamic Risk Quantification
+      </h1>
+      
+      <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 860px; line-height: 1.6;">
+        WATCH-DOGS covers four catastrophic disaster domains: Landslides &amp; Debris Flows, Flash Floods &amp; Dam Breaches, Wildfire Canopy Spread, and Industrial Toxic Gas Leaks. Every hazard is modeled using deterministic physical differential equations rather than statistical approximations.
+      </p>
+    </section>
+
+    <!-- 4 Disaster Domains Grid -->
+    <div class="bento-grid" style="margin-bottom: 36px;">
+      
+      <!-- Hazard 1: Landslide -->
+      <div class="bento-card col-6" style="border-left: 4px solid var(--status-danger);">
+        <div class="card-header">
+          <div>
+            <div style="font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">DISASTER MODEL 01</div>
+            <div class="card-title" style="font-size: 1.15rem; font-weight: 800;">Infinite Slope Stability &amp; Debris Runout</div>
+          </div>
+          <span class="card-badge badge-danger">GEOTECHNICAL</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 10px;">
+          Calculates real-time Factor of Safety FS across the failure plane:
+        </p>
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--brand-dark); margin-bottom: 10px;">
+          FS = [ c' + (&gamma; z cos^2&beta; - u) tan&phi;' ] / [ &gamma; z sin&beta; cos&beta; ]
+        </div>
+        <div style="font-size: 0.80rem; color: var(--text-muted);">
+          Trigger: FS &lt; 1.00 trips emergency actuation in &lt;120ms.
+        </div>
+      </div>
+
+      <!-- Hazard 2: Flash Flood -->
+      <div class="bento-card col-6" style="border-left: 4px solid var(--brand-primary);">
+        <div class="card-header">
+          <div>
+            <div style="font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">DISASTER MODEL 02</div>
+            <div class="card-title" style="font-size: 1.15rem; font-weight: 800;">Saint-Venant Hydrodynamic Surge</div>
+          </div>
+          <span class="card-badge badge-brand">HYDROLOGICAL</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 10px;">
+          Models non-linear flood wave propagation along river corridors:
+        </p>
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--brand-dark); margin-bottom: 10px;">
+          &part;A/&part;t + &part;Q/&part;x = q,   &part;Q/&part;t + &part;/&part;x(Q^2/A) + gA &part;h/&part;x = gA(S_0 - S_f)
+        </div>
+        <div style="font-size: 0.80rem; color: var(--text-muted);">
+          Trigger: Hydraulic surge rate &Delta;h / &Delta;t &gt; 0.45 m/min.
+        </div>
+      </div>
+
+      <!-- Hazard 3: Wildfire -->
+      <div class="bento-card col-6" style="border-left: 4px solid #f97316;">
+        <div class="card-header">
+          <div>
+            <div style="font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">DISASTER MODEL 03</div>
+            <div class="card-title" style="font-size: 1.15rem; font-weight: 800;">Rothermel Surface Fire Spread</div>
+          </div>
+          <span class="card-badge badge-warning">WILDFIRE</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 10px;">
+          Predicts rate of flame front advancement R based on fuel moisture and wind vectors:
+        </p>
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--brand-dark); margin-bottom: 10px;">
+          R = [ I_rx &bull; &xi; &bull; (1 + &Phi;_w + &Phi;_s) ] / [ &rho;_b &bull; &epsilon; &bull; Q_ig ]
+        </div>
+        <div style="font-size: 0.80rem; color: var(--text-muted);">
+          Trigger: High VOC + canopy temperature gradient &gt; 4.2&deg;C/min.
+        </div>
+      </div>
+
+      <!-- Hazard 4: Gas Leak -->
+      <div class="bento-card col-6" style="border-left: 4px solid #8b5cf6;">
+        <div class="card-header">
+          <div>
+            <div style="font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">DISASTER MODEL 04</div>
+            <div class="card-title" style="font-size: 1.15rem; font-weight: 800;">Gaussian Plume Gas Dispersion</div>
+          </div>
+          <span class="card-badge badge-safe">INDUSTRIAL</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 10px;">
+          Computes atmospheric concentration C(x,y,z) of hazardous gases (Cl2, NH3, H2S):
+        </p>
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--brand-dark); margin-bottom: 10px;">
+          C(x,y,z) = [ Q / (2&pi; u &sigma;_y &sigma;_z) ] &bull; exp(-y^2 / 2&sigma;_y^2) &bull; [ exp(-(z-H)^2/2&sigma;_z^2) + exp(-(z+H)^2/2&sigma;_z^2) ]
+        </div>
+        <div style="font-size: 0.80rem; color: var(--text-muted);">
+          Trigger: In-situ MOS gas sensor ppm &gt; IDLH exposure limit.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call to Action -->
+    <div style="background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 40px;">
+      <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Explore Sub-120ms Hard Real-Time Physical Actuation</h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 20px;">
+        See how our 5-State Finite State Machine drives solid-state optocoupled relays to fire high-decibel sirens and close motorized road barricades.
+      </p>
+      <a href="/actuation" class="btn btn-primary">Proceed to Actuation Engine &rarr;</a>
+    </div>
+
+  </div>
+</Layout>

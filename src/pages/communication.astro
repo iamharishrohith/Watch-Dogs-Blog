@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="LoRa Mesh Network & Binary Radio Protocol" activeNav="communication">
+  <div class="container-wide" style="padding-top: 28px;">
+
+    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; font-size: 0.8rem;">
+      <a href="/" style="color: var(--text-muted); text-decoration: none;">Platform</a>
+      <span style="color: var(--border-medium);">/</span>
+      <span style="color: var(--brand-primary); font-weight: 700;">LoRa Mesh RF</span>
+    </div>
+
+    <section style="margin-bottom: 32px;">
+      <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+        <span class="top-tag"><span class="pulse-dot"></span> PILLAR 02: AIR-GAPPED COMMUNICATIONS</span>
+        <span class="card-badge badge-safe">868 MHz ISM BAND</span>
+        <span class="card-badge badge-brand">AES-128-GCM ENCRYPTED</span>
+      </div>
+      
+      <h1 style="font-size: 2.4rem; font-weight: 900; line-height: 1.2; margin-bottom: 14px; max-width: 960px; color: var(--text-primary);">
+        Autonomous LoRa Mesh: 40km Non-Line-of-Sight Binary RF Protocol
+      </h1>
+      
+      <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 860px; line-height: 1.6;">
+        Disasters destroy terrestrial cellular towers and sever fiber backhauls. WATCH-DOGS operates over an entirely private, self-healing 868 MHz LoRa mesh topology utilizing a custom packed 32-byte binary radio frame. Zero reliance on internet, cloud servers, or cellular carriers.
+      </p>
+    </section>
+
+    <!-- Interactive 32-Byte Packet Register Visualizer -->
+    <div class="bento-card col-12" style="border-left: 5px solid var(--status-safe); margin-bottom: 36px; padding: 24px;">
+      <div class="card-header" style="margin-bottom: 12px;">
+        <div>
+          <span class="card-badge badge-safe">PACKED BINARY TELEMETRY FRAME</span>
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary); margin-top: 4px;">Zero-Overhead 32-Byte Bitfield Register Map</h2>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--text-secondary);">Airtime @ SF10/125kHz: 148.4 ms</span>
+      </div>
+
+      <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 18px;">
+        Every byte in the physical RF packet is strictly allocated to avoid JSON/Protobuf payload bloat, ensuring maximum receiver sensitivity (-137 dBm) and robust deep-valley penetration.
+      </p>
+
+      <!-- Bitfield Visual Blocks -->
+      <div style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; margin-bottom: 20px;">
+        <div style="background: #e0f2fe; border: 1.5px solid #0284c7; border-radius: var(--radius-sm); padding: 10px; text-align: center;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: #0369a1; font-family: 'JetBrains Mono', monospace;">BYTES 0-3</div>
+          <div style="font-size: 0.85rem; font-weight: 900; color: #0c4a6e;">Node ID</div>
+          <div style="font-size: 0.68rem; color: #0284c7;">uint32 (Device)</div>
+        </div>
+
+        <div style="background: #e0f2fe; border: 1.5px solid #0284c7; border-radius: var(--radius-sm); padding: 10px; text-align: center;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: #0369a1; font-family: 'JetBrains Mono', monospace;">BYTES 4-7</div>
+          <div style="font-size: 0.85rem; font-weight: 900; color: #0c4a6e;">Timestamp</div>
+          <div style="font-size: 0.68rem; color: #0284c7;">uint32 (Epoch)</div>
+        </div>
+
+        <div style="background: #dcfce7; border: 1.5px solid #16a34a; border-radius: var(--radius-sm); padding: 10px; text-align: center;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: #15803d; font-family: 'JetBrains Mono', monospace;">BYTES 8-9</div>
+          <div style="font-size: 0.85rem; font-weight: 900; color: #14532d;">Pore Press</div>
+          <div style="font-size: 0.68rem; color: #16a34a;">uint16 (0.01 kPa)</div>
+        </div>
+
+        <div style="background: #dcfce7; border: 1.5px solid #16a34a; border-radius: var(--radius-sm); padding: 10px; text-align: center;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: #15803d; font-family: 'JetBrains Mono', monospace;">BYTES 10-11</div>
+          <div style="font-size: 0.85rem; font-weight: 900; color: #14532d;">Soil Moist</div>
+          <div style="font-size: 0.68rem; color: #16a34a;">uint16 (0.1 %VWC)</div>
+        </div>
+
+        <div style="background: #fef3c7; border: 1.5px solid #d97706; border-radius: var(--radius-sm); padding: 10px; text-align: center;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: #b45309; font-family: 'JetBrains Mono', monospace;">BYTES 12-17</div>
+          <div style="font-size: 0.85rem; font-weight: 900; color: #78350f;">6-DOF IMU</div>
+          <div style="font-size: 0.68rem; color: #d97706;">3x int16 (Acc/Tilt)</div>
+        </div>
+
+        <div style="background: #fef3c7; border: 1.5px solid #d97706; border-radius: var(--radius-sm); padding: 10px; text-align: center;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: #b45309; font-family: 'JetBrains Mono', monospace;">BYTES 18-19</div>
+          <div style="font-size: 0.85rem; font-weight: 900; color: #78350f;">Acoustic Ring</div>
+          <div style="font-size: 0.68rem; color: #d97706;">uint16 (Counts/s)</div>
+        </div>
+
+        <div style="background: #fee2e2; border: 1.5px solid #dc2626; border-radius: var(--radius-sm); padding: 10px; text-align: center;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: #b91c1c; font-family: 'JetBrains Mono', monospace;">BYTES 20-27</div>
+          <div style="font-size: 0.85rem; font-weight: 900; color: #7f1d1d;">AES-Auth Tag</div>
+          <div style="font-size: 0.68rem; color: #dc2626;">64-bit Poly1305</div>
+        </div>
+
+        <div style="background: #f1f5f9; border: 1.5px solid #64748b; border-radius: var(--radius-sm); padding: 10px; text-align: center;">
+          <div style="font-size: 0.70rem; font-weight: 800; color: #475569; font-family: 'JetBrains Mono', monospace;">BYTES 28-31</div>
+          <div style="font-size: 0.85rem; font-weight: 900; color: #1e293b;">Hop &amp; CRC32</div>
+          <div style="font-size: 0.68rem; color: #64748b;">Routing + Check</div>
+        </div>
+      </div>
+
+      <!-- Live Interactive Decoder Script -->
+      <div style="background: #0f172a; color: #f8fafc; border-radius: var(--radius-md); padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 0.80rem;">
+        <div style="color: #38bdf8; margin-bottom: 8px;">// RAW RF HEX STREAM RECEIVED VIA SX1262 SPI INTERRUPT:</div>
+        <div style="word-break: break-all; color: #a5f3fc; margin-bottom: 12px;">
+          0x 00 00 A1 04 66 F4 3D 81 09 C4 03 A2 00 42 FE 18 01 10 00 E8 FA 83 C1 D9 4A 22 18 B3 03 01 A7 9C
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; border-top: 1px solid #334155; padding-top: 10px; color: #94a3b8;">
+          <div>&bull; Node: <span style="color: #f8fafc; font-weight: bold;">NODE_SENTINEL_04</span></div>
+          <div>&bull; Pore Press: <span style="color: #4ade80; font-weight: bold;">25.00 kPa</span></div>
+          <div>&bull; Soil Moisture: <span style="color: #4ade80; font-weight: bold;">93.0 %VWC</span></div>
+          <div>&bull; Mesh Hops: <span style="color: #fbbf24; font-weight: bold;">3 Hops (RSS -98dBm)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RF Propagation & Link Budget Table -->
+    <h2 class="section-title">868 MHz Mountain Valley Link Budget (Hata-Okumura Model)</h2>
+
+    <div class="table-container" style="margin-bottom: 36px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Specification</th>
+            <th>Margin / Calculated Value</th>
+            <th>Standard Compliance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Transmit Power (TX)</strong></td>
+            <td>+22 dBm (158 mW)</td>
+            <td>Max legal EIRP in India (WPC 865-867 MHz)</td>
+            <td>WPC GSR 564(E)</td>
+          </tr>
+          <tr>
+            <td><strong>Receiver Sensitivity (RX)</strong></td>
+            <td>-137.0 dBm (@ SF12 / 125kHz)</td>
+            <td>SX1262 High-Linearity LNA mode</td>
+            <td>Semtech Reference</td>
+          </tr>
+          <tr>
+            <td><strong>Total Link Budget</strong></td>
+            <td><strong>159.0 dB</strong></td>
+            <td><strong>Penetrates 35km wet tropical rainforest</strong></td>
+            <td><span class="card-badge badge-safe">OPTIMAL</span></td>
+          </tr>
+          <tr>
+            <td><strong>Multi-Hop Mesh Topology</strong></td>
+            <td>Directed Acyclic Graph (DAG)</td>
+            <td>Dynamic gradient routing with collision avoidance</td>
+            <td>RPL / 6LoWPAN Hybrid</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Call to Action -->
+    <div style="background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 40px;">
+      <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Discover Distributed Edge Intelligence &amp; PINN Models</h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 20px;">
+        Learn how the Raspberry Pi 5 Gateway computes real-time geotechnical partial differential equations in under 15ms.
+      </p>
+      <a href="/intelligence" class="btn btn-primary">Proceed to Edge AI &amp; Fusion &rarr;</a>
+    </div>
+
+  </div>
+</Layout>

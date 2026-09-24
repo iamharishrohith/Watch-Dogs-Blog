@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Distributed Disaster Sensing & In-Situ Instrumentation" activeNav="sensing">
+  <div class="container-wide" style="padding-top: 28px;">
+
+    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; font-size: 0.8rem;">
+      <a href="/" style="color: var(--text-muted); text-decoration: none;">Platform</a>
+      <span style="color: var(--border-medium);">/</span>
+      <span style="color: var(--brand-primary); font-weight: 700;">Distributed Sensing</span>
+    </div>
+
+    <section style="margin-bottom: 32px;">
+      <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+        <span class="top-tag"><span class="pulse-dot"></span> PILLAR 01: IN-SITU PHYSICAL TELEMETRY</span>
+        <span class="card-badge badge-brand">SUB-SURFACE GENESIS DEPLOYMENT</span>
+        <span class="card-badge badge-safe">ZERO-MAINTENANCE HARVESTING</span>
+      </div>
+      
+      <h1 style="font-size: 2.4rem; font-weight: 900; line-height: 1.2; margin-bottom: 14px; max-width: 960px; color: var(--text-primary);">
+        In-Situ Genesis Sensing: Direct Sub-Surface &amp; Riparian Physical Instrumentation
+      </h1>
+      
+      <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 860px; line-height: 1.6;">
+        Traditional satellite and optical remote sensing fail during heavy monsoons due to cloud attenuation, canopy obstruction, and post-collapse latency. WATCH-DOGS deploys ruggedized, ultra-low-power Sentinel Nodes directly along geological failure planes to capture pre-failure acoustic micro-fractures, pore pressure transients, and hydrostatic surges before surface motion occurs.
+      </p>
+    </section>
+
+    <!-- Visual Architecture / Sensor Modalities Bento Grid with User Hardware Images -->
+    <div class="bento-grid" style="margin-bottom: 36px;">
+      
+      <!-- Sensor 1: Pore Water Pressure & Moisture -->
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--brand-primary);">
+        <div style="height: 180px; background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; border-bottom: 1px solid var(--border-subtle);">
+          <img src="/iMAGES/61tRSzcqmYL._AC_UF1000,1000_QL80_.jpg" alt="TDR Soil Moisture Sensor" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+        </div>
+        <div style="padding: 16px;">
+          <div style="font-size: 0.70rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); text-transform: uppercase;">TRANSDUCER S-01</div>
+          <div class="card-title" style="font-size: 1.15rem; font-weight: 800; margin: 2px 0 8px;">Capacitive TDR Soil Probe</div>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+            Buried 1.5m deep into the weathered slip plane. Measures volumetric water content &theta; and pore-water pressure transients that reduce effective shear stress across the failure envelope.
+          </p>
+          <div style="background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;">
+            <div><strong>Resolution:</strong> &plusmn;0.1% VWC &bull; <strong>Interface:</strong> Analog ADC</div>
+            <div><strong>Power:</strong> 5.0 mA Active / 0 &mu;A Deep Sleep</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sensor 2: ESP32-S3 Wireless Telemetry Node -->
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--status-danger);">
+        <div style="height: 180px; background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; border-bottom: 1px solid var(--border-subtle);">
+          <img src="/iMAGES/1-2211221455560-L.png" alt="ESP32-S3 Microcontroller" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+        </div>
+        <div style="padding: 16px;">
+          <div style="font-size: 0.70rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); text-transform: uppercase;">SENTINEL CORE S-02</div>
+          <div class="card-title" style="font-size: 1.15rem; font-weight: 800; margin: 2px 0 8px;">ESP32-S3 FreeRTOS Edge Core</div>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+            Dual Xtensa LX7 processor with ultra-low-power coprocessor. Collects ADC DMA streams, executes envelope detection for acoustic precursors, and packs 32-byte binary radio frames.
+          </p>
+          <div style="background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;">
+            <div><strong>Deep Sleep:</strong> 15 &mu;A &bull; <strong>Clock:</strong> 240 MHz</div>
+            <div><strong>Memory:</strong> 8MB PSRAM + 512KB SRAM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sensor 3: Turbidity & Riparian River Sensor -->
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--status-warning);">
+        <div style="height: 180px; background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; border-bottom: 1px solid var(--border-subtle);">
+          <img src="/iMAGES/ts-300b-quality-turbidity-sensor-module-jpg_q50_2_.jpg" alt="TS-300B Turbidity Sensor" style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+        </div>
+        <div style="padding: 16px;">
+          <div style="font-size: 0.70rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); text-transform: uppercase;">RIPARIAN SENSOR S-03</div>
+          <div class="card-title" style="font-size: 1.15rem; font-weight: 800; margin: 2px 0 8px;">TS-300B Debris &amp; Silt Detector</div>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+            Optical turbidity transducer monitoring riverbed siltation and mudflow density. Sudden spikes in suspended solids trigger flash flood and debris slurry early warnings.
+          </p>
+          <div style="background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;">
+            <div><strong>Range:</strong> 0 - 3000 NTU &bull; <strong>Response:</strong> &lt; 500 ms</div>
+            <div><strong>Output:</strong> 0-4.5V Analog / UART</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Power Budget & Energy Harvesting Calculation Table -->
+    <h2 class="section-title">Zero-Maintenance Solar Harvesting &amp; Power Budget</h2>
+    
+    <div class="table-container" style="margin-bottom: 36px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Operating State</th>
+            <th>Duration / Duty Cycle</th>
+            <th>Current Draw (@ 3.3V)</th>
+            <th>Power Dissipation</th>
+            <th>Power Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ULP Deep Sleep (RTC + Wake ISR)</strong></td>
+            <td>59.8 sec / 99.67%</td>
+            <td>15.2 &mu;A</td>
+            <td>0.050 mW</td>
+            <td>LiFePO4 3.2V 6000mAh</td>
+          </tr>
+          <tr>
+            <td><strong>Sensor ADC Burst (u, &theta;, IMU)</strong></td>
+            <td>120 ms / 0.20%</td>
+            <td>18.4 mA</td>
+            <td>60.72 mW</td>
+            <td>Ultra-Low ESR Supercapacitor</td>
+          </tr>
+          <tr>
+            <td><strong>SX1262 LoRa TX (+22dBm)</strong></td>
+            <td>80 ms / 0.13%</td>
+            <td>118.0 mA</td>
+            <td>389.40 mW</td>
+            <td>LiFePO4 + Buffer Rail</td>
+          </tr>
+          <tr>
+            <td><strong>Weighted Average Power</strong></td>
+            <td><strong>Continuous</strong></td>
+            <td><strong>195.4 &mu;A</strong></td>
+            <td><strong>0.645 mW</strong></td>
+            <td><strong>6V 5W Monocrystalline PV</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Dark Autonomy (Zero Sunlight)</strong></td>
+            <td><strong>30.7 Days Theoretical</strong></td>
+            <td><strong>82.7 Days Measured</strong></td>
+            <td><strong>Zero Degradation</strong></td>
+            <td><span class="card-badge badge-safe">HARVEST-VERIFIED</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Call to Action -->
+    <div style="background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 40px;">
+      <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Explore the 32-Byte LoRa Mesh Telemetry Stack</h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 20px;">
+        See how sensor data is compressed into a zero-overhead 32-byte binary radio payload and transmitted over 40km non-line-of-sight terrain.
+      </p>
+      <a href="/communication" class="btn btn-primary">Proceed to LoRa Mesh Architecture &rarr;</a>
+    </div>
+
+  </div>
+</Layout>

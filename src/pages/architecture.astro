@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TechIcon from '../components/TechIcon.astro';
+
+const tech_cards = [
+  { iconName: "python", name: "Python 3.11", role: "Edge Micro-Compute Backend", type: "Core Runtime", desc: "Non-blocking async event loop managing sensor telemetry ingestion, signal filtering, and local WebSocket streaming." },
+  { iconName: "fastapi", name: "FastAPI", role: "Sub-120ms REST & WebSockets", type: "API Engine", desc: "Micro-second asynchronous endpoints and zero-copy binary WebSocket feeds streaming 100Hz telemetry to dashboards." },
+  { iconName: "pytorch", name: "PyTorch LibTorch", role: "Physics-AI (PINN) Core", type: "Edge AI", desc: "Direct C++ forward pass embedding Mohr-Coulomb & Richards equations, executing on RPi 5 in 14.2 milliseconds." },
+  { iconName: "threejs", name: "Three.js WebGL", role: "3D GIS Digital Twin Viewport", type: "3D Graphics", desc: "Hardware-accelerated 60 FPS topographic terrain relief rendering with dynamic elevation heatmaps & risk contours." },
+  { iconName: "react", name: "Pure React JSX", role: "High-Contrast Command UI", type: "Frontend", desc: "Zero Tailwind enterprise component architecture with millisecond state updates and responsive tabular layouts." },
+  { iconName: "astro", name: "Astro.js", role: "Static Publication Hub", type: "Web Core", desc: "Zero-JS static HTML compilation delivering sub-second page loads and high accessibility on field laptops." },
+  { iconName: "sqlite", name: "SQLite 3 WAL", role: "Air-Gapped Event Ledger", type: "Database", desc: "Write-Ahead Logging mode guaranteeing zero database corruption during sudden power losses and continuous 100Hz inserts." },
+  { iconName: "lorawan", name: "LoRa 868MHz", role: "20-40km Radio Mesh Core", type: "RF Mesh", desc: "Semtech SX1262 long-range packet mesh with dynamic spreading factor adaptation (SF7-SF12) and AES-128 MAC security." },
+  { iconName: "espressif", name: "Espressif ESP-IDF", role: "FreeRTOS Dual-Core Firmware", type: "Firmware", desc: "Direct hardware timer interrupts, ultra-low-power deep sleep (15µA), and zero-jitter ADC DMA ring buffer acquisition." },
+  { iconName: "freertos", name: "FreeRTOS", role: "Deterministic Task Scheduler", type: "RTOS Kernel", desc: "Preemptive priority-based task scheduling isolating RF transmission, sensor polling, and hardware watchdog timers." },
+  { iconName: "linux", name: "Linux Systemd", role: "24/7 Autostart System Daemon", type: "Daemon", desc: "Hardened Linux daemon service running on Raspberry Pi 5 with automatic watchdog restart and memory sandboxing." },
+  { iconName: "raspberrypi", name: "Raspberry Pi 5", role: "Master Gateway Appliance", type: "Hardware", desc: "Broadcom BCM2712 processor running local PINN inference, regional TTS neural voice synthesis, and hardware GPIO relays." },
+  { iconName: "ndma_india", name: "NDMA SACHET", role: "OASIS CAP-v1.2 Standard", type: "Govt Standard", desc: "Full compliance with National Disaster Management Authority Common Alerting Protocol for seamless multi-agency integration." },
+  { iconName: "isro_bhuvan", name: "ISRO Bhuvan", role: "GLOF & Inundation Atlas", type: "GIS Remote", desc: "Pre-loaded satellite baseline contours for Indian river basins, floodplains, and Himalayan glacial lake moraine dams." }
+];
+
+const packet_map = [
+  { byte: "0x00", name: "PREAMBLE", type: "uint8_t", bits: "8b", val: "0xWD", desc: "Frame synchronization & alignment header." },
+  { byte: "0x01", name: "NODE_ID", type: "uint8_t", bits: "8b", val: "1 - 255", desc: "Unique physical ID of transmitting Sentinel Node." },
+  { byte: "0x02-03", name: "SEQ_NUM", type: "uint16_t", bits: "16b", val: "0 - 65535", desc: "Monotonically incrementing sequence counter." },
+  { byte: "0x04-07", name: "TIMESTAMP", type: "uint32_t", bits: "32b", val: "Epoch Sec", desc: "On-device RTC synchronized timestamp." },
+  { byte: "0x08-09", name: "PORE_PRESS_U", type: "uint16_t", bits: "16b", val: "0 - 100 kPa", desc: "Pore water pressure measured at slip plane (0.01 kPa res)." },
+  { byte: "0x0A-0B", name: "SOIL_MOIST_1", type: "uint16_t", bits: "16b", val: "0 - 100 %", desc: "Volumetric soil moisture at 0.5m depth (0.1% res)." },
+  { byte: "0x0C-0D", name: "SOIL_MOIST_2", type: "uint16_t", bits: "16b", val: "0 - 100 %", desc: "Volumetric soil moisture at 1.5m failure plane (0.1% res)." },
+  { byte: "0x0E-0F", name: "SLOPE_TILT_B", type: "uint16_t", bits: "16b", val: "0 - 90 deg", desc: "Dynamic slope tilt angle beta from 6-DOF IMU (0.01 deg res)." },
+  { byte: "0x10-11", name: "ACOUSTIC_PSD", type: "uint16_t", bits: "16b", val: "0 - 1023 mV", desc: "High-frequency 150-250 Hz rock fracture energy." },
+  { byte: "0x12-13", name: "WATER_STAGE", type: "uint16_t", bits: "16b", val: "0 - 600 cm", desc: "Ultrasonic river stage / culvert depth (1mm res)." },
+  { byte: "0x14-15", name: "FLOW_VELOCITY", type: "uint16_t", bits: "16b", val: "0 - 25 m/s", desc: "Riverbed flow velocity from pulse meter (0.01 m/s res)." },
+  { byte: "0x16-17", name: "AMBIENT_TEMP", type: "int16_t", bits: "16b", val: "-40 to 85 C", desc: "Calibrated ambient temperature from BME280 (0.1 C res)." },
+  { byte: "0x18-19", name: "HUMIDITY_RH", type: "uint16_t", bits: "16b", val: "0 - 100 %", desc: "Relative humidity from BME280 core (0.1% res)." },
+  { byte: "0x1A-1B", name: "VBAT_VOLTAGE", type: "uint16_t", bits: "16b", val: "2.0 - 4.5 V", desc: "LiFePO4 battery cell voltage (0.01V res)." },
+  { byte: "0x1C", name: "FLAGS_BITMASK", type: "uint8_t", bits: "8b", val: "Bitfield", desc: "Bit 0: Fault, Bit 1: Armed, Bit 2: Siren On, Bit 3: Solar Chg." },
+  { byte: "0x1D", name: "HOP & RSSI", type: "uint8_t", bits: "8b", val: "Nibbles", desc: "High 4-bits: Hop count; Low 4-bits: Normalized RSSI SNR." },
+  { byte: "0x1E-1F", name: "CRC16_CCITT", type: "uint16_t", bits: "16b", val: "0x00 - 0xFF", desc: "Hardware polynomial 0x1021 error detection checksum." }
+];
+
+const fsm_states = [
+  { state: "1. MONITORING", badge: "badge-safe", trigger: "Normal Infiltration (FS > 1.30)", action: "10s Sleep Cycle • 15µA Deep Sleep • Heartbeat LoRa Packet", relays: "STANDBY (De-Energized)" },
+  { state: "2. PRE-ARMED", badge: "badge-warning", trigger: "Rapid Infiltration Front (1.00 < FS ≤ 1.30)", action: "Increase Polling to 1Hz • Pre-Arm Optocouplers • Cross-Check IMU", relays: "PRE-ARMED (Armed Gate)" },
+  { state: "3. CODE RED", badge: "badge-danger", trigger: "Structural Shear Failure (FS ≤ 1.00 or R_AE > 3.85)", action: "Sub-120ms Hardware Trip • 130dB Siren • Solenoid Open • Piper TTS", relays: "ACTIVE TRIP (64-108ms)" },
+  { state: "4. DYNAMIC EVAC", badge: "badge-brand", trigger: "Active Inundation / Debris Transit", action: "Dynamic A* Graph Rerouting • Close Dangerous Bridges • Offline Hotspot", relays: "ROADBLOCK SECURED" },
+  { state: "5. RECOVERY", badge: "badge-safe", trigger: "Sensor Stabilization (FS > 1.40 for 30 min)", action: "Reset Relays • Log Forensic SQLite Audit Ledger • Disarm Sirens", relays: "STANDBY (Reset)" }
+];
+---
+
+<Layout title="System Architecture & Flowcharts" activeNav="architecture">
+  <div class="container-wide" style="padding-top: 24px;">
+
+    <!-- Section Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <div class="hero-pill" style="margin-bottom: 6px;">TECHNICAL ARCHITECTURE &amp; DATA PIPELINE</div>
+        <h1 style="font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">4-Layer Cyber-Physical Architecture &amp; Data Pipeline</h1>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <span class="card-badge badge-safe" style="padding: 6px 12px; font-weight: 800;">100% AIR-GAPPED MESH</span>
+        <span class="card-badge badge-brand" style="padding: 6px 12px; font-weight: 800;">SUB-120ms ACTUATION</span>
+      </div>
+    </div>
+
+    <!-- Visual Interactive Pipeline Cards -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px;">
+      <!-- Step 1 -->
+      <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-top: 4px solid #4338ca; border-radius: var(--radius-md); padding: 18px; position: relative;">
+        <div style="font-size: 0.72rem; font-weight: 800; color: #4338ca; text-transform: uppercase;">Step 01 &bull; Genesis Sensing</div>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin: 4px 0 6px;">In-Situ Failure Plane</h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;">Bored 1.5m into slip plane: SS316 Piezometer (u), TDR Moisture, 150-250Hz Piezo Acoustic, 6-DOF IMU.</p>
+        <span class="card-badge badge-brand" style="font-size: 0.7rem; margin-top: 8px;">ESP32-S3 FreeRTOS</span>
+      </div>
+
+      <!-- Step 2 -->
+      <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-top: 4px solid #059669; border-radius: var(--radius-md); padding: 18px; position: relative;">
+        <div style="font-size: 0.72rem; font-weight: 800; color: #059669; text-transform: uppercase;">Step 02 &bull; Radio Mesh</div>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin: 4px 0 6px;">20-40km LoRa Mesh</h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;">868 MHz Semtech SX1262 multi-hop mesh. 32-byte binary frames with AES-128 crypto. 0% cellular reliance.</p>
+        <span class="card-badge badge-safe" style="font-size: 0.7rem; margin-top: 8px;">868 MHz / +22dBm</span>
+      </div>
+
+      <!-- Step 3 -->
+      <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-top: 4px solid #d97706; border-radius: var(--radius-md); padding: 18px; position: relative;">
+        <div style="font-size: 0.72rem; font-weight: 800; color: #d97706; text-transform: uppercase;">Step 03 &bull; Physics-AI</div>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin: 4px 0 6px;">PINN Inference Core</h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;">14.2ms C++ LibTorch forward pass calculating Mohr-Coulomb Factor of Safety (FS) &amp; Richards Infiltration.</p>
+        <span class="card-badge badge-warning" style="font-size: 0.7rem; margin-top: 8px;">RPi 5 Quad A76</span>
+      </div>
+
+      <!-- Step 4 -->
+      <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-top: 4px solid #dc2626; border-radius: var(--radius-md); padding: 18px; position: relative;">
+        <div style="font-size: 0.72rem; font-weight: 800; color: #dc2626; text-transform: uppercase;">Step 04 &bull; Actuation</div>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin: 4px 0 6px;">Sub-120ms Relays</h3>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5;">Direct optocoupled hardware trip: 130dB sirens (64ms), siphon valves (92ms), and motorized road barriers (108ms).</p>
+        <span class="card-badge badge-danger" style="font-size: 0.7rem; margin-top: 8px;">&lt; 120ms Latency</span>
+      </div>
+    </div>
+
+    <!-- Visual 32-Byte Binary LoRa Frame Memory Map -->
+    <div class="bento-card col-12" style="border-left: 5px solid var(--brand-primary); margin-bottom: 32px; padding: 22px;">
+      <div class="card-header" style="margin-bottom: 12px;">
+        <div>
+          <span class="card-badge badge-brand">DATA PROTOCOL SPECIFICATION</span>
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-top: 4px;">32-Byte Packed Binary Telemetry Frame Memory Layout</h2>
+        </div>
+        <span class="card-badge badge-safe">32 BYTES FIXED SIZE</span>
+      </div>
+
+      <!-- Visual Byte Blocks Strip -->
+      <div style="display: grid; grid-template-columns: repeat(17, 1fr); gap: 4px; margin-bottom: 16px;">
+        {packet_map.map(p => (
+          <div style="background: #f1f5f9; border: 1px solid var(--border-subtle); border-radius: 4px; padding: 6px 2px; text-align: center;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--brand-primary); font-weight: 800;">{p.byte.split('-')[0]}</div>
+            <div style="font-size: 0.62rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title={p.name}>{p.name.slice(0, 7)}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Memory Map Table -->
+      <div class="table-container" style="max-height: 320px; overflow-y: auto;">
+        <table class="data-table" style="font-size: 0.82rem;">
+          <thead>
+            <tr>
+              <th>Offset</th>
+              <th>Field Identifier</th>
+              <th>Type</th>
+              <th>Bits</th>
+              <th>Physical Range</th>
+              <th>Engineering Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {packet_map.map(p => (
+              <tr>
+                <td class="mono"><strong>{p.byte}</strong></td>
+                <td style="color: var(--brand-primary); font-weight: 800;">{p.name}</td>
+                <td class="mono" style="font-size: 0.78rem;">{p.type}</td>
+                <td class="mono" style="font-size: 0.78rem;">{p.bits}</td>
+                <td class="mono" style="font-weight: 700; color: var(--text-primary);">{p.val}</td>
+                <td style="font-size: 0.8rem; color: var(--text-secondary);">{p.desc}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Visual Finite State Machine (FSM) Matrix -->
+    <div class="bento-card col-12" style="border-left: 5px solid var(--status-warning); margin-bottom: 32px; padding: 22px;">
+      <div class="card-header" style="margin-bottom: 12px;">
+        <div>
+          <span class="card-badge badge-warning">EDGE STATE MACHINE</span>
+          <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-top: 4px;">5-State Autonomous Decision &amp; Actuation Matrix</h2>
+        </div>
+        <span class="card-badge badge-warning">DETERMINISTIC FSM</span>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Operating State</th>
+              <th>Mathematical Entry Trigger</th>
+              <th>Autonomous Edge Action</th>
+              <th>Hardware Relay State</th>
+            </tr>
+          </thead>
+          <tbody>
+            {fsm_states.map(s => (
+              <tr>
+                <td><span class={`card-badge ${s.badge}`} style="font-size: 0.76rem; font-weight: 800;">{s.state}</span></td>
+                <td style="font-size: 0.84rem; font-weight: 700; color: var(--text-primary);">{s.trigger}</td>
+                <td style="font-size: 0.82rem; color: var(--text-secondary);">{s.action}</td>
+                <td class="mono" style="font-size: 0.8rem; font-weight: 800; color: var(--brand-primary);">{s.relays}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tech Stack Ecosystem -->
+    <div style="margin-bottom: 16px;">
+      <h2 class="section-title" style="margin-bottom: 4px;">Complete Tech Stack Ecosystem</h2>
+    </div>
+
+    <div class="bento-grid" style="margin-bottom: 40px;">
+      {tech_cards.map(t => (
+        <div class="bento-card col-4" style="display: flex; gap: 14px; align-items: flex-start; padding: 18px;">
+          <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); padding: 8px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; min-width: 52px; min-height: 52px;">
+            <TechIcon name={t.iconName} size={36} />
+          </div>
+          <div>
+            <span class="card-badge badge-brand" style="font-size: 0.68rem; padding: 2px 6px;">{t.type}</span>
+            <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-top: 2px;">{t.name}</h3>
+            <p style="font-size: 0.8rem; font-weight: 600; color: var(--brand-primary); margin: 1px 0 3px;">{t.role}</p>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45; margin: 0;">{t.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</Layout>

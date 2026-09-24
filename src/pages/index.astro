@@ -1,0 +1,675 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="WATCH-DOGS | Edge-Intelligent Multi-Hazard Disaster Early Warning">
+  
+  <!-- ============================================================
+       00. OPENING EXPERIENCE & EDITORIAL STATEMENT
+       ============================================================ -->
+  <section class="section-editorial" style="min-height: 80vh; display: flex; align-items: center; border-bottom: 1px solid var(--border-subtle);">
+    <div class="container-narrow">
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 20px;">
+        <img src="/iCONS/sih_2026_lockup_logo.png" alt="SIH 2026" style="height: 32px; object-fit: contain;" />
+        <span style="color: var(--border-medium);">|</span>
+        <div class="section-label" style="margin-bottom: 0;">WATCH-DOGS / RESEARCH PUBLICATION 01</div>
+      </div>
+      
+      <h1 class="headline-display" style="margin-bottom: 24px;">
+        BEFORE A DISASTER<br />
+        BECOMES AN EVENT,<br />
+        IT LEAVES SIGNALS.
+      </h1>
+
+      <div style="display: flex; gap: 16px; align-items: center; font-family: var(--font-mono); font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 36px; flex-wrap: wrap;">
+        <span>RAIN</span>
+        <span style="color: var(--text-muted);">&rarr;</span>
+        <span>SATURATION</span>
+        <span style="color: var(--text-muted);">&rarr;</span>
+        <span>PORE PRESSURE</span>
+        <span style="color: var(--text-muted);">&rarr;</span>
+        <span>DEFORMATION</span>
+        <span style="color: var(--text-muted);">&rarr;</span>
+        <span style="color: var(--accent-hazard);">FAILURE</span>
+      </div>
+
+      <p class="lead-paragraph" style="margin-bottom: 32px;">
+        Disasters do not begin when sirens sound or satellite images arrive. They unfold through progressive physical state changes in the earth, atmosphere, and infrastructure. WATCH-DOGS is an open research architecture exploring how distributed in-situ sensors, low-power radio mesh, and edge-computed multi-sensor fusion can detect catastrophic pre-failure precursors.
+      </p>
+
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="#signal-field" style="background: var(--bg-contrast); color: #ffffff; padding: 12px 24px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600;">ENTER THE RESEARCH &darr;</a>
+        <a href="#lab-testbed" style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 12px 24px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600;">INSPECT HARDWARE BENCHMARK &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       01. HERO VISUAL: INTERACTIVE TECHNICAL SIGNAL FIELD
+       ============================================================ -->
+  <section id="signal-field" class="section-editorial" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <div class="section-label">INTERACTIVE PROTOTYPE</div>
+          <h2 style="font-size: 2.0rem; font-weight: 800; letter-spacing: -0.03em;">Interactive In-Situ Signal Pathway</h2>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">
+          CLICK ANY NODE TO TRACE PACKET PROPAGATION
+        </div>
+      </div>
+
+      <div id="signal-field-container">
+        <svg id="signal-svg" width="100%" height="100%" style="display: block; cursor: crosshair;"></svg>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; font-family: var(--font-mono); font-size: 0.78rem;">
+        <div style="background: #ffffff; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+          <div style="color: var(--text-muted); margin-bottom: 4px;">ACTIVE SENSOR NODE</div>
+          <div id="active-node-id" style="font-size: 1.1rem; font-weight: 800; color: var(--accent-primary);">N07 (Headscarp Tilt)</div>
+          <div id="active-node-val" style="color: var(--text-secondary); margin-top: 2px;">Tilt = 8.4&deg; | d&beta;/dt = +1.2&deg;/h</div>
+        </div>
+        <div style="background: #ffffff; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+          <div style="color: var(--text-muted); margin-bottom: 4px;">RF PROTOCOL</div>
+          <div style="font-size: 1.1rem; font-weight: 800;">868 MHz LoRa</div>
+          <div style="color: var(--text-secondary); margin-top: 2px;">32-Byte Packed Binary Frame</div>
+        </div>
+        <div style="background: #ffffff; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+          <div style="color: var(--text-muted); margin-bottom: 4px;">EDGE GATEWAY</div>
+          <div style="font-size: 1.1rem; font-weight: 800;">GW01 &bull; RPi 5</div>
+          <div style="color: var(--text-secondary); margin-top: 2px;">14.2ms LibTorch PINN Pass</div>
+        </div>
+        <div style="background: #ffffff; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+          <div style="color: var(--text-muted); margin-bottom: 4px;">SYSTEM STATUS</div>
+          <div id="active-system-state" style="font-size: 1.1rem; font-weight: 800; color: var(--accent-hazard);">CODE RED (Actuated)</div>
+          <div style="color: var(--text-secondary); margin-top: 2px;">Factor of Safety FS = 0.94</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02. SCROLL CHAPTER 01: THE PROBLEM (SINGLE VS CORRELATED)
+       ============================================================ -->
+  <section id="evidence" class="section-editorial">
+    <div class="container">
+      <div class="section-label">CHAPTER 01 / THE CORE DILEMMA</div>
+      <h2 class="headline-display">
+        "ONE SENSOR CAN TELL YOU WHAT HAPPENED.<br />
+        CONTEXT TELLS YOU WHY IT MATTERS."
+      </h2>
+
+      <div class="split-evidence-grid">
+        <!-- Left: Single Sensor Isolation -->
+        <div class="evidence-panel">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted);">ISOLATED OBSERVATION</span>
+            <span style="background: #FEF2F2; color: var(--accent-hazard); font-family: var(--font-mono); font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 700;">HIGH UNCERTAINTY</span>
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 2.8rem; font-weight: 900; color: var(--text-primary); margin-bottom: 8px;">
+            N07: &beta; = 5.2&deg;
+          </div>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 24px;">
+            Single-axis inclination tilt anomaly detected on ridge mast.
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
+            <strong>Ambiguity:</strong> Is this progressive geotechnical slope shearing, an animal colliding with the sensor post, strong wind buffeting, or soil creep? A single sensor cannot verify causality.
+          </div>
+        </div>
+
+        <!-- Right: Correlated Multi-Sensor Evidence -->
+        <div class="evidence-panel active-fusion">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--accent-primary); font-weight: 700;">MULTI-SENSOR EVIDENCE</span>
+            <span style="background: #EFF6FF; color: var(--accent-primary); font-family: var(--font-mono); font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-weight: 700;">CONVERGENT PROOF</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 20px;">
+            <div style="background: #ffffff; padding: 10px; border: 1px solid var(--border-subtle); border-radius: 4px;">Rain Infiltration: <strong>+42 mm/h &uarr;</strong></div>
+            <div style="background: #ffffff; padding: 10px; border: 1px solid var(--border-subtle); border-radius: 4px;">Soil Saturation: <strong>94.2% VWC &uarr;</strong></div>
+            <div style="background: #ffffff; padding: 10px; border: 1px solid var(--border-subtle); border-radius: var(--radius-xs);">Pore Pressure: <strong>34.5 kPa &uarr;</strong></div>
+            <div style="background: #ffffff; padding: 10px; border: 1px solid var(--border-subtle); border-radius: var(--radius-xs);">Acoustic Fractures: <strong>240 c/s &uarr;</strong></div>
+            <div style="background: #ffffff; padding: 10px; border: 1px solid var(--border-subtle); border-radius: var(--radius-xs);">Displacement: <strong>+18 mm &uarr;</strong></div>
+            <div style="background: #ffffff; padding: 10px; border: 1px solid var(--border-subtle); border-radius: var(--radius-xs);">Tilt Vector: <strong>+5.2&deg; (Slope D) &uarr;</strong></div>
+          </div>
+
+          <div style="background: #ffffff; border-left: 3px solid var(--accent-hazard); padding: 14px; border-radius: var(--radius-xs); font-size: 0.85rem; color: var(--text-primary); font-weight: 600;">
+            HAZARD INTELLIGENCE: Hydro-mechanical failure plane verified across 3 distinct physical modalities. False alarm probability &lt; 0.2%.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03. PHYSICAL LAB WORKBENCH & REAL PROTOTYPE PROOFS
+       ============================================================ -->
+  <section id="lab-testbed" class="section-editorial" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-label">CHAPTER 03 / HARDWARE VERIFICATION TESTBED</div>
+      <h2 style="font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px;">Physical Testbed &amp; Live Hardware Instrumentation</h2>
+      <p style="color: var(--text-secondary); max-width: 720px; margin-bottom: 36px;">
+        Zero mock data. Direct photographs of our physical laboratory testbed verifying FreeRTOS task scheduling, SX1262 LoRa transmission, and analog sensor signal conditioning.
+      </p>
+
+      <!-- First Row: Real Lab Prototypes -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px;">
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+          <img src="/prototypes/prototype_workbench_overview.jpeg" alt="Complete Workbench Testbed" style="width: 100%; height: 220px; object-fit: cover;" />
+          <div style="padding: 16px;">
+            <div class="mono" style="font-size: 0.70rem; color: var(--accent-primary); font-weight: 800;">BENCHMARK 01</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0 6px;">Integrated Sensor Testbed</h4>
+            <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">Physical telemetry node equipped with ADC DMA ring buffer, 15&mu;A deep sleep, and 868MHz +22dBm radio frontend.</p>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+          <img src="/prototypes/prototype_sensor_breadboard.jpeg" alt="Breadboard Wiring" style="width: 100%; height: 220px; object-fit: cover;" />
+          <div style="padding: 16px;">
+            <div class="mono" style="font-size: 0.70rem; color: var(--accent-success); font-weight: 800;">BENCHMARK 02</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0 6px;">ESP32-S3 &amp; LoRa Circuit</h4>
+            <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">Direct SPI/I2C/ADC interface wiring with noise decoupling filters and precision analog frontends.</p>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+          <img src="/prototypes/prototype_testbench_calibration.jpeg" alt="Analog Calibration" style="width: 100%; height: 220px; object-fit: cover;" />
+          <div style="padding: 16px;">
+            <div class="mono" style="font-size: 0.70rem; color: var(--accent-warning); font-weight: 800;">BENCHMARK 03</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0 6px;">Analog Signal Calibration</h4>
+            <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">Dynamic calibration testing for in-situ piezometers, moisture probes, and acoustic stress sensors.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row: Miniature Physical Hazard Simulation & Deployment -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+          <img src="/miniature-test-images/WhatsApp Image 2026-09-25 at 12.25.03 AM.jpeg" alt="Soil Chamber Simulation" style="width: 100%; height: 220px; object-fit: cover;" />
+          <div style="padding: 16px;">
+            <div class="mono" style="font-size: 0.70rem; color: var(--accent-primary); font-weight: 800;">PHYSICAL RIG 01</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0 6px;">Soil Column Infiltration</h4>
+            <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">Hydro-mechanical saturation chamber verifying matric suction loss under simulated monsoon downpours.</p>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+          <img src="/miniature-test-images/WhatsApp Image 2026-09-25 at 12.25.04 AM.jpeg" alt="Slope Incline Rig" style="width: 100%; height: 220px; object-fit: cover;" />
+          <div style="padding: 16px;">
+            <div class="mono" style="font-size: 0.70rem; color: var(--accent-hazard); font-weight: 800;">PHYSICAL RIG 02</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0 6px;">Slope Stability Shear Rig</h4>
+            <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">Variable angle tilt testbed measuring critical Mohr-Coulomb shear threshold and acoustic release ringing.</p>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;">
+          <img src="/disaster-photos/exact_sensor_node_prototype.jpg" alt="Weatherproof Field Sentinel" style="width: 100%; height: 220px; object-fit: cover;" />
+          <div style="padding: 16px;">
+            <div class="mono" style="font-size: 0.70rem; color: var(--accent-success); font-weight: 800;">FIELD DEPLOYMENT</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; margin: 2px 0 6px;">Weatherproof Sentinel Node</h4>
+            <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">IP67 solar-harvested autonomous enclosure with SMA fiberglass omni antenna for 20–40km LoRa mesh.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04. SCROLL CHAPTER 04: THE PHYSICAL SENSOR WALL
+       ============================================================ -->
+  <section id="signals" class="section-editorial">
+    <div class="container">
+      <div class="section-label">CHAPTER 04 / PHYSICAL SENSOR SPECIFICATIONS</div>
+      <h2 class="headline-display" style="font-size: 2.8rem; margin-bottom: 12px;">"Every decision begins with an observation."</h2>
+      <p style="color: var(--text-secondary); max-width: 680px; margin-bottom: 32px;">
+        Click any physical transducer modality to inspect its excitation physics, sampling profile, and role in the hazard detection pipeline.
+      </p>
+
+      <div class="sensor-wall-grid" id="sensor-wall">
+        <div class="sensor-wall-item selected" data-sensor="PIEZOMETER">
+          <div class="mono" style="font-size: 0.70rem; color: var(--text-muted);">S-01</div>
+          <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0;">Piezometer</div>
+          <div class="mono" style="font-size: 0.74rem;">0 - 100 kPa</div>
+        </div>
+        <div class="sensor-wall-item" data-sensor="TDR">
+          <div class="mono" style="font-size: 0.70rem; color: var(--text-muted);">S-02</div>
+          <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0;">Soil Moisture</div>
+          <div class="mono" style="font-size: 0.74rem;">0 - 100% VWC</div>
+        </div>
+        <div class="sensor-wall-item" data-sensor="ACOUSTIC">
+          <div class="mono" style="font-size: 0.70rem; color: var(--text-muted);">S-03</div>
+          <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0;">Slip Acoustics</div>
+          <div class="mono" style="font-size: 0.74rem;">150 - 250 kHz</div>
+        </div>
+        <div class="sensor-wall-item" data-sensor="IMU">
+          <div class="mono" style="font-size: 0.70rem; color: var(--text-muted);">S-04</div>
+          <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0;">6-DOF IMU</div>
+          <div class="mono" style="font-size: 0.74rem;">&plusmn;16g / &plusmn;2000&deg;/s</div>
+        </div>
+        <div class="sensor-wall-item" data-sensor="RADAR">
+          <div class="mono" style="font-size: 0.70rem; color: var(--text-muted);">S-05</div>
+          <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0;">River Radar</div>
+          <div class="mono" style="font-size: 0.74rem;">24 GHz FMCW</div>
+        </div>
+        <div class="sensor-wall-item" data-sensor="TURBIDITY">
+          <div class="mono" style="font-size: 0.70rem; color: var(--text-muted);">S-06</div>
+          <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0;">Turbidity</div>
+          <div class="mono" style="font-size: 0.74rem;">0 - 3000 NTU</div>
+        </div>
+        <div class="sensor-wall-item" data-sensor="BME">
+          <div class="mono" style="font-size: 0.70rem; color: var(--text-muted);">S-07</div>
+          <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0;">Microclimate</div>
+          <div class="mono" style="font-size: 0.74rem;">Temp/RH/Press</div>
+        </div>
+        <div class="sensor-wall-item" data-sensor="CRACK">
+          <div class="mono" style="font-size: 0.70rem; color: var(--text-muted);">S-08</div>
+          <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0;">Crackmeter</div>
+          <div class="mono" style="font-size: 0.74rem;">0 - 50 mm LVDT</div>
+        </div>
+      </div>
+
+      <!-- Sensor Detail Card -->
+      <div id="sensor-detail-panel" style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center;">
+        <div>
+          <span class="mono" id="detail-sensor-id" style="font-size: 0.75rem; color: var(--accent-primary); font-weight: 800;">TRANSDUCER SPECIFICATION: S-01</span>
+          <h3 id="detail-sensor-title" style="font-size: 1.5rem; font-weight: 800; margin: 4px 0 10px;">Vibrating Wire Pore Pressure Transducer</h3>
+          <p id="detail-sensor-desc" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+            Buried 1.5m deep into the weathered slip plane inside a porous ceramic filter tip. Measures pore-water pressure transients (u) that reduce effective shear stress across the Mohr-Coulomb failure envelope.
+          </p>
+          <div class="mono" style="font-size: 0.78rem; display: flex; flex-direction: column; gap: 6px; color: var(--text-secondary);">
+            <div><strong>Physical Measurement:</strong> <span id="detail-measurement">Pore Water Pressure (u)</span></div>
+            <div><strong>Excitation &amp; Signal:</strong> <span id="detail-signal">Plucked Frequency (450-1200 Hz)</span></div>
+            <div><strong>Sampling Frequency:</strong> <span id="detail-sampling">10 Hz Burst / 0.1 Hz Sleep</span></div>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 20px;">
+          <div class="mono" style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 6px;">ROLE IN HAZARD PHYSICS MODEL</div>
+          <div id="detail-role-title" style="font-weight: 800; font-size: 1.1rem; color: var(--accent-hazard); margin-bottom: 8px;">
+            Primary Liquefaction Indicator
+          </div>
+          <p id="detail-role-desc" style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
+            Directly enters the Mohr-Coulomb effective stress equation &tau; = c' + (&sigma; - u) tan &phi;'. As pore pressure rises to overcome normal stress, the factor of safety drops below 1.00, triggering immediate relay trip.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05. SCROLL CHAPTER 10: MULTI-HAZARD SCENARIOS & CASE STUDIES
+       ============================================================ -->
+  <section id="scenarios" class="section-editorial" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-label">CHAPTER 05 / MULTI-HAZARD CASE STUDIES</div>
+      <h2 class="headline-display" style="font-size: 2.8rem; margin-bottom: 12px;">One Architecture. Many Hazards.</h2>
+      <p style="color: var(--text-secondary); max-width: 720px; margin-bottom: 24px;">
+        Select a disaster scenario to dynamically adapt the underlying physical sensors, mathematical models, and forensic field evidence.
+      </p>
+
+      <!-- Scenario Selector Buttons -->
+      <div class="scenario-nav-bar" id="scenario-nav">
+        <button class="scenario-btn active" data-scenario="WAYANAD">WAYANAD (Landslide)</button>
+        <button class="scenario-btn" data-scenario="KEDARNATH">KEDARNATH (Flash Flood &amp; GLOF)</button>
+        <button class="scenario-btn" data-scenario="DELHI">DELHI (Urban Flood)</button>
+        <button class="scenario-btn" data-scenario="SIMILIPAL">SIMILIPAL (Wildfire)</button>
+        <button class="scenario-btn" data-scenario="INDUSTRIAL">INDUSTRIAL (Gas Release)</button>
+      </div>
+
+      <!-- Dynamic Scenario Content Panel -->
+      <div id="scenario-content-panel" style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 32px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="mono" id="scen-badge" style="font-size: 0.72rem; color: var(--accent-primary); font-weight: 800;">HAZARD DOMAIN: GEOTECHNICAL SHEAR</span>
+            <h3 id="scen-title" style="font-size: 1.6rem; font-weight: 800; margin: 4px 0;">Wayanad Mountain Landslide &amp; Debris Slurry</h3>
+          </div>
+          <span class="status-badge" id="scen-state" style="background: var(--bg-secondary);">MODEL: MOHR-COULOMB + RICHARDS</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px;">
+          <div style="background: var(--bg-secondary); padding: 18px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+            <div class="mono" style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 6px;">PRIMARY IN-SITU SIGNALS</div>
+            <div id="scen-signals" style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary); line-height: 1.5;">
+              &bull; Pore Water Pressure (u)<br />
+              &bull; 150-250kHz Acoustic Ringing<br />
+              &bull; Dual-Depth TDR Soil Saturation
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+            <div class="mono" style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 6px;">PHYSICAL FAILURE MECHANISM</div>
+            <div id="scen-mech" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">
+              Continuous rainfall drives matric suction collapse at 1.5m slip plane depth, converting soil to high-velocity Newtonian fluid.
+            </div>
+          </div>
+
+          <div style="background: var(--bg-secondary); padding: 18px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+            <div class="mono" style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 6px;">DETERMINISTIC ACTION</div>
+            <div id="scen-action" style="font-size: 0.88rem; color: var(--accent-hazard); font-weight: 700; line-height: 1.5;">
+              64ms 130dB Siren Relay Trip &bull; Close Chooralmala Bridge Barricade &bull; Vector Crowds to High Ridge.
+            </div>
+          </div>
+        </div>
+
+        <div class="mono" id="scen-equation" style="background: #09090B; color: #38BDF8; padding: 14px 18px; border-radius: var(--radius-sm); font-size: 0.80rem;">
+          FS = [ c' + (&gamma; z cos^2&beta; - u) tan &phi;' ] / [ &gamma; z sin &beta; cos &beta; ]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06. SCROLL CHAPTER 16 & 17: FAILURE LAB & RESILIENCE
+       ============================================================ -->
+  <section id="failure-lab" class="section-editorial">
+    <div class="container">
+      <div class="section-label">CHAPTER 06 / RESILIENCE &amp; FAULT TOLERANCE</div>
+      <h2 class="headline-display" style="font-size: 2.8rem; margin-bottom: 12px;">When the System Fails</h2>
+      <p style="color: var(--text-secondary); max-width: 720px; margin-bottom: 24px;">
+        Test how the distributed edge architecture responds to physical node destruction, radio jamming, and packet dropout.
+      </p>
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px;" id="failure-buttons">
+        <button class="failure-trigger-btn active" data-fail="NODE_OFFLINE">N07 SENSOR OFFLINE</button>
+        <button class="failure-trigger-btn" data-fail="PACKET_LOSS">50% PACKET LOSS</button>
+        <button class="failure-trigger-btn" data-fail="GATEWAY_FALLBACK">GW01 FAILURE (FALLBACK)</button>
+        <button class="failure-trigger-btn" data-fail="CONFLICTING_DATA">CONFLICTING SENSOR DATA</button>
+      </div>
+
+      <div id="failure-display-card" style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+          <div>
+            <span class="mono" id="fail-badge" style="font-size: 0.72rem; color: var(--accent-hazard); font-weight: 800;">FAULT CONDITION: SENSOR NODE OFFLINE</span>
+            <h3 id="fail-title" style="font-size: 1.3rem; font-weight: 800; margin: 4px 0;">Node N07 Sub-Surface Cable Severed by Rockfall</h3>
+          </div>
+          <span class="status-badge" style="background: #FEF2F2; color: var(--accent-hazard);">UNCERTAINTY INCREASED</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; font-family: var(--font-mono); font-size: 0.78rem; margin-bottom: 20px;">
+          <div style="background: #ffffff; padding: 14px; border-radius: 4px; border: 1px solid var(--border-subtle);">
+            <div style="color: var(--text-muted);">DATA COMPLETENESS</div>
+            <div id="fail-metric-1" style="font-size: 1.2rem; font-weight: 800; color: var(--accent-warning);">94.4% (-5.6%)</div>
+          </div>
+          <div style="background: #ffffff; padding: 14px; border-radius: 4px; border: 1px solid var(--border-subtle);">
+            <div style="color: var(--text-muted);">MODEL CONFIDENCE</div>
+            <div id="fail-metric-2" style="font-size: 1.2rem; font-weight: 800; color: var(--accent-primary);">81.2% (Bounded)</div>
+          </div>
+          <div style="background: #ffffff; padding: 14px; border-radius: 4px; border: 1px solid var(--border-subtle);">
+            <div style="color: var(--text-muted);">SYSTEM RESPONSE</div>
+            <div id="fail-metric-3" style="font-size: 1.2rem; font-weight: 800; color: var(--accent-success);">CROSS-VALIDATION</div>
+          </div>
+        </div>
+
+        <div id="fail-explanation" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+          <strong>Autonomous Fault Tolerance:</strong> When N07 telemetry drops out, the Kalman filter dynamically increases the covariance weight of surrounding nodes N05 (Pore Pressure) and N03 (Moisture). The PINN switches from direct displacement tracking to hydro-mechanical soil moisture inference, avoiding false trips while retaining early warning coverage.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       07. SCROLL CHAPTER 20: THE FOUR PILLARS OF EARLY WARNING
+       ============================================================ -->
+  <section id="undrr" class="section-editorial" style="background: var(--bg-secondary); border-bottom: none;">
+    <div class="container">
+      <div class="section-label">CHAPTER 07 / INTERNATIONAL STANDARDS</div>
+      <h2 class="headline-display" style="font-size: 2.8rem; margin-bottom: 12px;">The Four Pillars of Early Warning</h2>
+      <p style="color: var(--text-secondary); max-width: 720px; margin-bottom: 36px;">
+        WATCH-DOGS is structured directly against the United Nations Disaster Risk Reduction (UNDRR) and WMO Early Warnings for All (EW4All) framework.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px;">
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 20px;">
+          <div class="mono" style="font-size: 0.70rem; color: var(--accent-primary); font-weight: 800;">PILLAR 01</div>
+          <h4 style="font-size: 1.05rem; font-weight: 800; margin: 4px 0 8px;">Risk Knowledge</h4>
+          <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">Geological slip plane mappings, slope angle thresholds, and historical rainfall intensity records.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 20px;">
+          <div class="mono" style="font-size: 0.70rem; color: var(--accent-primary); font-weight: 800;">PILLAR 02</div>
+          <h4 style="font-size: 1.05rem; font-weight: 800; margin: 4px 0 8px;">Detection &amp; Monitoring</h4>
+          <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">18-node in-situ sensor network measuring pore pressure, moisture, tilt, and acoustic micro-fracturing.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 20px;">
+          <div class="mono" style="font-size: 0.70rem; color: var(--accent-primary); font-weight: 800;">PILLAR 03</div>
+          <h4 style="font-size: 1.05rem; font-weight: 800; margin: 4px 0 8px;">Warning Dissemination</h4>
+          <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">NDMA SACHET CAP-v1.2 compliant alerts, 130dB sirens, and local offline multilingual neural TTS.</p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 20px;">
+          <div class="mono" style="font-size: 0.70rem; color: var(--accent-primary); font-weight: 800;">PILLAR 04</div>
+          <h4 style="font-size: 1.05rem; font-weight: 800; margin: 4px 0 8px;">Preparedness &amp; Response</h4>
+          <p style="font-size: 0.80rem; color: var(--text-secondary); line-height: 1.5;">Motorized road barriers, dynamic A* escape graph rerouting, and safe muster verification.</p>
+        </div>
+      </div>
+
+      <div class="mono" style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+        NOTE: WATCH-DOGS is a research prototype architecture inspired by established early-warning principles, engineered for SIH 2026.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CLIENT-SIDE INTERACTIVE ENGINE
+       ============================================================ -->
+  <script is:inline>
+    // 1. Interactive Signal Field Canvas
+    const svg = document.getElementById('signal-svg');
+
+    const nodes = [
+      { id: "N01", name: "Rainfall Gauge", x: 120, y: 140, type: "Rain", val: "42 mm/h", color: "#3B82F6" },
+      { id: "N03", name: "TDR Moisture", x: 280, y: 220, type: "Soil Moisture", val: "94.2 %", color: "#10B981" },
+      { id: "N05", name: "Piezometer", x: 440, y: 160, type: "Pore Pressure", val: "34.5 kPa", color: "#EF4444" },
+      { id: "N07", name: "Headscarp Tilt", x: 600, y: 280, type: "Tilt IMU", val: "8.4°", color: "#2563EB" },
+      { id: "GW01", name: "Edge Gateway RPi 5", x: 780, y: 200, type: "Edge Hub", val: "14.2ms PINN", color: "#09090B" }
+    ];
+
+    function drawSignalField() {
+      if (!svg) return;
+      svg.innerHTML = '';
+
+      // Draw Connection Lines
+      for (let i = 0; i < nodes.length - 1; i++) {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', nodes[i].x);
+        line.setAttribute('y1', nodes[i].y);
+        line.setAttribute('x2', nodes[i+1].x);
+        line.setAttribute('y2', nodes[i+1].y);
+        line.setAttribute('stroke', '#CBD5E1');
+        line.setAttribute('stroke-width', '2');
+        line.setAttribute('stroke-dasharray', '6,6');
+        svg.appendChild(line);
+      }
+
+      // Draw Nodes
+      nodes.forEach(n => {
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.style.cursor = 'pointer';
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', n.x);
+        circle.setAttribute('cy', n.y);
+        circle.setAttribute('r', '16');
+        circle.setAttribute('fill', n.color);
+
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', n.x);
+        text.setAttribute('y', n.y + 4);
+        text.setAttribute('fill', '#ffffff');
+        text.setAttribute('font-family', "'JetBrains Mono', monospace");
+        text.setAttribute('font-size', '10');
+        text.setAttribute('font-weight', 'bold');
+        text.setAttribute('text-anchor', 'middle');
+        text.textContent = n.id;
+
+        g.appendChild(circle);
+        g.appendChild(text);
+
+        g.addEventListener('click', () => {
+          document.getElementById('active-node-id').innerText = n.id + ' (' + n.name + ')';
+          document.getElementById('active-node-val').innerText = 'Telemetry: ' + n.val + ' | ' + n.type;
+        });
+
+        svg.appendChild(g);
+      });
+    }
+    drawSignalField();
+
+    // 2. Sensor Wall Modal Interaction
+    const sensorData = {
+      PIEZOMETER: { id: "S-01", title: "Vibrating Wire Pore Pressure Transducer", desc: "Buried 1.5m deep into the weathered slip plane inside a porous ceramic filter tip. Measures pore-water pressure transients u.", measurement: "Pore Water Pressure (u)", signal: "Plucked Frequency (450-1200 Hz)", sampling: "10 Hz Burst / 0.1 Hz Sleep", roleTitle: "Primary Liquefaction Indicator", roleDesc: "Enters the Mohr-Coulomb effective stress equation &tau; = c' + (&sigma; - u) tan &phi;'." },
+      TDR: { id: "S-02", title: "Dual-Depth Capacitive TDR Probe", desc: "Monitors volumetric soil moisture at 0.5m and 1.5m to track the downward infiltration front.", measurement: "Volumetric Water Content (%VWC)", signal: "0-3.3V Analog Voltage", sampling: "1 Hz Burst / 0.1 Hz Sleep", roleTitle: "Capillary Suction Collapse", roleDesc: "Predicts when negative matric suction collapses into positive hydrostatic driving pressure." },
+      ACOUSTIC: { id: "S-03", title: "Sub-Surface Acoustic Emission Hydrophone", desc: "Captures high-frequency elastic stress waves emitted during inter-granular rock micro-shearing.", measurement: "150-250 kHz Acoustic Ring-Down", signal: "Envelope Detector Pulse Counts", sampling: "Continuous Wake-on-Interrupt", roleTitle: "48-Minute Mechanical Precursor", roleDesc: "Detects micro-cracking before bulk detachment occurs, giving critical evacuation lead time." },
+      IMU: { id: "S-04", title: "6-DOF InvenSense IMU Tilt Sensor", desc: "Measures sub-degree inclination angles and high-frequency accelerations on the headscarp ridge.", measurement: "Slope Angle Beta (&deg;) + Accel (g)", signal: "I2C 400kHz Digital Bus", sampling: "100 Hz ISR Ring Buffer", roleTitle: "Dynamic Slope Acceleration", roleDesc: "Quantifies actual physical displacement velocity and angular tilting." },
+      RADAR: { id: "S-05", title: "24 GHz FMCW Riparian River Radar", desc: "Suspended from bridge abutments to measure stage height and water surface flow velocity.", measurement: "Stage Depth h (mm) + Velocity (m/s)", signal: "RS-485 Modbus RTU", sampling: "10 Hz Continuous", roleTitle: "Hydrodynamic Surge Detection", roleDesc: "Tracks Saint-Venant flood wave transit velocity dh/dt to close bridges downstream." },
+      TURBIDITY: { id: "S-06", title: "TS-300B Optical Turbidity Transducer", desc: "Measures suspended particulate matter and debris density in riparian channels.", measurement: "Turbidity (0 - 3000 NTU)", signal: "0-4.5V Analog Output", sampling: "1 Hz Continuous", roleTitle: "Debris Flow Slurry Detector", roleDesc: "Separates clear water flood waves from high-density debris mudflows." },
+      BME: { id: "S-07", title: "BME280 Environmental Microclimate Core", desc: "Measures ambient temperature, barometric pressure, and relative humidity for vapor pressure deficit.", measurement: "Temp (&deg;C), RH (%), Press (hPa)", signal: "I2C 400kHz Digital Bus", sampling: "0.1 Hz Sleep Cycle", roleTitle: "Atmospheric Boundary State", roleDesc: "Calculates vapor pressure deficit (VPD) for wildfire and storm intensity modeling." },
+      CRACK: { id: "S-08", title: "LVDT Precision Extensometer Crackmeter", desc: "Mounted across surface tension cracks to measure millimeter-scale widening in real time.", measurement: "Displacement (0 - 50 mm)", signal: "Differential Voltage &plusmn;5V", sampling: "10 Hz Continuous", roleTitle: "Tension Crack Propagation", roleDesc: "Direct evidence of impending detachment wedge failure." }
+    };
+
+    document.querySelectorAll('.sensor-wall-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.sensor-wall-item').forEach(i => i.classList.remove('selected'));
+        item.classList.add('selected');
+
+        const key = item.getAttribute('data-sensor');
+        const data = sensorData[key];
+        if (data) {
+          document.getElementById('detail-sensor-id').innerText = 'TRANSDUCER SPECIFICATION: ' + data.id;
+          document.getElementById('detail-sensor-title').innerText = data.title;
+          document.getElementById('detail-sensor-desc').innerText = data.desc;
+          document.getElementById('detail-measurement').innerText = data.measurement;
+          document.getElementById('detail-signal').innerText = data.signal;
+          document.getElementById('detail-sampling').innerText = data.sampling;
+          document.getElementById('detail-role-title').innerText = data.roleTitle;
+          document.getElementById('detail-role-desc').innerText = data.roleDesc;
+        }
+      });
+    });
+
+    // 3. Scenario Selector Interaction
+    const scenarioData = {
+      WAYANAD: {
+        badge: "HAZARD DOMAIN: GEOTECHNICAL SHEAR",
+        title: "Wayanad Mountain Landslide & Debris Slurry",
+        state: "MODEL: MOHR-COULOMB + RICHARDS",
+        signals: "&bull; Pore Water Pressure (u)<br />&bull; 150-250kHz Acoustic Ringing<br />&bull; Dual-Depth TDR Soil Saturation",
+        mech: "Continuous rainfall drives matric suction collapse at 1.5m slip plane depth, converting soil to high-velocity Newtonian fluid.",
+        action: "64ms 130dB Siren Relay Trip &bull; Close Chooralmala Bridge Barricade &bull; Vector Crowds to High Ridge.",
+        equation: "FS = [ c' + (&gamma; z cos^2&beta; - u) tan &phi;' ] / [ &gamma; z sin &beta; cos &beta; ]"
+      },
+      KEDARNATH: {
+        badge: "HAZARD DOMAIN: HYDROLOGICAL SURGE",
+        title: "Kedarnath Glacial Outburst & River Surge",
+        state: "MODEL: 2D SAINT-VENANT SHALLOW WATER",
+        signals: "&bull; 24GHz FMCW Water Stage (h)<br />&bull; Hydraulic Surge Rate (dh/dt)<br />&bull; In-Situ River Bed Pressure",
+        mech: "Moraine dam breach releases 15-meter hydraulic surge wave carrying 40-tonne boulders down Mandakini river corridor.",
+        action: "Deploy Highway Underpass Boom Barriers &bull; Sound 130dB River Basin Sirens &bull; Open Emergency Siphon Relief.",
+        equation: "&part;A/&part;t + &part;Q/&part;x = q,   &part;Q/&part;t + &part;/&part;x(Q^2/A) + gA &part;h/&part;x = gA(S_0 - S_f)"
+      },
+      DELHI: {
+        badge: "HAZARD DOMAIN: URBAN INUNDATION",
+        title: "Delhi Urban Underpass & Drainage Flood",
+        state: "MODEL: SWMM CULVERT HYDRODYNAMICS",
+        signals: "&bull; Ultrasonic Culvert Stage<br />&bull; Submersible Float Switches<br />&bull; Drainage Flow Velocity",
+        mech: "Intense convective downpour exceeds storm drain pump capacity, rapidly drowning underpasses in &lt;15 minutes.",
+        action: "Trip Optocoupled Submersible High-Volume Pumps &bull; Close Underpass Road Boom Barriers in 108ms.",
+        equation: "Q = C_d A \sqrt{2 g \Delta H}"
+      },
+      SIMILIPAL: {
+        badge: "HAZARD DOMAIN: BIOMASS PYROLYSIS",
+        title: "Similipal Biosphere Wildfire Spread",
+        state: "MODEL: ROTHERMEL SURFACE FIRE MODEL",
+        signals: "&bull; Canopy Temperature Gradient<br />&bull; MOS VOC Gas Sensors<br />&bull; Vapor Pressure Deficit (VPD)",
+        mech: "Extreme VPD and dry canopy wind gusts propagate rapid surface flame front across deciduous tiger reserve.",
+        action: "Vector SAR Drones &bull; Alert Forestry Outposts &bull; Activate High-Pressure Misting Line Relays.",
+        equation: "R = [ I_rx &bull; &xi; &bull; (1 + &Phi;_w + &Phi;_s) ] / [ &rho;_b &bull; &epsilon; &bull; Q_ig ]"
+      },
+      INDUSTRIAL: {
+        badge: "HAZARD DOMAIN: TOXIC DISPERSION",
+        title: "Industrial Toxic Chemical Gas Release",
+        state: "MODEL: GAUSSIAN PLUME ATMOSPHERIC DISPERSION",
+        signals: "&bull; MOS Gas Array (Cl2, NH3, H2S)<br />&bull; Ultrasonic Anemometer Wind Vector<br />&bull; Atmospheric Inversion Temp",
+        mech: "High-pressure valve breach releases dense chlorine vapor forming ground-hugging lethal concentration plume.",
+        action: "Seal Factory HVAC Intakes &bull; Vector Perimeter Siren Grid &bull; Evacuate Cross-Wind Escape Corridors.",
+        equation: "C(x,y,z) = [ Q / (2&pi; u &sigma;_y &sigma;_z) ] &bull; exp(-y^2 / 2&sigma;_y^2) &bull; exp(-(z-H)^2 / 2&sigma;_z^2)"
+      }
+    };
+
+    document.querySelectorAll('.scenario-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const key = btn.getAttribute('data-scenario');
+        const data = scenarioData[key];
+        if (data) {
+          document.getElementById('scen-badge').innerText = data.badge;
+          document.getElementById('scen-title').innerText = data.title;
+          document.getElementById('scen-state').innerText = data.state;
+          document.getElementById('scen-signals').innerHTML = data.signals;
+          document.getElementById('scen-mech').innerText = data.mech;
+          document.getElementById('scen-action').innerHTML = data.action;
+          document.getElementById('scen-equation').innerText = data.equation;
+        }
+      });
+    });
+
+    // 4. Failure Lab Trigger Interaction
+    const failureScenarios = {
+      NODE_OFFLINE: {
+        badge: "FAULT CONDITION: SENSOR NODE OFFLINE",
+        title: "Node N07 Sub-Surface Cable Severed by Rockfall",
+        m1: "94.4% (-5.6%)",
+        m2: "81.2% (Bounded)",
+        m3: "CROSS-VALIDATION",
+        explanation: "Autonomous Fault Tolerance: When N07 telemetry drops out, the Kalman filter dynamically increases the covariance weight of surrounding nodes N05 (Pore Pressure) and N03 (Moisture). The PINN switches from direct displacement tracking to hydro-mechanical soil moisture inference, avoiding false trips while retaining early warning coverage."
+      },
+      PACKET_LOSS: {
+        badge: "FAULT CONDITION: 50% RADIO PACKET LOSS",
+        title: "Severe Monsoon Rain Fade & RF Attenuation",
+        m1: "50.0% (-50.0%)",
+        m2: "74.8% (Conservative)",
+        m3: "ADAPTIVE DATA RATE",
+        explanation: "LoRa Mesh Adaptation: The SX1262 transceiver detects dropped packet acknowledgments and automatically steps up spreading factor from SF7 to SF10 (+6dB link margin). The edge state machine holds last-known physically valid states with exponential decay uncertainty bounds."
+      },
+      GATEWAY_FALLBACK: {
+        badge: "FAULT CONDITION: PRIMARY GATEWAY LOSS",
+        title: "Lightning Strike Hits Master Gateway GW01",
+        m1: "100% (Rerouted)",
+        m2: "92.0% (Hot Standby)",
+        m3: "FAILOVER MESH",
+        explanation: "Autonomous Gateway Failover: Directed Acyclic Graph (DAG) routing dynamically promotes Sentinel Node N05 to acting Micro-Gateway. Critical siren trip commands are autonomously broadcast peer-to-peer over raw LoRa packets without waiting for gateway restoration."
+      },
+      CONFLICTING_DATA: {
+        badge: "FAULT CONDITION: SENSOR CONFLICT ANOMALY",
+        title: "Rain Gauge Spikes but Soil Moisture Remains Dry",
+        m1: "100% (Filtered)",
+        m2: "96.4% (Rejection)",
+        m3: "3-TIER VOTING",
+        explanation: "False Alarm Prevention: The Bayesian concordance engine recognizes an impossible physical condition (rain without infiltration). It isolates the rain gauge as an animal disturbance or leaf blockage, preventing a false evacuation siren trip."
+      }
+    };
+
+    document.querySelectorAll('.failure-trigger-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.failure-trigger-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const key = btn.getAttribute('data-fail');
+        const data = failureScenarios[key];
+        if (data) {
+          document.getElementById('fail-badge').innerText = data.badge;
+          document.getElementById('fail-title').innerText = data.title;
+          document.getElementById('fail-metric-1').innerText = data.m1;
+          document.getElementById('fail-metric-2').innerText = data.m2;
+          document.getElementById('fail-metric-3').innerText = data.m3;
+          document.getElementById('fail-explanation').innerHTML = '<strong>Autonomous Fault Tolerance:</strong> ' + data.explanation;
+        }
+      });
+    });
+  </script>
+</Layout>

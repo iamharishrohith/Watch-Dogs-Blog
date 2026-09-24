@@ -1,0 +1,251 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const components = [
+  { name: "ESP32-S3-WROOM-1", image: "/iMAGES/1-2211221455560-L.png", spec: "Dual Xtensa LX7 (240MHz, 8MB PSRAM)", volt: "3.3V DC", current: "15 µA (Sleep) / 240 mA (TX)", cost: "₹480", role: "Sensor Polling & FreeRTOS" },
+  { name: "Semtech SX1262 LoRa", image: "/iMAGES/61QuLIl9yrL.jpg", spec: "868 MHz / +22 dBm Frontend", volt: "3.3V DC", current: "160 nA (Sleep) / 118 mA (TX)", cost: "₹650", role: "20-40km Mesh Radio" },
+  { name: "Capacitive TDR Soil Probe", image: "/iMAGES/61tRSzcqmYL._AC_UF1000,1000_QL80_.jpg", spec: "Dual-Depth Waterproof (0.5m / 1.5m)", volt: "3.3V DC", current: "5.0 mA", cost: "₹1,200", role: "Volumetric Soil Moisture" },
+  { name: "CN3791 MPPT Solar Core", image: "/iMAGES/CN3791-12V-MPPT-Solar-Charger-Module-6.png", spec: "6V Solar Charger (LiFePO4 float)", volt: "6.0V Input", current: "10 µA (Quiescent)", cost: "₹850", role: "MPPT Solar Harvesting" },
+  { name: "PC817 Optocoupler Relay", image: "/iMAGES/PC817_4-Channel_Optocoupler_Isolation_Module_1.webp", spec: "Galvanic Solid-State Relay Trip", volt: "5V / 24V", current: "10 mA", cost: "₹180", role: "Sub-120ms Siren & Barrier Trip" },
+  { name: "TS-300B Turbidity Sensor", image: "/iMAGES/ts-300b-quality-turbidity-sensor-module-jpg_q50_2_.jpg", spec: "Optical Sediment & Silt Detector", volt: "5.0V DC", current: "30 mA", cost: "₹450", role: "Riparian Mud Debris Detection" },
+  { name: "3.2V 6000mAh LiFePO4", image: "/iMAGES/61yteBLy4PL._AC_UF1000,1000_QL80_.jpg", spec: "Grade A (-20°C to +65°C, 3000+ Cycles)", volt: "3.2V Nom", current: "19.2 Wh Storage", cost: "₹950", role: "82.7-Day Dark Power Buffer" }
+];
+---
+
+<Layout title="Hardware Schematics & Bill of Materials" activeNav="hardware">
+  <div class="container-wide" style="padding-top: 24px;">
+
+    <!-- Section Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <div class="hero-pill" style="margin-bottom: 6px;">HARDWARE SCHEMATICS &amp; BILL OF MATERIALS</div>
+        <h1 style="font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">Sentinel Node Hardware Architecture &amp; BOM</h1>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <span class="card-badge badge-brand" style="padding: 6px 12px; font-weight: 800;">₹7,780 TOTAL UNIT BOM</span>
+        <span class="card-badge badge-safe" style="padding: 6px 12px; font-weight: 800;">82.7-DAY DARK AUTONOMY</span>
+      </div>
+    </div>
+
+    <!-- Real Workbench Prototype Photo Gallery -->
+    <h2 class="section-title">Physical Lab Workbench &amp; Live Prototype Verification</h2>
+
+    <div class="bento-grid" style="margin-bottom: 28px;">
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-primary);">
+        <img src="/prototypes/prototype_workbench_overview.jpeg" alt="Workbench Prototype Overview" style="width: 100%; height: 200px; object-fit: cover;" />
+        <div style="padding: 14px;">
+          <span class="card-badge badge-brand" style="font-size: 0.68rem;">LAB WORKBENCH</span>
+          <h3 style="font-size: 1.0rem; font-weight: 800; margin: 4px 0 4px;">Complete Multi-Sensor Testbed</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">Integrated breadboard verification running FreeRTOS dual-core tasks with real-time ADC signal monitoring.</p>
+        </div>
+      </div>
+
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-success);">
+        <img src="/prototypes/prototype_sensor_breadboard.jpeg" alt="Sensor Breadboard Wiring" style="width: 100%; height: 200px; object-fit: cover;" />
+        <div style="padding: 14px;">
+          <span class="card-badge badge-safe" style="font-size: 0.68rem;">CIRCUIT LEVEL</span>
+          <h3 style="font-size: 1.0rem; font-weight: 800; margin: 4px 0 4px;">ESP32-S3 &amp; LoRa RF Array</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">SPI interface directly wired to SX1262 LoRa module with dedicated LC decoupling filters for noise suppression.</p>
+        </div>
+      </div>
+
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-warning);">
+        <img src="/prototypes/prototype_testbench_calibration.jpeg" alt="Testbench Calibration Setup" style="width: 100%; height: 200px; object-fit: cover;" />
+        <div style="padding: 14px;">
+          <span class="card-badge badge-warning" style="font-size: 0.68rem;">CALIBRATION</span>
+          <h3 style="font-size: 1.0rem; font-weight: 800; margin: 4px 0 4px;">Analog Transducer Calibration</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">Real-time voltage divider and precision op-amp signal conditioning for acoustic hydrophone &amp; pressure inputs.</p>
+        </div>
+      </div>
+
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-primary);">
+        <img src="/disaster-photos/exact_sensor_node_prototype.jpg" alt="Exact Sentinel Node" style="width: 100%; height: 200px; object-fit: cover;" />
+        <div style="padding: 14px;">
+          <span class="card-badge badge-brand" style="font-size: 0.68rem;">PHYSICAL ENCLOSURE</span>
+          <h3 style="font-size: 1.0rem; font-weight: 800; margin: 4px 0 4px;">Weatherproof Sentinel Node</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">IP67 solar-harvested autonomous enclosure with SMA fiberglass omni antenna for 20–40km LoRa mesh.</p>
+        </div>
+      </div>
+
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-hazard);">
+        <img src="/disaster-photos/sentinel_exploded_view.jpg" alt="Exploded Sentinel Architecture" style="width: 100%; height: 200px; object-fit: cover;" />
+        <div style="padding: 14px;">
+          <span class="card-badge badge-danger" style="font-size: 0.68rem;">INTERNAL CAD</span>
+          <h3 style="font-size: 1.0rem; font-weight: 800; margin: 4px 0 4px;">Layered Internal Assembly</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">Modular stacking: LiFePO4 battery carrier, RF ground plane shield, power management, and waterproof sensor glands.</p>
+        </div>
+      </div>
+
+      <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-success);">
+        <img src="/disaster-photos/isro_grade_survivable_sentinel.jpg" alt="ISRO-Grade Housing" style="width: 100%; height: 200px; object-fit: cover;" />
+        <div style="padding: 14px;">
+          <span class="card-badge badge-safe" style="font-size: 0.68rem;">SURVIVABILITY</span>
+          <h3 style="font-size: 1.0rem; font-weight: 800; margin: 4px 0 4px;">Heavy-Duty Alloy Housing</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">High-impact aluminum casing engineered to withstand high-altitude frost, moisture saturation, and rockfall debris.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual Interactive Battery Autonomy Simulator -->
+    <div class="bento-card col-12" style="border-left: 5px solid var(--status-safe); margin-bottom: 24px; padding: 20px;">
+      <div class="card-header" style="margin-bottom: 10px;">
+        <div>
+          <span class="card-badge badge-safe">INTERACTIVE POWER PROOF</span>
+          <h3 style="font-size: 1.2rem; font-weight: 800; margin-top: 2px;">Cyclical Power Budget &amp; Zero-Sunlight Dark Autonomy Calculator</h3>
+        </div>
+        <span id="power-mode-badge" class="card-badge badge-safe" style="font-size: 0.8rem; padding: 4px 10px;">MODE: NORMAL MONITORING (10s)</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0;">
+        <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 800; margin-bottom: 6px;">
+            <span>Duty Sleep Interval (Seconds):</span>
+            <span id="duty-val" style="color: var(--brand-primary); font-family: 'JetBrains Mono', monospace;">10.0 s</span>
+          </div>
+          <input type="range" id="duty-slider" min="1" max="60" value="10" step="1" style="width: 100%; height: 6px; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">
+            <span>1s (Code Red)</span>
+            <span>10s (Normal Mode)</span>
+            <span>60s (Ultra Sleep)</span>
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 800; margin-bottom: 6px;">
+            <span>Battery Usable Capacity (LiFePO4):</span>
+            <span style="color: var(--brand-primary); font-family: 'JetBrains Mono', monospace;">5,100 mAh (85% DoD)</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 0.76rem; text-align: center; margin-top: 6px;">
+            <div style="background: #fff; padding: 6px; border-radius: 4px; border: 1px solid var(--border-subtle);"><strong>15 µA</strong><br>Deep Sleep</div>
+            <div style="background: #fff; padding: 6px; border-radius: 4px; border: 1px solid var(--border-subtle);"><strong>12 mA</strong><br>Sensor Read</div>
+            <div style="background: #fff; padding: 6px; border-radius: 4px; border: 1px solid var(--border-subtle);"><strong>118 mA</strong><br>LoRa TX (+22dBm)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Power Readout Strip -->
+      <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: center; text-align: center;">
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase;">Average Current:</div>
+          <div id="i-avg-out" style="font-size: 1.4rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; color: var(--brand-primary);">0.75 mA</div>
+        </div>
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase;">Daily Consumption:</div>
+          <div id="e-day-out" style="font-size: 1.4rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; color: var(--text-primary);">18.0 mAh</div>
+        </div>
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase;">Zero-Sun Autonomy:</div>
+          <div id="autonomy-out" style="font-size: 1.4rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; color: var(--status-safe);">283.3 Days</div>
+        </div>
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase;">1s Code Red Life:</div>
+          <div id="autonomy-red-out" style="font-size: 1.4rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; color: var(--status-danger);">82.7 Days</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Client Script for Power Simulator -->
+    <script is:inline>
+      const dutySlider = document.getElementById('duty-slider');
+      const dutyVal = document.getElementById('duty-val');
+      const iAvgOut = document.getElementById('i-avg-out');
+      const eDayOut = document.getElementById('e-day-out');
+      const autonomyOut = document.getElementById('autonomy-out');
+      const pModeBadge = document.getElementById('power-mode-badge');
+
+      function updatePower() {
+        const tCycle = parseFloat(dutySlider.value);
+        dutyVal.innerText = tCycle.toFixed(1) + ' s';
+
+        const tSense = 0.200;
+        const tTx = 0.042;
+        const tSleep = Math.max(0, tCycle - (tSense + tTx));
+
+        const iSleep = 0.015;
+        const iSense = 12.0;
+        const iTx = 118.0;
+
+        const iAvg = ((iSleep * tSleep) + (iSense * tSense) + (iTx * tTx)) / tCycle;
+        const eDay = iAvg * 24;
+        const cUsable = 5100;
+        const days = cUsable / eDay;
+
+        iAvgOut.innerText = iAvg.toFixed(2) + ' mA';
+        eDayOut.innerText = eDay.toFixed(1) + ' mAh';
+        autonomyOut.innerText = days.toFixed(1) + ' Days';
+
+        if (tCycle <= 2) {
+          pModeBadge.className = 'card-badge badge-danger';
+          pModeBadge.innerText = 'MODE: CODE RED (1s ACTIVE)';
+        } else if (tCycle <= 10) {
+          pModeBadge.className = 'card-badge badge-safe';
+          pModeBadge.innerText = 'MODE: NORMAL MONITORING (' + tCycle + 's)';
+        } else {
+          pModeBadge.className = 'card-badge badge-brand';
+          pModeBadge.innerText = 'MODE: ULTRA-LOW POWER (' + tCycle + 's)';
+        }
+      }
+
+      dutySlider.addEventListener('input', updatePower);
+    </script>
+
+    <!-- Component Visual Cards Grid -->
+    <h2 class="section-title">Physical Hardware Component Catalog</h2>
+
+    <div class="bento-grid" style="gap: 16px; margin-bottom: 32px;">
+      {components.map(c => (
+        <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 3px solid var(--brand-primary); display: flex; flex-direction: column;">
+          <div style="height: 140px; background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 12px; border-bottom: 1px solid var(--border-subtle);">
+            <img src={c.image} alt={c.name} style="max-height: 100%; max-width: 100%; object-fit: contain;" />
+          </div>
+          <div style="padding: 14px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; margin-bottom: 4px;">
+                <h3 style="font-size: 0.95rem; font-weight: 800; margin: 0;">{c.name}</h3>
+                <span class="card-badge badge-safe" style="font-size: 0.72rem; padding: 2px 6px;">{c.cost}</span>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 6px;">{c.spec}</p>
+            </div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--brand-dark); background: #f8fafc; padding: 6px; border-radius: 4px; border: 1px solid var(--border-subtle);">
+              Role: {c.role}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Node-by-Node Pinout Cards Grid -->
+    <div class="bento-grid" style="gap: 16px; margin-bottom: 28px;">
+      <div class="bento-card col-6" style="border-left: 4px solid var(--status-danger); padding: 18px;">
+        <div class="card-header" style="margin-bottom: 8px;">
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Sentinel Node 01: Ridge Slip Interface</h3>
+          <span class="card-badge badge-danger">GENESIS SLIP</span>
+        </div>
+        <div class="code-block" style="font-size: 0.76rem; line-height: 1.55; background: #0f172a; color: #38bdf8; margin-top: 8px;">
+GPIO 04 (ADC1_CH3) &rarr; TDR Soil Probe #1 (0.5m Infiltration)
+GPIO 05 (ADC1_CH4) &rarr; TDR Soil Probe #2 (1.5m Failure Plane)
+GPIO 06 (ADC1_CH5) &rarr; SS316 0-100 kPa Piezometer (u)
+GPIO 08/09 (I2C)   &rarr; MPU-6050 6-DOF IMU (Slope Angle β)
+GPIO 10-14 (SPI)   &rarr; Semtech SX1262 LoRa Radio (+22dBm)
+Power Subsystem    &rarr; 6V 5W Panel + CN3791 MPPT + LiFePO4
+        </div>
+      </div>
+
+      <div class="bento-card col-6" style="border-left: 4px solid var(--status-warning); padding: 18px;">
+        <div class="card-header" style="margin-bottom: 8px;">
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">Sentinel Node 02: Mid-Slope Acoustic</h3>
+          <span class="card-badge badge-warning">ACOUSTIC SLIP</span>
+        </div>
+        <div class="code-block" style="font-size: 0.76rem; line-height: 1.55; background: #0f172a; color: #38bdf8; margin-top: 8px;">
+GPIO 04 (ADC1_CH3) &rarr; Piezo Precursor Sensor (150-250 Hz)
+GPIO 07 (Ext IRQ)  &rarr; 0.2mm Rain Gauge Pulse Counter
+GPIO 08/09 (I2C)   &rarr; BME280 Temperature &amp; Humidity Core
+GPIO 10-14 (SPI)   &rarr; Semtech SX1262 LoRa Mesh Relay (868MHz)
+GPIO 21 (Digital)  &rarr; LM358 Pre-Amp Active Filter Switch
+Power Subsystem    &rarr; 6V 5W Panel + CN3791 MPPT + LiFePO4
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  name: string;
+  size?: number;
+}
+
+const { name, size = 52 } = Astro.props;
+
+// Map tech stack identifiers to official local logos in /iCONS/
+const iconMap: Record<string, string> = {
+  python: "/iCONS/Python-logo-notext.svg.webp",
+  fastapi: "/iCONS/fastapi-logo-png-svg.webp",
+  pytorch: "/iCONS/pytorch-logo-png_seeklogo-372199.png",
+  threejs: "/iCONS/three-js-logo-png_seeklogo-431124.png",
+  react: "/iCONS/images (1).png",
+  astro: "/iCONS/images (2).png",
+  sqlite: "/iCONS/images (3).png",
+  lorawan: "/iCONS/images (4).png",
+  espressif: "/iCONS/images (5).png",
+  freertos: "/iCONS/images (6).png",
+  linux: "/iCONS/images (7).png",
+  raspberrypi: "/iCONS/images (8).png",
+  ndma_india: "/iCONS/National_Disaster_Management_Authority_Logo.png",
+  isro_bhuvan: "/iCONS/isro-logo-png_seeklogo-304812.png",
+  cplusplus: "/iCONS/images (9).png"
+};
+
+const iconSrc = iconMap[name] || "/iCONS/Python-logo-notext.svg.webp";
+---
+
+<div class="native-tech-icon" style={`width: ${size}px; height: ${size}px; display: inline-flex; align-items: center; justify-content: center;`}>
+  <img src={iconSrc} alt={`${name} logo`} width={size} height={size} style="object-fit: contain; width: 100%; height: 100%; display: block;" loading="lazy" />
+</div>

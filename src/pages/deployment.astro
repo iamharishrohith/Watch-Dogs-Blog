@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const actuators = [
+  { id: "ACT-01", name: "High-Decibel Dual Siren", loc: "Valley Settlement Mast", load: "12V / 130dB Horn", latency: "64 ms", status: "STANDBY (ARMED)", action: "Acoustic Evacuation Pulse" },
+  { id: "ACT-02", name: "Solenoid Siphon Valve", loc: "Reservoir Retention Ridge", load: "24V DC Solenoid", latency: "92 ms", status: "READY (AUTO-TRIP)", action: "Hydrostatic Relief Release" },
+  { id: "ACT-03", name: "Highway Boom Barricade", loc: "Bridge Highway Entry", load: "24V Motor Drive", latency: "108 ms", status: "DEPLOYED (SECURE)", action: "Vehicle Traffic Roadblock" },
+  { id: "ACT-04", name: "High-Flow Drainage Pump", loc: "Underpass Culvert #2", load: "3-Phase Triac", latency: "114 ms", status: "STANDBY", action: "Micro-Basin Active Drain" }
+];
+---
+
+<Layout title="Field Deployment & Actuation" activeNav="deployment">
+  <div class="container-wide" style="padding-top: 24px;">
+
+    <!-- Section Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <div class="hero-pill" style="margin-bottom: 6px;">FIELD DEPLOYMENT &amp; SUB-120ms PHYSICAL ACTUATION</div>
+        <h1 style="font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">Real-World Field Deployment Architecture</h1>
+      </div>
+      <span class="card-badge badge-safe" style="padding: 6px 12px; font-weight: 800;">SUB-120ms ACTUATION</span>
+    </div>
+
+    <!-- Visual Physical Testbed Cards -->
+    <div class="bento-grid" style="gap: 16px; margin-bottom: 28px;">
+      <div class="bento-card col-6" style="padding: 0; overflow: hidden; border-left: 5px solid var(--brand-primary);">
+        <img src="/prototypes/prototype_workbench_overview.jpeg" alt="Hardware Prototype Workbench" style="width: 100%; height: 240px; object-fit: cover;" />
+        <div style="padding: 16px;">
+          <span class="card-badge badge-brand" style="font-size: 0.70rem;">LAB BENCHMARK</span>
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin: 4px 0 6px;">Hardware Micro-Controller Testbed</h3>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">Physical telemetry testbed verifying multi-hop LoRa packet reception and real-time sensor polling at 100Hz.</p>
+        </div>
+      </div>
+
+      <div class="bento-card col-6" style="padding: 0; overflow: hidden; border-left: 5px solid var(--status-safe);">
+        <img src="/prototypes/prototype_sensor_breadboard.jpeg" alt="Sensor Breadboard" style="width: 100%; height: 240px; object-fit: cover;" />
+        <div style="padding: 16px;">
+          <span class="card-badge badge-safe" style="font-size: 0.70rem;">CIRCUIT LEVEL</span>
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin: 4px 0 6px;">ESP32-S3 Sensor Interface</h3>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">Direct analog &amp; digital bus wiring with solid-state relay isolation and ultra-low-noise power rails.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub-120ms Actuation Matrix Table -->
+    <h2 class="section-title">Sub-120ms Physical Actuation Matrix</h2>
+
+    <div class="table-container" style="margin-bottom: 28px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Target Device</th>
+            <th>Location</th>
+            <th>Electrical Load</th>
+            <th>Latency</th>
+            <th>Status</th>
+            <th>Physical Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {actuators.map(a => (
+            <tr>
+              <td class="mono"><strong>{a.id}</strong></td>
+              <td><strong>{a.name}</strong></td>
+              <td style="color: var(--text-secondary); font-size: 0.82rem;">{a.loc}</td>
+              <td class="mono" style="font-size: 0.78rem;">{a.load}</td>
+              <td class="mono" style="font-weight: 800; color: var(--status-safe); background: #f0fdf4;">{a.latency}</td>
+              <td><span class="card-badge badge-safe" style="font-size: 0.72rem;">{a.status}</span></td>
+              <td style="font-size: 0.8rem; color: var(--brand-primary); font-weight: 600;">{a.action}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</Layout>

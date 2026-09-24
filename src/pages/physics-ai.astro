@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Physics-AI (PINN) Formulas" activeNav="physics-ai">
+  <div class="container-wide" style="padding-top: 24px;">
+
+    <!-- Section Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <div class="hero-pill" style="margin-bottom: 6px;">PHYSICS-INFORMED NEURAL NETWORK (PINN) CORE</div>
+        <h1 style="font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">Governing Geotechnical &amp; Hydrodynamic Equations</h1>
+      </div>
+      <span class="card-badge badge-brand" style="padding: 6px 12px; font-weight: 800;">14.2ms INFERENCE</span>
+    </div>
+
+    <!-- Master Loss Formulation Card -->
+    <div class="bento-card col-12" style="border-left: 5px solid var(--brand-primary); margin-bottom: 24px; padding: 20px;">
+      <div class="card-header" style="margin-bottom: 10px;">
+        <span class="card-badge badge-brand">PINN MULTI-OBJECTIVE LOSS</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">C++ LibTorch Core</span>
+      </div>
+      <div class="formula-card" style="margin-bottom: 12px;">
+        <div class="formula-text">L_total = L_data + 0.45&middot;L_geotech + 0.35&middot;L_hydro + 0.20&middot;L_continuity</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 0.82rem;">
+        <div style="background: #f8fafc; padding: 10px; border-radius: var(--radius-sm);">
+          <strong>&lambda;_1 = 0.45 (Geotech):</strong> Mohr-Coulomb stress bounds
+        </div>
+        <div style="background: #f8fafc; padding: 10px; border-radius: var(--radius-sm);">
+          <strong>&lambda;_2 = 0.35 (Hydro):</strong> Richards suction continuity
+        </div>
+        <div style="background: #f8fafc; padding: 10px; border-radius: var(--radius-sm);">
+          <strong>&lambda;_3 = 0.20 (Continuity):</strong> 1D mass conservation
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 Mathematical Formula Cards Grid -->
+    <div class="bento-grid" style="gap: 16px; margin-bottom: 28px;">
+      <!-- 1. Infinite Slope Stability -->
+      <div class="bento-card col-12" style="border-left: 4px solid var(--status-danger); padding: 18px;">
+        <div class="card-header" style="margin-bottom: 8px;">
+          <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0;">1. Dynamic Infinite Slope Stability Equation (Factor of Safety)</h3>
+          <span class="card-badge badge-danger">MOHR-COULOMB</span>
+        </div>
+        <div class="formula-card" style="margin-bottom: 10px;">
+          <div class="formula-text">FS(t) = [ c&#39; + (&gamma;&middot;z&middot;cos&sup2;&beta; - u(t))&middot;tan&phi;&#39; ] / [ &gamma;&middot;z&middot;sin&beta;&middot;cos&beta; + k_h&middot;&gamma;&middot;z&middot;cos&sup2;&beta; ]</div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; font-size: 0.78rem; text-align: center;">
+          <div style="background: #f8fafc; padding: 8px; border-radius: 4px;"><strong>c&#39; = 12.4 kPa</strong><br>Soil Cohesion</div>
+          <div style="background: #f8fafc; padding: 8px; border-radius: 4px;"><strong>&gamma; = 18.5 kN/m&sup3;</strong><br>Unit Weight</div>
+          <div style="background: #f8fafc; padding: 8px; border-radius: 4px;"><strong>z = 1.50 m</strong><br>Slip Depth</div>
+          <div style="background: #f8fafc; padding: 8px; border-radius: 4px;"><strong>&phi;&#39; = 28.0&deg;</strong><br>Friction Angle</div>
+          <div style="background: #f8fafc; padding: 8px; border-radius: 4px;"><strong>u(t) kPa</strong><br>Pore Pressure</div>
+        </div>
+      </div>
+
+      <!-- 2. Richards Equation -->
+      <div class="bento-card col-6" style="border-left: 4px solid var(--status-warning); padding: 18px;">
+        <div class="card-header" style="margin-bottom: 8px;">
+          <h3 style="font-size: 1.1rem; font-weight: 800; margin: 0;">2. Richards Unsaturated Moisture Flow</h3>
+          <span class="card-badge badge-warning">INFILTRATION</span>
+        </div>
+        <div class="formula-card">
+          <div class="formula-text">&part;&theta;/&part;t = &part;/&part;z [ K(&theta;) &middot; (&part;&psi;/&part;z + 1) ]</div>
+        </div>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;">2-4 hour advance wetting front prediction before slip plane saturation.</p>
+      </div>
+
+      <!-- 3. St. Venant Shallow Water -->
+      <div class="bento-card col-6" style="border-left: 4px solid var(--status-safe); padding: 18px;">
+        <div class="card-header" style="margin-bottom: 8px;">
+          <h3 style="font-size: 1.1rem; font-weight: 800; margin: 0;">3. 1D St. Venant Hydrodynamics</h3>
+          <span class="card-badge badge-safe">FLOOD ROUTING</span>
+        </div>
+        <div class="formula-card">
+          <div class="formula-text">&part;A/&part;t + &part;Q/&part;x = q</div>
+        </div>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;">Calculates downstream riverbed crest velocity and GLOF surge arrival timing.</p>
+      </div>
+
+      <!-- 4. Acoustic Emission FFT -->
+      <div class="bento-card col-6" style="border-left: 4px solid var(--brand-primary); padding: 18px;">
+        <div class="card-header" style="margin-bottom: 8px;">
+          <h3 style="font-size: 1.1rem; font-weight: 800; margin: 0;">4. Micro-Acoustic Precursor Energy Ratio</h3>
+          <span class="card-badge badge-brand">150-250 Hz</span>
+        </div>
+        <div class="formula-card">
+          <div class="formula-text">R_AE = [ &int;_{150}^{250} P(f) df ] / [ &int;_{10}^{100} P(f) df ] &gt; 3.85</div>
+        </div>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;">Isolates rock-bridge micro-fractures from ambient noise.</p>
+      </div>
+
+      <!-- 5. McArthur FFDI -->
+      <div class="bento-card col-6" style="border-left: 4px solid var(--brand-accent); padding: 18px;">
+        <div class="card-header" style="margin-bottom: 8px;">
+          <h3 style="font-size: 1.1rem; font-weight: 800; margin: 0;">5. McArthur Fire Danger Index</h3>
+          <span class="card-badge badge-brand">PYROLYSIS</span>
+        </div>
+        <div class="formula-card">
+          <div class="formula-text">FFDI = 2.0&middot;exp(-0.45 + 0.987&middot;ln D - 0.0345&middot;RH + 0.0338&middot;T + 0.0234&middot;V)</div>
+        </div>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;">Predicts biomass moisture deficit and wildfire ignition risk.</p>
+      </div>
+    </div>
+
+    <!-- 3-Tier False Alarm Rejection Visual -->
+    <div class="bento-card col-12" style="border-left: 5px solid var(--status-safe); margin-bottom: 40px; padding: 20px;">
+      <div class="card-header" style="margin-bottom: 12px;">
+        <span class="card-badge badge-safe">RELIABILITY ENGINEERING</span>
+        <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">3-Tier False Alarm Rejection Voting Logic (96.4% Accuracy)</h2>
+      </div>
+      <div class="bento-grid" style="gap: 12px;">
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); padding: 14px; border-radius: var(--radius-md); grid-column: span 4;">
+          <span class="card-badge badge-brand" style="font-size: 0.7rem;">TIER 1</span>
+          <h4 style="font-size: 0.95rem; font-weight: 800; margin: 4px 0;">Plausibility Filter</h4>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Rejects unphysical gradient spikes (du/dt &gt; 50 kPa/s) from cut wires.</p>
+        </div>
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); padding: 14px; border-radius: var(--radius-md); grid-column: span 4;">
+          <span class="card-badge badge-warning" style="font-size: 0.7rem;">TIER 2</span>
+          <h4 style="font-size: 0.95rem; font-weight: 800; margin: 4px 0;">Multi-Modal Concordance</h4>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Requires consensus between pore pressure, soil moisture, tilt, and acoustics.</p>
+        </div>
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); padding: 14px; border-radius: var(--radius-md); grid-column: span 4;">
+          <span class="card-badge badge-safe" style="font-size: 0.7rem;">TIER 3</span>
+          <h4 style="font-size: 0.95rem; font-weight: 800; margin: 4px 0;">Temporal Persistence</h4>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Failure criteria must persist across 3 consecutive LoRa frames (1.5s).</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>

@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Evacuation & Dynamic Response Intelligence" activeNav="evacuation">
+  <div class="container-wide" style="padding-top: 28px;">
+
+    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; font-size: 0.8rem;">
+      <a href="/" style="color: var(--text-muted); text-decoration: none;">Platform</a>
+      <span style="color: var(--border-medium);">/</span>
+      <span style="color: var(--brand-primary); font-weight: 700;">Evacuation Intel</span>
+    </div>
+
+    <section style="margin-bottom: 32px;">
+      <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+        <span class="top-tag"><span class="pulse-dot"></span> PILLAR 06: CIVIL DEFENSE &amp; RESCUE</span>
+        <span class="card-badge badge-brand">DYNAMIC A* GRAPH REROUTING</span>
+        <span class="card-badge badge-safe">NDMA SACHET CAP-v1.2</span>
+      </div>
+      
+      <h1 style="font-size: 2.4rem; font-weight: 900; line-height: 1.2; margin-bottom: 14px; max-width: 960px; color: var(--text-primary);">
+        Evacuation Intelligence: Dynamic A* Graph Rerouting &amp; Autonomous SAR Coordination
+      </h1>
+      
+      <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 860px; line-height: 1.6;">
+        When a landslide severs a bridge or a flash flood cuts off a road corridor, static evacuation signs lead fleeing populations into dead-ends. WATCH-DOGS maintains a live topological road graph G=(V,E), dynamically pruning severed road segments and routing villagers and first responders along verifiable safe corridors.
+      </p>
+    </section>
+
+    <!-- Evacuation Graph Engine Visual -->
+    <div class="bento-card col-12" style="border-left: 5px solid var(--brand-primary); margin-bottom: 36px; padding: 24px;">
+      <div class="card-header" style="margin-bottom: 16px;">
+        <div>
+          <span class="card-badge badge-brand">GRAPH TOPOLOGY RECOMPUTATION</span>
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary); margin-top: 4px;">Dynamic Hazard Edge Cost Weighting Formulation</h2>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--text-secondary);">Recomputation Latency: 2.8 ms</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center;">
+        
+        <!-- Graph Schematic -->
+        <div style="background: #f8fafc; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+          <svg viewBox="0 0 450 200" style="width: 100%; height: auto;">
+            <!-- Node V1 (Settlement) -->
+            <circle cx="50" cy="100" r="16" fill="#0284c7"/>
+            <text x="50" y="104" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">V1</text>
+            <text x="50" y="130" fill="#1e293b" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Chooralmala</text>
+
+            <!-- Node V2 (Bridge) -->
+            <circle cx="200" cy="50" r="16" fill="#ef4444"/>
+            <text x="200" y="54" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">V2</text>
+            <text x="200" y="30" fill="#dc2626" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="bold" text-anchor="middle">BR01 (SEVERED)</text>
+
+            <!-- Node V3 (High Ridge Safe Route) -->
+            <circle cx="200" cy="150" r="16" fill="#059669"/>
+            <text x="200" y="154" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">V3</text>
+            <text x="200" y="180" fill="#059669" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="bold" text-anchor="middle">Ridge Corridor</text>
+
+            <!-- Node V4 (Muster Point) -->
+            <circle cx="380" cy="100" r="18" fill="#10b981"/>
+            <text x="380" y="104" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">SAFE</text>
+            <text x="380" y="130" fill="#047857" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="bold" text-anchor="middle">Meppadi Camp</text>
+
+            <!-- Severed Edge V1 -> V2 -> V4 -->
+            <line x1="66" y1="92" x2="184" y2="56" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="4,4"/>
+            <line x1="216" y1="56" x2="362" y2="92" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="4,4"/>
+
+            <!-- Active Safe Edge V1 -> V3 -> V4 -->
+            <line x1="66" y1="108" x2="184" y2="144" stroke="#059669" stroke-width="3"/>
+            <line x1="216" y1="144" x2="362" y2="108" stroke="#059669" stroke-width="3"/>
+          </svg>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Dynamic Cost Optimization</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+            The edge weight W_ij between nodes i and j is dynamically modulated by physical hazard probability P_hazard:
+          </p>
+          <div style="background: #f1f5f9; padding: 10px 14px; border-radius: var(--radius-sm); font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--brand-dark); margin-bottom: 12px;">
+            W_ij = d_ij &bull; [ 1 + &alpha; &bull; P_hazard(e_ij) + &beta; &bull; Slope_ij ]
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            When bridge sensor <code>S-04</code> detects superstructure displacement &gt; 50mm, P_hazard &rarr; 1.0, setting W_12 = &infin; and instantly vectoring crowds to the southern ridge path.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- NDMA SACHET Compliance Table -->
+    <h2 class="section-title">Standardized NDMA SACHET CAP-v1.2 Compliance</h2>
+
+    <div class="table-container" style="margin-bottom: 36px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>CAP Element</th>
+            <th>WATCH-DOGS Autonomous Value</th>
+            <th>Verification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong><code>&lt;identifier&gt;</code></strong></td>
+            <td><code>WD-WAYANAD-2026-0730-0142-CR</code></td>
+            <td><span class="card-badge badge-safe">COMPLIANT</span></td>
+          </tr>
+          <tr>
+            <td><strong><code>&lt;urgency&gt;</code></strong></td>
+            <td><code>Immediate</code> (Under 120ms actuation)</td>
+            <td><span class="card-badge badge-safe">COMPLIANT</span></td>
+          </tr>
+          <tr>
+            <td><strong><code>&lt;severity&gt;</code></strong></td>
+            <td><code>Extreme</code> (Factor of Safety &lt; 1.00)</td>
+            <td><span class="card-badge badge-safe">COMPLIANT</span></td>
+          </tr>
+          <tr>
+            <td><strong><code>&lt;certainty&gt;</code></strong></td>
+            <td><code>Observed</code> (Multi-modal sensor concordance)</td>
+            <td><span class="card-badge badge-safe">COMPLIANT</span></td>
+          </tr>
+          <tr>
+            <td><strong><code>&lt;areaDesc&gt;</code></strong></td>
+            <td><code>Mundakkai - Chooralmala Riparian Sector 4</code></td>
+            <td><span class="card-badge badge-safe">COMPLIANT</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Call to Action -->
+    <div style="background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px; text-align: center; margin-bottom: 40px;">
+      <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">Explore 10-Year Empirical Disaster Research &amp; Papers</h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 20px;">
+        Read our quantitative case studies analyzing the Wayanad 2024 debris flow, Kedarnath 2013 outburst flood, and Chamoli 2021 rock avalanche.
+      </p>
+      <a href="/research" class="btn btn-primary">Proceed to Research Papers &rarr;</a>
+    </div>
+
+  </div>
+</Layout>

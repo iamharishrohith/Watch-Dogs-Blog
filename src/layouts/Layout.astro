@@ -1,0 +1,124 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  activeNav?: string;
+}
+
+const {
+  title = "WATCH-DOGS: Edge-Intelligent Multi-Hazard Disaster Early Warning Research Platform",
+  description = "A research and engineering platform exploring distributed physical sensing, long-range LoRa mesh communications, edge computing, multi-sensor Bayesian fusion, and autonomous response intelligence.",
+  activeNav = "",
+} = Astro.props;
+
+const navItems = [
+  { label: "Overview", href: "/" },
+  { label: "Sensing", href: "/sensing" },
+  { label: "Communication", href: "/communication" },
+  { label: "Intelligence", href: "/intelligence" },
+  { label: "Actuation", href: "/actuation" },
+  { label: "Evacuation", href: "/evacuation" },
+  { label: "Architecture", href: "/architecture" },
+  { label: "Hardware & BOM", href: "/hardware" },
+  { label: "Forensic Case Studies", href: "/research" },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+</head>
+<body>
+  <!-- Editorial Research Header -->
+  <header class="research-header">
+    <div class="container-fluid research-header-inner">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="/" style="font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+          <img src="/disaster-photos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" style="width: 28px; height: 28px; border-radius: 4px; object-fit: cover;" />
+          <span style="font-family: var(--font-mono); font-size: 0.95rem; font-weight: 900; letter-spacing: 0.05em;">WATCH-DOGS</span>
+        </a>
+        <span style="color: var(--border-medium);">/</span>
+        <span style="color: var(--text-secondary); font-size: 0.72rem;">SIH 2026 RESEARCH PUBLICATION</span>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          {navItems.map((item) => (
+            <li>
+              <a 
+                href={item.href} 
+                class={activeNav === item.href.replace('/', '') || (item.href === '/' && activeNav === '') ? 'active' : ''}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span class="status-badge">
+          <span class="pulse-dot"></span>
+          <span>AIR-GAPPED MESH ACTIVE</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="editorial-footer">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 60px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <img src="/disaster-photos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" style="width: 32px; height: 32px; border-radius: 4px; object-fit: cover;" />
+            <span style="font-weight: 800; font-size: 1.2rem; color: #ffffff; font-family: var(--font-mono);">
+              WATCH-DOGS
+            </span>
+          </div>
+          <p style="line-height: 1.6; max-width: 380px; margin-bottom: 20px;">
+            An open engineering &amp; physical science research initiative developing resilient, zero-cloud edge intelligence for multi-hazard disaster early warning, civil defense, and dynamic evacuation guidance.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #71717A;">
+            Smart India Hackathon 2026 &bull; Problem Statement #26178 &bull; SIH 26190 CaseVault
+          </div>
+        </div>
+
+        <div>
+          <h4>Core Research Pillars</h4>
+          <ul>
+            <li><a href="/sensing">Pillar 01: In-Situ Sensing</a></li>
+            <li><a href="/communication">Pillar 02: LoRa Mesh Protocol</a></li>
+            <li><a href="/intelligence">Pillar 03: Physics-AI &amp; PINN</a></li>
+            <li><a href="/actuation">Pillar 04: Sub-120ms Actuation</a></li>
+            <li><a href="/evacuation">Pillar 05: Dynamic Evacuation</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>System &amp; Verification</h4>
+          <ul>
+            <li><a href="/architecture">4-Layer Architecture</a></li>
+            <li><a href="/hardware">Hardware Schematics &amp; BOM</a></li>
+            <li><a href="/research">10-Year Forensic Case Studies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="border-top: 1px solid #27272A; padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; font-family: var(--font-mono); flex-wrap: wrap; gap: 12px;">
+        <div>&copy; 2026 WATCH-DOGS Research Group. Open Engineering Publication.</div>
+        <div>0% Cloud Reliance &bull; 100% In-Situ Physical Autonomy &bull; Sub-120ms Tripping</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
