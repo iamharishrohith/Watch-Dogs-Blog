@@ -5,12 +5,14 @@ interface Props {
   title?: string;
   description?: string;
   activeNav?: string;
+  hideFooter?: boolean;
 }
 
 const {
   title = "WATCH-DOGS: Edge-Intelligent Multi-Hazard Disaster Early Warning Research Platform",
   description = "A research and engineering platform exploring distributed physical sensing, long-range LoRa mesh communications, edge computing, multi-sensor Bayesian fusion, and autonomous response intelligence.",
   activeNav = "",
+  hideFooter = false,
 } = Astro.props;
 
 const navItems = [
@@ -283,74 +285,76 @@ const navItems = [
     <slot />
   </main>
 
-  <footer class="editorial-footer">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 36px; margin-bottom: 48px;">
-        <div>
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-            <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" style="width: 32px; height: 32px; border-radius: 4px; object-fit: cover;" />
-            <span style="font-weight: 800; font-size: 1.2rem; color: #ffffff; font-family: var(--font-mono);">
-              WATCH-DOGS
-            </span>
-          </div>
-          <p style="line-height: 1.6; font-size: 0.82rem; margin-bottom: 16px; color: #A1A1AA;">
-            An open engineering &amp; physical science research initiative developing resilient, zero-cloud edge intelligence for multi-hazard disaster early warning and civil defense.
-          </p>
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-            <img src="/logos/Monarchs Logo.png" alt="Team Monarchs" style="height: 36px; object-fit: contain; filter: brightness(1.2);" />
-          </div>
-          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #71717A;">
-            Autonomous In-Situ Disaster Early Warning &bull; Open Research Architecture
-          </div>
-        </div>
-
-        <div>
-          <h4>Core Research Pillars</h4>
-          <ul>
-            <li><a href="/sensing">Pillar 01: In-Situ Sensing</a></li>
-            <li><a href="/communication">Pillar 02: LoRa Mesh Protocol</a></li>
-            <li><a href="/intelligence">Pillar 03: Physics-AI &amp; PINN</a></li>
-            <li><a href="/actuation">Pillar 04: Sub-120ms Actuation</a></li>
-            <li><a href="/evacuation">Pillar 05: Dynamic Evacuation</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>System &amp; Verification</h4>
-          <ul>
-            <li><a href="/architecture">4-Layer Architecture</a></li>
-            <li><a href="/hardware">Hardware Schematics &amp; BOM</a></li>
-            <li><a href="/circuits">Circuit Diagrams &amp; Pinouts</a></li>
-            <li><a href="/research">10-Year Forensic Case Studies</a></li>
-            <li><a href="/about">About Team &amp; Testbed</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Team Monarchs</h4>
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.6; color: #D4D4D8;">
-            <div style="margin-bottom: 4px;"><strong style="color: #93C5FD;">Mentor:</strong> Dr. K Arun Kumar, B.E., M.E., Ph.D.</div>
-            <div style="margin-bottom: 6px;"><strong style="color: #86EFAC;">Team Lead:</strong> Harish Rohith S</div>
-            <div style="color: #A1A1AA; font-size: 0.72rem;">
-              1. Dharshana B<br/>
-              2. Harini K<br/>
-              3. Karthikeyan T<br/>
-              4. Nandhakishore A<br/>
-              5. Vimal Kumar G
+  {!hideFooter && (
+    <footer class="editorial-footer">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 36px; margin-bottom: 48px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+              <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" style="width: 32px; height: 32px; border-radius: 4px; object-fit: cover;" />
+              <span style="font-weight: 800; font-size: 1.2rem; color: #ffffff; font-family: var(--font-mono);">
+                WATCH-DOGS
+              </span>
             </div>
-            <div style="margin-top: 10px;">
-              <a href="/about" style="color: var(--accent-primary); font-weight: 700; text-decoration: none;">VIEW TEAM PROFILE &rarr;</a>
+            <p style="line-height: 1.6; font-size: 0.82rem; margin-bottom: 16px; color: #A1A1AA;">
+              An open engineering &amp; physical science research initiative developing resilient, zero-cloud edge intelligence for multi-hazard disaster early warning and civil defense.
+            </p>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <img src="/logos/Monarchs Logo.png" alt="Team Monarchs" style="height: 36px; object-fit: contain; filter: brightness(1.2);" />
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #71717A;">
+              Autonomous In-Situ Disaster Early Warning &bull; Open Research Architecture
             </div>
           </div>
+
+          <div>
+            <h4>Core Research Pillars</h4>
+            <ul>
+              <li><a href="/sensing">Pillar 01: In-Situ Sensing</a></li>
+              <li><a href="/communication">Pillar 02: LoRa Mesh Protocol</a></li>
+              <li><a href="/intelligence">Pillar 03: Physics-AI &amp; PINN</a></li>
+              <li><a href="/actuation">Pillar 04: Sub-120ms Actuation</a></li>
+              <li><a href="/evacuation">Pillar 05: Dynamic Evacuation</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>System &amp; Verification</h4>
+            <ul>
+              <li><a href="/architecture">4-Layer Architecture</a></li>
+              <li><a href="/hardware">Hardware Schematics &amp; BOM</a></li>
+              <li><a href="/circuits">Circuit Diagrams &amp; Pinouts</a></li>
+              <li><a href="/research">10-Year Forensic Case Studies</a></li>
+              <li><a href="/about">About Team &amp; Testbed</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Team Monarchs</h4>
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.6; color: #D4D4D8;">
+              <div style="margin-bottom: 4px;"><strong style="color: #93C5FD;">Mentor:</strong> Dr. K Arun Kumar, B.E., M.E., Ph.D.</div>
+              <div style="margin-bottom: 6px;"><strong style="color: #86EFAC;">Team Lead:</strong> Harish Rohith S</div>
+              <div style="color: #A1A1AA; font-size: 0.72rem;">
+                1. Dharshana B<br/>
+                2. Harini K<br/>
+                3. Karthikeyan T<br/>
+                4. Nandhakishore A<br/>
+                5. Vimal Kumar G
+              </div>
+              <div style="margin-top: 10px;">
+                <a href="/about" style="color: var(--accent-primary); font-weight: 700; text-decoration: none;">VIEW TEAM PROFILE &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid #27272A; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; font-family: var(--font-mono); flex-wrap: wrap; gap: 12px; color: #71717A;">
+          <div>&copy; 2026 Team Monarchs &bull; WATCH-DOGS Research Group</div>
+          <div>0% Cloud Reliance &bull; 100% In-Situ Physical Autonomy &bull; Sub-120ms Tripping</div>
         </div>
       </div>
-
-      <div style="border-top: 1px solid #27272A; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; font-family: var(--font-mono); flex-wrap: wrap; gap: 12px; color: #71717A;">
-        <div>&copy; 2026 Team Monarchs &bull; WATCH-DOGS Research Group</div>
-        <div>0% Cloud Reliance &bull; 100% In-Situ Physical Autonomy &bull; Sub-120ms Tripping</div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  )}
 
   <!-- Universal Screen-Fit Fullscreen Image Lightbox Modal -->
   <div id="global-image-lightbox" role="dialog" aria-modal="true">
