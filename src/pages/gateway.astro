@@ -3,613 +3,264 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout 
-  title="WATCH-DOGS — Unified Ecosystem Gateway" 
-  description="Single centralized launchpad for the WATCH-DOGS disaster early warning platform."
+  title="WATCH-DOGS — Project Resources Index" 
+  description="Compact engineering and research resource index for WATCH-DOGS: Source code, research portal, 3D digital twin, circuit schematics, and physical demonstration."
   activeNav="links"
   hideHeader={true}
   hideFooter={true}
 >
-  <div class="gateway-wrapper">
+  <div class="resource-index-wrapper">
     
-    <!-- Top Minimal Bar -->
-    <header class="gateway-header">
-      <div class="brand-group">
-        <div class="logo-pair">
-          <img src="/logos/Monarchs Logo.png" alt="Team Monarchs" class="brand-logo" />
-          <div class="logo-divider"></div>
-          <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS" class="brand-logo round" />
-        </div>
-        <div class="brand-meta">
-          <div class="team-tag">TEAM MONARCHS</div>
-          <h1 class="brand-title">WATCH-DOGS</h1>
-        </div>
-      </div>
-
-      <div class="header-desc">
-        <span class="acronym-full">Wireless Autonomous Telemetry, Critical Hazard Detection &amp; Optocoupled Ground System</span>
-        <span class="tech-sub">Air-Gapped Edge Appliance &bull; Physics-Informed Neural Networks &bull; Sub-120ms In-Situ Relays</span>
-      </div>
-
-      <div class="status-pills">
-        <span class="pill pill-green"><span class="dot dot-green"></span> AIR-GAPPED</span>
-        <span class="pill">868 MHz MESH</span>
-        <span class="pill">BSA 2023 §65B</span>
-        <span class="pill pill-fast">&lt; 120ms TRIP</span>
-      </div>
-    </header>
-
-    <!-- Bento Grid (3 x 2) -->
-    <main class="gateway-grid">
+    <!-- Top Compact Header & Brand -->
+    <div class="index-container">
       
-      <!-- 01: GitHub Core Repo -->
-      <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener noreferrer" class="bento-card">
-        <div class="card-top">
-          <div class="card-index">01 &bull; REPOSITORY</div>
-          <span class="external-arrow">&nearr;</span>
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Core Engineering Repository</h2>
-          <p class="card-desc">Production firmware, edge inference engine, PyTorch models, and hardware calibration datasets.</p>
-          <div class="card-tags">
-            <span class="tag">ESP32-S3 C++20</span>
-            <span class="tag">Raspberry Pi 5</span>
-            <span class="tag">LibTorch</span>
-            <span class="tag">PINN Physics-AI</span>
-            <span class="tag">Section 65B WAL</span>
+      <header class="index-header">
+        <div class="header-top-row">
+          <div class="brand-cluster">
+            <img src="/logos/Monarchs Logo.png" alt="Team Monarchs" class="brand-icon" />
+            <span class="brand-divider">/</span>
+            <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS" class="brand-icon round" />
+            <span class="team-label">TEAM MONARCHS</span>
+          </div>
+
+          <div class="header-status-strip">
+            <span class="status-item"><span class="status-dot"></span> AIR-GAPPED</span>
+            <span class="status-item">868 MHz MESH</span>
+            <span class="status-item">BSA 2023 §65B</span>
+            <span class="status-item">&lt;120ms TRIP</span>
           </div>
         </div>
-        <div class="card-action">
-          <span>github.com/iamharishrohith/WATCH-DOGS</span>
-        </div>
-      </a>
 
-      <!-- 02: 3D Digital Twin -->
-      <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="bento-card">
-        <div class="card-top">
-          <div class="card-index">02 &bull; DIGITAL TWIN</div>
-          <span class="external-arrow">&nearr;</span>
+        <div class="header-content">
+          <div class="section-label">PROJECT RESOURCES</div>
+          <h1 class="main-heading">Everything behind WATCH-DOGS, from source code to physical validation.</h1>
+          <p class="acronym-note">
+            <strong>WATCH-DOGS:</strong> Wireless Autonomous Telemetry, Critical Hazard Detection &amp; Optocoupled Ground System
+          </p>
         </div>
-        <div class="card-body">
-          <h2 class="card-title">Geospatial 3D Simulation</h2>
-          <p class="card-desc">Interactive Three.js WebGL digital twin covering 7 Indian disaster biomes with live RF mesh overlays.</p>
-          <div class="card-tags">
-            <span class="tag">7 Indian Biomes</span>
-            <span class="tag">Wayanad &amp; Kedarnath</span>
-            <span class="tag">Debris Flow Surge</span>
-            <span class="tag">Dynamic A* Evacuation</span>
-            <span class="tag">Zero-Cloud WebGL</span>
+      </header>
+
+      <!-- 5-Row Vertical Technical Resource Index -->
+      <main class="resource-list" role="list">
+        
+        <!-- Row 01: Core Engineering Repository -->
+        <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener noreferrer" class="resource-row" role="listitem">
+          <div class="row-num-col">
+            <span class="row-num">01</span>
+            <span class="row-category">SOURCE</span>
           </div>
-        </div>
-        <div class="card-action">
-          <span>watch-dogs-3d.vercel.app</span>
-        </div>
-      </a>
-
-      <!-- 03: Research Web Portal -->
-      <a href="/" class="bento-card">
-        <div class="card-top">
-          <div class="card-index">03 &bull; EVIDENCE DOSSIER</div>
-          <span class="external-arrow">&nearr;</span>
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Research &amp; Evidence Portal</h2>
-          <p class="card-desc">10-year forensic case studies, geomechanical math, Section 65B legal engine, and protocol specs.</p>
-          <div class="card-tags">
-            <span class="tag">10-Year Case Studies</span>
-            <span class="tag">Mohr-Coulomb Math</span>
-            <span class="tag">868 MHz LoRa Protocol</span>
-            <span class="tag">Sub-120ms Tripping</span>
-            <span class="tag">BSA 2023 §65B Engine</span>
+          <div class="row-body-col">
+            <div class="row-title-line">
+              <h2 class="resource-title">CORE ENGINEERING REPOSITORY</h2>
+              <span class="resource-url">github.com/iamharishrohith/WATCH-DOGS</span>
+            </div>
+            <p class="resource-desc">Firmware &bull; Edge AI Engine &bull; Datasets &bull; Hardware BOM</p>
           </div>
-        </div>
-        <div class="card-action">
-          <span>watch-dogs-research.vercel.app</span>
-        </div>
-      </a>
-
-      <!-- 04: Circuit Schematics -->
-      <a href="/circuits" class="bento-card">
-        <div class="card-top">
-          <div class="card-index">04 &bull; SCHEMATICS</div>
-          <span class="external-arrow">&rarr;</span>
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Circuit Wiremaps &amp; Pinouts</h2>
-          <p class="card-desc">High-resolution interactive schematics for all 4 physical hardware sentinel nodes and power trees.</p>
-          <div class="card-tags">
-            <span class="tag">Hillside Sentinel</span>
-            <span class="tag">Riverbed Surge Stage</span>
-            <span class="tag">Gas &amp; Air Quality</span>
-            <span class="tag">PC817 Optocouplers</span>
-            <span class="tag">LiFePO4 Solar MPPT</span>
+          <div class="row-action-col">
+            <span class="action-btn">
+              <span>OPEN</span>
+              <span class="action-arrow">&nearr;</span>
+            </span>
           </div>
-        </div>
-        <div class="card-action">
-          <span>/circuits &bull; 8 Interactive Wiremaps</span>
-        </div>
-      </a>
+        </a>
 
-      <!-- 05: Benchmark Video -->
-      <a href="https://youtu.be/watch-dogs-demo" target="_blank" rel="noopener noreferrer" class="bento-card">
-        <div class="card-top">
-          <div class="card-index">05 &bull; LIVE DEMO</div>
-          <span class="external-arrow">&nearr;</span>
-        </div>
-        <div class="card-body">
-          <h2 class="card-title">Physical Hardware Video Demo</h2>
-          <p class="card-desc">Video proof of flume landslide triggers, turbidity threshold trips, multi-hop LoRa, and siren relay trip.</p>
-          <div class="card-tags">
-            <span class="tag">Physical Flume Run</span>
-            <span class="tag">Optical Turbidity Spike</span>
-            <span class="tag">LoRa Mesh Routing</span>
-            <span class="tag">Autonomous Relay</span>
-            <span class="tag">130dB Siren Proof</span>
+        <!-- Row 02: Research & Documentation Portal -->
+        <a href="/" class="resource-row" role="listitem">
+          <div class="row-num-col">
+            <span class="row-num">02</span>
+            <span class="row-category">RESEARCH</span>
           </div>
-        </div>
-        <div class="card-action">
-          <span>youtu.be/watch-dogs-demo</span>
-        </div>
-      </a>
+          <div class="row-body-col">
+            <div class="row-title-line">
+              <h2 class="resource-title">RESEARCH &amp; DOCUMENTATION PORTAL</h2>
+              <span class="resource-url">watch-dogs-research.vercel.app</span>
+            </div>
+            <p class="resource-desc">Empirical audits &bull; Geomechanical physics &bull; PINN specifications</p>
+          </div>
+          <div class="row-action-col">
+            <span class="action-btn">
+              <span>OPEN</span>
+              <span class="action-arrow">&nearr;</span>
+            </span>
+          </div>
+        </a>
 
-      <!-- 06: Architecture & Navigation -->
-      <div class="bento-card bento-matrix-card">
-        <div class="card-top">
-          <div class="card-index">06 &bull; ECOSYSTEM MATRIX</div>
-        </div>
-        <div class="matrix-grid">
-          <a href="/architecture" class="matrix-item">
-            <span class="matrix-title">Architecture Stack</span>
-            <span class="matrix-sub">4-Layer Edge Topology</span>
-          </a>
-          <a href="/intelligence" class="matrix-item">
-            <span class="matrix-title">PINN Physics-AI</span>
-            <span class="matrix-sub">Mohr-Coulomb Tensors</span>
-          </a>
-          <a href="/communication" class="matrix-item">
-            <span class="matrix-title">868 MHz LoRa Mesh</span>
-            <span class="matrix-sub">Binary Packet Spec</span>
-          </a>
-          <a href="/hardware" class="matrix-item">
-            <span class="matrix-title">Hardware BOM</span>
-            <span class="matrix-sub">Industrial Transducers</span>
-          </a>
-          <a href="/research" class="matrix-item">
-            <span class="matrix-title">Case Studies</span>
-            <span class="matrix-sub">Wayanad &amp; Kedarnath</span>
-          </a>
-          <a href="/about" class="matrix-item matrix-team">
-            <span class="matrix-title">Team Monarchs</span>
-            <span class="matrix-sub">Hardware Testbed Lab</span>
-          </a>
-        </div>
-        <div class="card-action matrix-action">
-          <a href="/about" class="matrix-profile-link">View Team Monarchs Testbed &rarr;</a>
-        </div>
-      </div>
+        <!-- Row 03: Geospatial 3D Digital Twin -->
+        <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="resource-row" role="listitem">
+          <div class="row-num-col">
+            <span class="row-num">03</span>
+            <span class="row-category">SIMULATION</span>
+          </div>
+          <div class="row-body-col">
+            <div class="row-title-line">
+              <h2 class="resource-title">GEOSPATIAL 3D DIGITAL TWIN</h2>
+              <span class="resource-url">watch-dogs-3d.vercel.app</span>
+            </div>
+            <p class="resource-desc">WebGL terrain &bull; Live LoRa telemetry &bull; Evacuation routing</p>
+          </div>
+          <div class="row-action-col">
+            <span class="action-btn">
+              <span>OPEN</span>
+              <span class="action-arrow">&nearr;</span>
+            </span>
+          </div>
+        </a>
 
-    </main>
+        <!-- Row 04: Circuit Schematics & Pinouts -->
+        <a href="/circuits" class="resource-row" role="listitem">
+          <div class="row-num-col">
+            <span class="row-num">04</span>
+            <span class="row-category">SCHEMATICS</span>
+          </div>
+          <div class="row-body-col">
+            <div class="row-title-line">
+              <h2 class="resource-title">CIRCUIT SCHEMATICS &amp; PINOUT</h2>
+              <span class="resource-url">watch-dogs-research.vercel.app/circuits</span>
+            </div>
+            <p class="resource-desc">HD board schematics &bull; Decoupling &bull; Optocoupler relay design</p>
+          </div>
+          <div class="row-action-col">
+            <span class="action-btn">
+              <span>OPEN</span>
+              <span class="action-arrow">&nearr;</span>
+            </span>
+          </div>
+        </a>
 
-    <!-- Bottom Minimal Footer Rail -->
-    <footer class="gateway-footer">
-      <div class="footer-left">
-        <span class="footer-badge">TEAM MONARCHS</span>
-        <span class="footer-divider">/</span>
-        <span>Mentor: <strong>Dr. K Arun Kumar</strong>, Ph.D. <span class="mentor-details">(17 Yrs Cloud Tech &amp; Brain Computer Interface)</span></span>
-        <span class="footer-divider">/</span>
-        <span>Lead: <strong>Harish Rohith S</strong></span>
-      </div>
-      <div class="footer-right">
-        <span class="status-indicator"></span>
-        <span>100% In-Situ Physical Autonomy &bull; Sub-120ms Relay Actuation</span>
-      </div>
-    </footer>
+        <!-- Row 05: Physical Hardware Video Demo -->
+        <a href="https://youtu.be/watch-dogs-demo" target="_blank" rel="noopener noreferrer" class="resource-row" role="listitem">
+          <div class="row-num-col">
+            <span class="row-num">05</span>
+            <span class="row-category">DEMO</span>
+          </div>
+          <div class="row-body-col">
+            <div class="row-title-line">
+              <h2 class="resource-title">PHYSICAL TESTBED DEMONSTRATION</h2>
+              <span class="resource-url">youtu.be/watch-dogs-demo</span>
+            </div>
+            <p class="resource-desc">4-node mesh &bull; Flume infiltration &bull; 130 dB siren trip</p>
+          </div>
+          <div class="row-action-col">
+            <span class="action-btn">
+              <span>WATCH</span>
+              <span class="action-arrow">&nearr;</span>
+            </span>
+          </div>
+        </a>
 
+      </main>
+
+      <!-- Bottom Research Credentials Rail -->
+      <footer class="index-footer">
+        <div class="footer-left">
+          <span class="footer-team">TEAM MONARCHS</span>
+          <span class="footer-sep">&bull;</span>
+          <span>Mentor: <strong>Dr. K Arun Kumar</strong>, Ph.D. <span class="footer-mentor-note">(17 Yrs Cloud Tech &amp; Brain Computer Interface)</span></span>
+          <span class="footer-sep">&bull;</span>
+          <span>Lead: <strong>Harish Rohith S</strong></span>
+        </div>
+        <div class="footer-right">
+          <a href="/architecture" class="subsystem-link">Architecture</a>
+          <span class="footer-sep">&bull;</span>
+          <a href="/intelligence" class="subsystem-link">PINN Engine</a>
+          <span class="footer-sep">&bull;</span>
+          <a href="/about" class="subsystem-link">About Lab</a>
+        </div>
+      </footer>
+
+    </div>
   </div>
 </Layout>
 
 <style>
-  /* ── Ultra-Clean Minimal Single-Screen Layout ── */
-  .gateway-wrapper {
-    height: 100vh;
-    max-height: 100vh;
+  /* ── Resource Index Container (Centered, Max Width, Clean) ── */
+  .resource-index-wrapper {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 14px 24px 12px;
-    max-width: 1480px;
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 32px 24px;
     box-sizing: border-box;
-    overflow: hidden;
-    background: #FFFFFF;
   }
 
-  /* ── Top Header ── */
-  .gateway-header {
+  .index-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header Area ── */
+  .index-header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .header-top-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    padding: 8px 0 14px;
-    border-bottom: 1px solid #E5E7EB;
-    flex-shrink: 0;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
-  .brand-group {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-shrink: 0;
-  }
-
-  .logo-pair {
+  .brand-cluster {
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .brand-logo {
-    width: 38px;
-    height: 38px;
+  .brand-icon {
+    width: 28px;
+    height: 28px;
     object-fit: contain;
   }
-  .brand-logo.round {
-    border-radius: 6px;
+  .brand-icon.round {
+    border-radius: 4px;
     object-fit: cover;
   }
 
-  .logo-divider {
-    width: 1px;
-    height: 24px;
-    background: #E5E7EB;
+  .brand-divider {
+    color: #CBD5E1;
+    font-weight: 300;
   }
 
-  .brand-meta {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .team-tag {
+  .team-label {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #6B7280;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    margin-bottom: 3px;
-  }
-
-  .brand-title {
-    font-size: 1.35rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: -0.03em;
-    color: #111827;
-    margin: 0;
-    line-height: 1;
+    color: #0F172A;
+    letter-spacing: 0.08em;
   }
 
-  .header-desc {
-    flex: 1;
-    text-align: center;
-    padding: 0 16px;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .acronym-full {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #1F2937;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    letter-spacing: -0.01em;
-  }
-
-  .tech-sub {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: #6B7280;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .status-pills {
+  .header-status-strip {
     display: flex;
     align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
+    gap: 8px;
+    flex-wrap: wrap;
   }
 
-  .pill {
+  .status-item {
     font-family: var(--font-mono);
     font-size: 0.68rem;
-    font-weight: 600;
-    padding: 4px 9px;
+    font-weight: 700;
+    color: #475569;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    padding: 3px 8px;
     border-radius: 4px;
-    background: #F3F4F6;
-    color: #374151;
-    border: 1px solid #E5E7EB;
     display: inline-flex;
     align-items: center;
     gap: 5px;
     letter-spacing: 0.02em;
-    white-space: nowrap;
   }
 
-  .pill-green {
-    background: #F0FDF4;
-    color: #15803D;
-    border-color: #BBF7D0;
-  }
-
-  .pill-fast {
-    background: #FEF2F2;
-    color: #B91C1C;
-    border-color: #FECACA;
-  }
-
-  .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-  .dot-green {
-    background: #16A34A;
-  }
-
-  /* ── Bento Grid (3 x 2, clean, understated) ── */
-  .gateway-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    flex: 1;
-    min-height: 0;
-    margin: 12px 0 10px;
-  }
-
-  .bento-card {
-    background: #FFFFFF;
-    border: 1px solid #E5E7EB;
-    border-radius: 10px;
-    padding: 16px 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-    min-height: 0;
-  }
-
-  .bento-card:hover {
-    border-color: #9CA3AF;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transform: translateY(-1px);
-  }
-
-  .card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 6px;
-  }
-
-  .card-index {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #6B7280;
-    letter-spacing: 0.06em;
-  }
-
-  .external-arrow {
-    font-size: 0.9rem;
-    color: #9CA3AF;
-    transition: color 0.15s ease, transform 0.15s ease;
-  }
-
-  .bento-card:hover .external-arrow {
-    color: #111827;
-    transform: translate(2px, -2px);
-  }
-
-  .card-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 0;
-  }
-
-  .card-title {
-    font-size: 1.08rem;
-    font-weight: 700;
-    color: #111827;
-    margin: 0 0 4px;
-    letter-spacing: -0.015em;
-    line-height: 1.25;
-  }
-
-  .card-desc {
-    font-size: 0.78rem;
-    color: #4B5563;
-    line-height: 1.45;
-    margin: 0 0 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-bottom: 8px;
-  }
-
-  .tag {
-    font-family: var(--font-mono);
-    font-size: 0.64rem;
-    font-weight: 500;
-    color: #4B5563;
-    background: #F3F4F6;
-    border: 1px solid #E5E7EB;
-    padding: 2px 6px;
-    border-radius: 4px;
-    letter-spacing: 0.01em;
-  }
-
-  .bento-card:hover .tag {
-    background: #E5E7EB;
-    color: #111827;
-  }
-
-  .card-action {
-    font-family: var(--font-mono);
-    font-size: 0.70rem;
-    font-weight: 600;
-    color: #2563EB;
-    padding-top: 8px;
-    border-top: 1px solid #F3F4F6;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  /* 06 Matrix Bento Custom */
-  .bento-matrix-card {
-    justify-content: space-between;
-    cursor: default;
-  }
-  .bento-matrix-card:hover {
-    transform: none;
-    border-color: #E5E7EB;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-  }
-
-  .matrix-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    flex: 1;
-    align-content: center;
-    margin: 4px 0 8px;
-  }
-
-  .matrix-item {
-    display: flex;
-    flex-direction: column;
-    padding: 6px 10px;
-    border: 1px solid #E5E7EB;
-    border-radius: 6px;
-    background: #F9FAFB;
-    text-decoration: none;
-    transition: all 0.15s ease;
-  }
-
-  .matrix-item:hover {
-    background: #EFF6FF;
-    border-color: #BFDBFE;
-  }
-
-  .matrix-item:hover .matrix-title {
-    color: #2563EB;
-  }
-
-  .matrix-title {
-    font-size: 0.74rem;
-    font-weight: 700;
-    color: #1F2937;
-    line-height: 1.2;
-  }
-
-  .matrix-sub {
-    font-family: var(--font-mono);
-    font-size: 0.60rem;
-    color: #6B7280;
-    margin-top: 1px;
-  }
-
-  .matrix-team {
-    background: #FEF3C7;
-    border-color: #FDE68A;
-  }
-  .matrix-team:hover {
-    background: #FDE68A;
-    border-color: #F59E0B;
-  }
-  .matrix-team .matrix-title {
-    color: #92400E;
-  }
-
-  .matrix-action {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .matrix-profile-link {
-    text-decoration: none;
-    color: #2563EB;
-    font-weight: 700;
-    transition: color 0.15s ease;
-  }
-  .matrix-profile-link:hover {
-    color: #1D4ED8;
-    text-decoration: underline;
-  }
-
-  /* ── Bottom Footer Rail ── */
-  .gateway-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 10px 0 0;
-    border-top: 1px solid #E5E7EB;
-    font-family: var(--font-mono);
-    font-size: 0.70rem;
-    color: #4B5563;
-    flex-shrink: 0;
-  }
-
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: nowrap;
-  }
-
-  .footer-badge {
-    font-weight: 800;
-    color: #111827;
-    letter-spacing: 0.05em;
-  }
-
-  .footer-divider {
-    color: #D1D5DB;
-  }
-
-  .mentor-details {
-    color: #6B7280;
-    font-size: 0.66rem;
-  }
-
-  .footer-right {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
-    color: #059669;
-    font-weight: 600;
-  }
-
-  .status-indicator {
+  .status-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
@@ -617,53 +268,289 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
   }
 
-  /* ── Responsive ── */
-  @media (max-width: 1080px) {
-    .gateway-wrapper {
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 800;
+    color: #2563EB;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .main-heading {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .acronym-note {
+    font-size: 0.82rem;
+    color: #64748B;
+    margin: 4px 0 0;
+    line-height: 1.4;
+  }
+  .acronym-note strong {
+    color: #334155;
+  }
+
+  /* ── 5-Row Vertical Resource List ── */
+  .resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .resource-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 16px 24px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    min-height: 80px;
+    box-sizing: border-box;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .resource-row:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+  }
+
+  .resource-row:hover .action-btn {
+    color: #1D4ED8;
+  }
+
+  .resource-row:hover .action-arrow {
+    transform: translate(3px, -2px);
+  }
+
+  /* Left Number & Micro Category */
+  .row-num-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+    width: 68px;
+    flex-shrink: 0;
+  }
+
+  .row-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    color: #0F172A;
+    line-height: 1;
+  }
+
+  .row-category {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 800;
+    color: #64748B;
+    background: #F1F5F9;
+    padding: 2px 4px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+
+  /* Center Body */
+  .row-body-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+  }
+
+  .row-title-line {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .resource-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0F172A;
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .resource-url {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748B;
+  }
+
+  .resource-desc {
+    font-size: 13.5px;
+    color: #475569;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Right Action */
+  .row-action-col {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: #2563EB;
+    letter-spacing: 0.04em;
+    transition: color 0.15s ease;
+  }
+
+  .action-arrow {
+    font-size: 14px;
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+
+  /* ── Bottom Rail ── */
+  .index-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #E2E8F0;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: #64748B;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .footer-team {
+    font-weight: 800;
+    color: #0F172A;
+  }
+
+  .footer-mentor-note {
+    color: #94A3B8;
+  }
+
+  .footer-sep {
+    color: #CBD5E1;
+  }
+
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .subsystem-link {
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .subsystem-link:hover {
+    color: #2563EB;
+    text-decoration: underline;
+  }
+
+  /* ── Responsive Behavior ── */
+  @media (max-width: 860px) {
+    .resource-index-wrapper {
+      padding: 20px 16px;
       height: auto;
-      max-height: none;
-      overflow-y: auto;
+      min-height: 100vh;
     }
-    .gateway-grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
+
+    .main-heading {
+      font-size: 1.25rem;
+    }
+
+    .resource-row {
+      padding: 14px 18px;
+      gap: 14px;
+      min-height: auto;
+    }
+
+    .resource-title {
+      font-size: 16px;
+    }
+
+    .row-num-col {
+      width: 50px;
     }
   }
 
-  @media (max-width: 768px) {
-    .gateway-wrapper {
-      padding: 12px 14px 20px;
-      height: auto;
-      max-height: none;
-      overflow-y: auto;
-    }
-    .gateway-header {
+  @media (max-width: 640px) {
+    .header-top-row {
       flex-direction: column;
       align-items: flex-start;
-      gap: 10px;
-      padding-bottom: 12px;
+      gap: 8px;
     }
-    .header-desc {
-      text-align: left;
-      padding: 0;
-    }
-    .acronym-full, .tech-sub {
-      white-space: normal;
-    }
-    .status-pills {
-      flex-wrap: wrap;
-    }
-    .gateway-grid {
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    .gateway-footer {
+
+    .resource-row {
       flex-direction: column;
       align-items: flex-start;
-      gap: 6px;
+      padding: 14px 16px;
+      gap: 10px;
     }
-    .footer-left {
-      flex-wrap: wrap;
+
+    .row-num-col {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      width: auto;
+    }
+
+    .row-title-line {
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .row-action-col {
+      width: 100%;
+      justify-content: flex-end;
+      padding-top: 6px;
+      border-top: 1px dashed #F1F5F9;
+    }
+
+    .index-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
     }
   }
 </style>
