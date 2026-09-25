@@ -6,11 +6,12 @@ import Layout from '../layouts/Layout.astro';
   title="WATCH-DOGS — Unified Portfolio Gateway & Bento Matrix" 
   description="Single centralized portfolio launchpad for WATCH-DOGS: GitHub Repository, Research Portal, 3D Digital Twin, Circuit Schematics, and Hardware Demonstration."
   activeNav="links"
+  hideHeader={true}
   hideFooter={true}
 >
   <div class="portfolio-screen-container">
     
-    <!-- Top Portfolio Brand Header -->
+    <!-- Top Portfolio Brand Header (Master Header of Page) -->
     <header class="portfolio-header">
       <div class="header-left">
         <div class="logo-stack">
@@ -22,7 +23,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
         <div class="title-stack">
-          <div class="team-label">TEAM MONARCHS &bull; ENGINEERING PORTFOLIO GATEWAY</div>
+          <div class="team-label">TEAM MONARCHS &bull; UNIFIED PROJECT GATEWAY</div>
           <h1 class="project-headline">WATCH-DOGS</h1>
         </div>
       </div>
@@ -267,8 +268,8 @@ import Layout from '../layouts/Layout.astro';
 <style>
   /* ── Ultra-Modern Viewport-Fit Portfolio Layout (Zero Scroll on Desktop) ── */
   .portfolio-screen-container {
-    height: calc(100vh - 54px);
-    max-height: calc(100vh - 54px);
+    height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

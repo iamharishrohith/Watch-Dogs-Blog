@@ -5,6 +5,7 @@ interface Props {
   title?: string;
   description?: string;
   activeNav?: string;
+  hideHeader?: boolean;
   hideFooter?: boolean;
 }
 
@@ -12,6 +13,7 @@ const {
   title = "WATCH-DOGS: Edge-Intelligent Multi-Hazard Disaster Early Warning Research Platform",
   description = "A research and engineering platform exploring distributed physical sensing, long-range LoRa mesh communications, edge computing, multi-sensor Bayesian fusion, and autonomous response intelligence.",
   activeNav = "",
+  hideHeader = false,
   hideFooter = false,
 } = Astro.props;
 
@@ -35,14 +37,14 @@ const navItems = [
   <meta name="description" content={description}>
 </head>
 <body>
-  <!-- Editorial Research Header -->
-  <header class="research-header">
-    <div class="container-fluid research-header-inner">
-      <div style="display: flex; align-items: center; gap: 14px;">
-        <a href="/" style="font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); display: flex; align-items: center; gap: 8px; text-decoration: none;">
-          <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" style="width: 28px; height: 28px; border-radius: 4px; object-fit: cover;" />
-          <span style="font-family: var(--font-mono); font-size: 0.95rem; font-weight: 900; letter-spacing: 0.05em;">WATCH-DOGS</span>
-        </a>
+  {!hideHeader && (
+    <header class="research-header">
+      <div class="container-fluid research-header-inner">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <a href="/" style="font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); display: flex; align-items: center; gap: 8px; text-decoration: none;">
+            <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" style="width: 28px; height: 28px; border-radius: 4px; object-fit: cover;" />
+            <span style="font-family: var(--font-mono); font-size: 0.95rem; font-weight: 900; letter-spacing: 0.05em;">WATCH-DOGS</span>
+          </a>
         <span style="color: var(--border-medium);">/</span>
         <a href="/about" style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text-secondary); font-size: 0.72rem; font-family: var(--font-mono); font-weight: 700;">
           <img src="/logos/Monarchs Logo.png" alt="Team Monarchs Logo" style="width: 20px; height: 20px; object-fit: contain;" />
@@ -79,6 +81,7 @@ const navItems = [
       </div>
     </div>
   </header>
+  )}
 
   <!-- Interactive Fullscreen Bento Navigation Hub Modal -->
   <div id="bento-hub-modal" role="dialog" aria-modal="true">
