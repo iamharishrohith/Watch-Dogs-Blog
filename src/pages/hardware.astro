@@ -2,13 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 
 const components = [
-  { name: "ESP32-S3-WROOM-1", image: "/iMAGES/1-2211221455560-L.png", spec: "Dual Xtensa LX7 (240MHz, 8MB PSRAM)", volt: "3.3V DC", current: "15 µA (Sleep) / 240 mA (TX)", cost: "₹480", role: "Sensor Polling & FreeRTOS" },
-  { name: "Semtech SX1262 LoRa", image: "/iMAGES/61QuLIl9yrL.jpg", spec: "868 MHz / +22 dBm Frontend", volt: "3.3V DC", current: "160 nA (Sleep) / 118 mA (TX)", cost: "₹650", role: "20-40km Mesh Radio" },
-  { name: "Capacitive TDR Soil Probe", image: "/iMAGES/61tRSzcqmYL._AC_UF1000,1000_QL80_.jpg", spec: "Dual-Depth Waterproof (0.5m / 1.5m)", volt: "3.3V DC", current: "5.0 mA", cost: "₹1,200", role: "Volumetric Soil Moisture" },
-  { name: "CN3791 MPPT Solar Core", image: "/iMAGES/CN3791-12V-MPPT-Solar-Charger-Module-6.png", spec: "6V Solar Charger (LiFePO4 float)", volt: "6.0V Input", current: "10 µA (Quiescent)", cost: "₹850", role: "MPPT Solar Harvesting" },
-  { name: "PC817 Optocoupler Relay", image: "/iMAGES/PC817_4-Channel_Optocoupler_Isolation_Module_1.webp", spec: "Galvanic Solid-State Relay Trip", volt: "5V / 24V", current: "10 mA", cost: "₹180", role: "Sub-120ms Siren & Barrier Trip" },
-  { name: "TS-300B Turbidity Sensor", image: "/iMAGES/ts-300b-quality-turbidity-sensor-module-jpg_q50_2_.jpg", spec: "Optical Sediment & Silt Detector", volt: "5.0V DC", current: "30 mA", cost: "₹450", role: "Riparian Mud Debris Detection" },
-  { name: "3.2V 6000mAh LiFePO4", image: "/iMAGES/61yteBLy4PL._AC_UF1000,1000_QL80_.jpg", spec: "Grade A (-20°C to +65°C, 3000+ Cycles)", volt: "3.2V Nom", current: "19.2 Wh Storage", cost: "₹950", role: "82.7-Day Dark Power Buffer" }
+  { name: "ESP32-S3-WROOM-1", image: "/prototypes/prototype_esp32_lora_wiring.jpeg", spec: "Dual Xtensa LX7 (240MHz, 8MB PSRAM)", volt: "3.3V DC", current: "15 µA (Sleep) / 240 mA (TX)", cost: "₹480", role: "Sensor Polling & FreeRTOS" },
+  { name: "Semtech SX1262 LoRa", image: "/prototypes/prototype_sensor_breadboard.jpeg", spec: "868 MHz / +22 dBm Frontend", volt: "3.3V DC", current: "160 nA (Sleep) / 118 mA (TX)", cost: "₹650", role: "20-40km Mesh Radio" },
+  { name: "Capacitive TDR Soil Probe", image: "/prototypes/prototype_soil_sensor_live.jpeg", spec: "Dual-Depth Waterproof (0.5m / 1.5m)", volt: "3.3V DC", current: "5.0 mA", cost: "₹1,200", role: "Volumetric Soil Moisture" },
+  { name: "CN3791 MPPT Solar Core", image: "/circuit-diagrams/Power Distrubution part.png", spec: "6V Solar Charger (LiFePO4 float)", volt: "6.0V Input", current: "10 µA (Quiescent)", cost: "₹850", role: "MPPT Solar Harvesting" },
+  { name: "PC817 Optocoupler Relay", image: "/prototypes/prototype_piezo_power_rail.jpeg", spec: "Galvanic Solid-State Relay Trip", volt: "5V / 24V", current: "10 mA", cost: "₹180", role: "Sub-120ms Siren & Barrier Trip" },
+  { name: "TS-300B Turbidity Sensor", image: "/circuit-diagrams/Node 2 - Flash Floods & Water Quality.png", spec: "Optical Sediment & Silt Detector", volt: "5.0V DC", current: "30 mA", cost: "₹450", role: "Riparian Mud Debris Detection" },
+  { name: "3.2V 6000mAh LiFePO4", image: "/prototypes/prototype_workbench_overview.jpeg", spec: "Grade A (-20°C to +65°C, 3000+ Cycles)", volt: "3.2V Nom", current: "19.2 Wh Storage", cost: "₹950", role: "82.7-Day Dark Power Buffer" }
 ];
 ---
 

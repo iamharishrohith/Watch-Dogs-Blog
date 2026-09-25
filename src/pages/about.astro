@@ -1,0 +1,333 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const teamMembers = [
+  {
+    name: "Harish Rohith S",
+    role: "Team Lead & Embedded Systems Architect",
+    specialization: "Dual-Core ESP32-S3 Firmware, 80-D Feature Tensor Processing & Mohr-Coulomb Edge Consensus",
+    initials: "HR",
+    badge: "TEAM LEAD"
+  },
+  {
+    name: "Dharshana B",
+    role: "Geotechnical Physics & Data Modeling",
+    specialization: "Infinite Slope Stability Modeling, TDR Pore Pressure Dynamics & Riparian Erosion Dynamics",
+    initials: "DB",
+    badge: "RESEARCHER"
+  },
+  {
+    name: "Harini K",
+    role: "RF Mesh Protocols & Network Communications",
+    specialization: "868 MHz ISM LoRa Mesh Design, Sub-GHz Link Budgets & Non-Line-of-Sight Packet Propagation",
+    initials: "HK",
+    badge: "RESEARCHER"
+  },
+  {
+    name: "Karthikeyan T",
+    role: "Hardware Prototyping & Sensor Transducers",
+    specialization: "Physical Testbed Calibration, Precision Op-Amp Analog Frontends & Waterproof Enclosures",
+    initials: "KT",
+    badge: "ENGINEER"
+  },
+  {
+    name: "Nandhakishore A",
+    role: "Firmware Engineering & Power Systems",
+    specialization: "FreeRTOS Deterministic Scheduler, MPPT Solar Harvesting & Ultra-Low-Power Sleep Cycles",
+    initials: "NA",
+    badge: "ENGINEER"
+  },
+  {
+    name: "Vimal Kumar G",
+    role: "Edge Intelligence & Full-Stack Systems",
+    specialization: "Raspberry Pi 5 Compute Infrastructure, BSA 2023 Ledger Integration & Digital Twin Dashboards",
+    initials: "VK",
+    badge: "ENGINEER"
+  }
+];
+
+const labTestbedImages = [
+  {
+    src: "/miniature-test-images/testbed_miniature_flume_overview.jpeg",
+    title: "Miniature Landslide & Soil Flume Testbed",
+    tag: "PHYSICAL FLUME TESTBED",
+    desc: "Scaled physical gradient simulator replicating steep Western Ghats slopes (45 deg angle) with controllable hydraulic pore-pressure saturation."
+  },
+  {
+    src: "/miniature-test-images/testbed_slope_soil_matrix.jpeg",
+    title: "Layered Soil Matrix & Saturation Profiling",
+    tag: "SOIL DYNAMICS",
+    desc: "Multi-stratum soil core loaded with calibrated silt, clay, and sand layers to test TDR moisture penetration under simulated heavy precipitation."
+  },
+  {
+    src: "/miniature-test-images/testbed_sensor_probes_rig.jpeg",
+    title: "In-Situ Sensor Probe Array Integration",
+    tag: "PROBE ARRAY",
+    desc: "Direct insertion of dual-depth capacitive TDR probes, micro-piezometers, and 6-DOF IMU sensors for real-time shear displacement capture."
+  },
+  {
+    src: "/miniature-test-images/testbed_water_surge_channel.jpeg",
+    title: "Riparian Flash Flood & Surge Flume Channel",
+    tag: "FLASH FLOOD CHANNEL",
+    desc: "Hydrodynamic test flume evaluating TS-300B optical turbidity response and ultrasonic surface level velocity under sudden surge conditions."
+  },
+  {
+    src: "/miniature-test-images/testbed_hardware_integration.jpeg",
+    title: "Laboratory Interconnect & Telemetry Link",
+    tag: "LABORATORY RIG",
+    desc: "Complete multi-node testbed running synchronous 32-byte binary telemetry transmission across physical sensor channels."
+  }
+];
+
+const workbenchPrototypes = [
+  {
+    src: "/prototypes/prototype_workbench_overview.jpeg",
+    title: "Integrated Electronics Workbench",
+    tag: "TESTBENCH",
+    desc: "Complete hardware assembly showing dual-core ESP32-S3 controllers, SX1262 LoRa transceivers, and live power rails under test."
+  },
+  {
+    src: "/prototypes/prototype_sensor_breadboard.jpeg",
+    title: "SPI & Analog Front-End Conditioning",
+    tag: "CIRCUIT RIG",
+    desc: "Breadboard verification with dedicated LC decoupling filters, I2C bus pullups, and low-noise operational amplifiers."
+  },
+  {
+    src: "/prototypes/prototype_soil_sensor_live.jpeg",
+    title: "Live TDR Moisture & Soil Probe Test",
+    tag: "SENSOR PROOF",
+    desc: "Dynamic calibration of capacitive soil moisture transducers across dry, moist, and 100% saturated volumetric states."
+  },
+  {
+    src: "/prototypes/prototype_testbench_calibration.jpeg",
+    title: "Transducer Calibration & Hydrophone Testing",
+    tag: "CALIBRATION",
+    desc: "Frequency response testing of acoustic emission hydrophones and piezoelectric geophone sensors for micro-fracture acoustic detection."
+  }
+];
+---
+
+<Layout title="Team Monarchs & Physical Lab Testbed — SIH 2026 | WATCH-DOGS" activeNav="about">
+  <div class="container-wide" style="padding-top: 24px;">
+
+    <!-- Breadcrumb & Status Pill -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">
+        <a href="/" style="color: var(--text-secondary); text-decoration: none;">HOME</a>
+        <span>/</span>
+        <span style="color: var(--accent-primary); font-weight: 700;">ABOUT &amp; TEAM MONARCHS</span>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <span class="card-badge badge-brand" style="padding: 6px 12px; font-weight: 800;">SMART INDIA HACKATHON 2026</span>
+        <span class="card-badge badge-safe" style="padding: 6px 12px; font-weight: 800;">SIH 26190</span>
+      </div>
+    </div>
+
+    <!-- Hero Header with Dual Brand Identity -->
+    <div class="bento-card col-12" style="background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%); border: 1.5px solid var(--border-subtle); padding: 32px; margin-bottom: 32px; position: relative; overflow: hidden;">
+      <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+        
+        <!-- Logo Lockup -->
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="background: #FFFFFF; border: 1.5px solid var(--border-medium); border-radius: var(--radius-md); padding: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+            <img src="/logos/Monarchs Logo.png" alt="Team Monarchs Logo" style="width: 84px; height: 84px; object-fit: contain;" />
+          </div>
+          <div style="background: #FFFFFF; border: 1.5px solid var(--border-medium); border-radius: var(--radius-md); padding: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+            <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" style="width: 84px; height: 84px; object-fit: cover; border-radius: var(--radius-sm);" />
+          </div>
+        </div>
+
+        <!-- Text Block -->
+        <div style="flex: 1; min-width: 280px;">
+          <div class="hero-pill" style="margin-bottom: 8px;">TEAM MONARCHS &bull; SIH 26190</div>
+          <h1 style="font-size: 2.2rem; font-weight: 900; margin: 0 0 10px; letter-spacing: -0.02em; color: var(--text-primary);">
+            Engineering Team &amp; Physical Laboratory Testbed
+          </h1>
+          <p style="font-size: 1.0rem; color: var(--text-secondary); line-height: 1.6; margin: 0; max-width: 780px;">
+            We are <strong>Team Monarchs</strong> from <strong>Rathinam Group of Institutions</strong>. Under the Smart India Hackathon 2026 initiative, we designed and physically validated <strong>WATCH-DOGS</strong> — an air-gapped, zero-cloud early warning system engineered to prevent catastrophic loss of life in high-risk Indian disaster zones.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Institutional Logos Bar -->
+      <div style="border-top: 1px solid var(--border-subtle); margin-top: 24px; padding-top: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">
+          Institutional Governance &amp; Hackathon Affiliation:
+        </div>
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+          <img src="/iCONS/rathinam_rgu_logo.png" alt="Rathinam Group of Institutions Logo" style="height: 38px; object-fit: contain;" />
+          <img src="/iCONS/sih_2026_lockup_logo.png" alt="Smart India Hackathon 2026" style="height: 38px; object-fit: contain;" />
+          <img src="/iCONS/sih_moe_aicte_logo.png" alt="Ministry of Education & AICTE" style="height: 34px; object-fit: contain;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Leadership & Mentorship Section -->
+    <div style="margin-bottom: 36px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="hero-pill" style="margin-bottom: 6px;">PROJECT MENTORSHIP</span>
+          <h2 style="font-size: 1.5rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">Academic &amp; Technical Mentorship</h2>
+        </div>
+      </div>
+
+      <!-- Mentor Spotlight Card -->
+      <div class="bento-card col-12" style="background: #FFFFFF; border-left: 5px solid var(--accent-primary); padding: 24px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+        <div style="width: 64px; height: 64px; border-radius: var(--radius-md); background: #EFF6FF; border: 1.5px solid #BFDBFE; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 1.3rem; font-weight: 900; color: var(--accent-primary);">
+          AK
+        </div>
+        <div style="flex: 1; min-width: 260px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+            <h3 style="font-size: 1.3rem; font-weight: 900; margin: 0; color: var(--text-primary);">Dr. K Arun Kumar</h3>
+            <span class="card-badge badge-brand" style="font-size: 0.7rem; font-weight: 800;">PROJECT MENTOR</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-primary); font-weight: 700; margin-bottom: 6px;">
+            Academic Advisor &bull; Department of Electronics &amp; Communication / Computer Science Engineering
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+            Providing research direction, geomechanical methodology oversight, telemetry validation, and experimental rig verification for the WATCH-DOGS multi-hazard edge early warning architecture.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Engineering Team Matrix -->
+    <div style="margin-bottom: 40px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="hero-pill" style="margin-bottom: 6px;">CORE RESEARCH TEAM</span>
+          <h2 style="font-size: 1.5rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">Team Monarchs Members &amp; Domain Roles</h2>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); font-weight: 700;">
+          6 RESEARCHERS &bull; RATHINAM GROUP OF INSTITUTIONS
+        </div>
+      </div>
+
+      <div class="bento-grid">
+        {teamMembers.map((member, idx) => (
+          <div class={`bento-card ${idx === 0 ? 'col-12' : 'col-6'}`} style={`border-top: 4px solid ${idx === 0 ? 'var(--accent-primary)' : 'var(--border-medium)'}; background: #FFFFFF;`}>
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <div style={`width: 48px; height: 48px; border-radius: var(--radius-sm); background: ${idx === 0 ? '#EFF6FF' : '#F1F5F9'}; border: 1px solid ${idx === 0 ? '#BFDBFE' : 'var(--border-subtle)'}; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 1.1rem; font-weight: 900; color: ${idx === 0 ? 'var(--accent-primary)' : 'var(--text-primary)'}; flex-shrink: 0;`}>
+                {member.initials}
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; flex-wrap: wrap; gap: 6px;">
+                  <h3 style="font-size: 1.1rem; font-weight: 900; margin: 0; color: var(--text-primary);">
+                    {idx === 0 ? `Team Lead: ${member.name}` : `${idx}. ${member.name}`}
+                  </h3>
+                  <span class={`card-badge ${idx === 0 ? 'badge-brand' : 'badge-safe'}`} style="font-size: 0.68rem;">
+                    {member.badge}
+                  </span>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 6px;">
+                  {member.role}
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45; margin: 0;">
+                  {member.specialization}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Physical Laboratory Miniature Testbed Section -->
+    <div style="margin-bottom: 40px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="hero-pill" style="margin-bottom: 6px;">LABORATORY TESTBED</span>
+          <h2 style="font-size: 1.5rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">Physical Landslide &amp; Riparian Flume Simulation Rig</h2>
+        </div>
+        <span class="card-badge badge-safe" style="padding: 6px 12px; font-weight: 800;">SCALE EXPERIMENTAL VERIFICATION</span>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; max-width: 900px;">
+        To validate the edge-computed Mohr-Coulomb stability models without relying on synthetic numerical assumptions, Team Monarchs engineered a scaled, instrumented physical flume simulator. The apparatus features gradient adjustments, controlled pore-water infiltration, dynamic silt-loading channels, and real-time sensor transducer arrays.
+      </p>
+
+      <div class="bento-grid">
+        {labTestbedImages.map((item, idx) => (
+          <div class={`bento-card ${idx === 0 ? 'col-8' : idx === 1 ? 'col-4' : 'col-4'}`} style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-primary); background: #FFFFFF;">
+            <div class="screen-fit-container" style="margin: 0; border: none; border-radius: 0;">
+              <div class="screen-fit-header" style="background: #0f172a; color: #FFFFFF; padding: 8px 12px;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: #93C5FD;">{item.tag}</span>
+                <button type="button" class="screen-fit-inspect-btn image-lightbox-trigger" data-lightbox-src={item.src} data-lightbox-title={item.title} data-lightbox-caption={item.desc} style="background: #1e293b; color: #FFFFFF; border: 1px solid #334155; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; cursor: pointer;">
+                  EXPAND SCREEN-FIT
+                </button>
+              </div>
+              <div class="screen-fit-image-wrapper image-lightbox-trigger" data-lightbox-src={item.src} data-lightbox-title={item.title} data-lightbox-caption={item.desc} style="height: 220px; cursor: pointer;">
+                <img src={item.src} alt={item.title} style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+            </div>
+            <div style="padding: 16px;">
+              <h3 style="font-size: 0.98rem; font-weight: 800; margin: 0 0 4px; color: var(--text-primary);">{item.title}</h3>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45; margin: 0;">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Real Working Hardware Prototype Gallery -->
+    <div style="margin-bottom: 40px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="hero-pill" style="margin-bottom: 6px;">HARDWARE WORKBENCH</span>
+          <h2 style="font-size: 1.5rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">Live Prototype Circuits &amp; Calibration Bench</h2>
+        </div>
+        <span class="card-badge badge-brand" style="padding: 6px 12px; font-weight: 800;">ZERO MOCK &bull; PHYSICAL SILICON</span>
+      </div>
+
+      <div class="bento-grid">
+        {workbenchPrototypes.map((proto) => (
+          <div class="bento-card col-6" style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-success); background: #FFFFFF;">
+            <div class="screen-fit-container" style="margin: 0; border: none; border-radius: 0;">
+              <div class="screen-fit-header" style="background: #0f172a; color: #FFFFFF; padding: 8px 12px;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: #86EFAC;">{proto.tag}</span>
+                <button type="button" class="screen-fit-inspect-btn image-lightbox-trigger" data-lightbox-src={proto.src} data-lightbox-title={proto.title} data-lightbox-caption={proto.desc} style="background: #1e293b; color: #FFFFFF; border: 1px solid #334155; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; cursor: pointer;">
+                  EXPAND SCREEN-FIT
+                </button>
+              </div>
+              <div class="screen-fit-image-wrapper image-lightbox-trigger" data-lightbox-src={proto.src} data-lightbox-title={proto.title} data-lightbox-caption={proto.desc} style="height: 220px; cursor: pointer;">
+                <img src={proto.src} alt={proto.title} style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+            </div>
+            <div style="padding: 16px;">
+              <h3 style="font-size: 0.98rem; font-weight: 800; margin: 0 0 4px; color: var(--text-primary);">{proto.title}</h3>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45; margin: 0;">{proto.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Engineering Philosophy Matrix -->
+    <div class="bento-card col-12" style="background: var(--bg-secondary); border: 1.5px solid var(--border-subtle); padding: 24px; margin-bottom: 40px;">
+      <div style="margin-bottom: 16px;">
+        <span class="card-badge badge-brand">CORE VALUES</span>
+        <h3 style="font-size: 1.2rem; font-weight: 900; margin: 4px 0 0;">Engineering Discipline &amp; Disaster Resilience Standards</h3>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+        <div style="background: #FFFFFF; padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 4px;">01 &bull; 0% CLOUD DEPENDENCY</div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">Disaster onset destroys optical backhauls and cellular towers. Edge nodes must evaluate risk and sound sirens completely air-gapped.</p>
+        </div>
+        <div style="background: #FFFFFF; padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; color: var(--accent-success); margin-bottom: 4px;">02 &bull; ZERO MOCK DATASET POLICY</div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">Every feature tensor is driven by physical transducers, calibrated in water flumes, and verified against geomechanical formulas.</p>
+        </div>
+        <div style="background: #FFFFFF; padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; color: var(--accent-hazard); margin-bottom: 4px;">03 &bull; SUB-120ms PHYSICAL TRIP</div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">Optocoupler solid-state relays isolate civil defense sirens, traffic flood barriers, and emergency gas cut-offs in under 120 milliseconds.</p>
+        </div>
+        <div style="background: #FFFFFF; padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; color: var(--accent-brand); margin-bottom: 4px;">04 &bull; BSA 2023 TAMPER PROOF</div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">Section 65B SHA-256 state hashing produces a continuous cryptographic ledger admissible in legal inquiry and civil defense reviews.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>
