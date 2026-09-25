@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 - Page Not Found | WATCH-DOGS Research Portal">
+  <div class="notfound-container">
+    <div class="notfound-badge">STATUS: 404 ERROR</div>
+    <h1 class="notfound-title">Navigation Target Not Found</h1>
+    <p class="notfound-subtitle">
+      The requested endpoint does not exist or has been relocated. Access the centralized project gateway or return to the research portal overview.
+    </p>
+
+    <div class="notfound-actions">
+      <a href="/links" class="btn-primary">Open Unified Gateway →</a>
+      <a href="/" class="btn-secondary">Return to Research Portal</a>
+    </div>
+
+    <div class="quick-directory">
+      <h3>Direct Quick Links</h3>
+      <div class="quick-grid">
+        <a href="/" class="quick-item">Overview & Executive Summary</a>
+        <a href="/circuits" class="quick-item">Circuit Schematics & Hardware</a>
+        <a href="/research" class="quick-item">Research Papers & References</a>
+        <a href="/about" class="quick-item">Technical Team & Advisory</a>
+        <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener" class="quick-item">GitHub Repository ↗</a>
+        <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener" class="quick-item">3D Digital Twin ↗</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .notfound-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    text-align: center;
+  }
+  .notfound-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.25rem;
+  }
+  .notfound-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+  }
+  .notfound-subtitle {
+    font-size: 1.05rem;
+    color: #475569;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+  }
+  .notfound-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: #0284c7;
+    color: #ffffff;
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-primary:hover {
+    background: #0369a1;
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: #f8fafc;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-secondary:hover {
+    background: #f1f5f9;
+  }
+  .quick-directory {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 2rem;
+    text-align: left;
+  }
+  .quick-directory h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-bottom: 1rem;
+  }
+  .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+  .quick-item {
+    padding: 0.75rem 1rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    color: #1e293b;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .quick-item:hover {
+    background: #f0f9ff;
+    border-color: #0284c7;
+    color: #0284c7;
+  }
+</style>

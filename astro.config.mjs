@@ -1,6 +1,9 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://watchdogs-earlywarning.gov.in'
+  adapter: vercel(),
+  site: 'https://watch-dogs-research.vercel.app',
+  trailingSlash: 'ignore'
 });
