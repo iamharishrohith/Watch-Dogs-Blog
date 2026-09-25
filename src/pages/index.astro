@@ -38,8 +38,112 @@ import Layout from '../layouts/Layout.astro';
       </p>
 
       <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <a href="#signal-field" style="background: var(--bg-contrast); color: #ffffff; padding: 12px 24px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600;">ENTER THE RESEARCH &darr;</a>
-        <a href="#lab-testbed" style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 12px 24px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600;">INSPECT HARDWARE BENCHMARK &rarr;</a>
+        <a href="#bento-matrix" style="background: var(--bg-contrast); color: #ffffff; padding: 12px 24px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600;">EXPLORE BENTO MATRIX &darr;</a>
+        <a href="/circuits" style="background: #EFF6FF; border: 1.5px solid #BFDBFE; color: var(--accent-primary); padding: 12px 24px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700;">⚡ MASTER CIRCUITS &amp; PINOUTS &rarr;</a>
+        <a href="#lab-testbed" style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); padding: 12px 24px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600;">INSPECT HARDWARE &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       00. MASTER BENTO SYSTEM NAVIGATOR
+       ============================================================ -->
+  <section id="bento-matrix" style="padding: 40px 0 60px; background: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="hero-pill" style="margin-bottom: 6px;">PLATFORM OVERVIEW &bull; BENTO GRID MATRIX</span>
+          <h2 style="font-size: 2.0rem; font-weight: 900; letter-spacing: -0.02em; margin: 0;">
+            Core Subsystem Architecture &amp; Schematics
+          </h2>
+        </div>
+        <span class="card-badge badge-brand" style="padding: 6px 12px; font-weight: 800;">6 INTERCONNECTED PILLARS</span>
+      </div>
+
+      <div class="bento-nav-grid" style="margin: 0;">
+        <!-- Card 1: Master Circuits -->
+        <a href="/circuits" class="bento-nav-card col-4" style="border-top: 4px solid var(--accent-primary);">
+          <div class="bento-card-top">
+            <div class="bento-card-icon">⚡</div>
+            <span class="card-badge badge-brand">CIRCUITS &amp; PINOUTS</span>
+          </div>
+          <div class="bento-card-title">Master Circuit Schematics &amp; Pinout Wiremaps</div>
+          <div class="bento-card-desc">Complete schematic diagrams for 4 physical nodes, ESP32 GPIO allocation matrix, FreeRTOS bus maps, and MPPT solar charging.</div>
+          <div class="bento-card-footer">
+            <span>INSPECT ALL 4 CIRCUITS</span>
+            <span class="bento-card-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 2: Edge Intelligence -->
+        <a href="/intelligence" class="bento-nav-card col-4" style="border-top: 4px solid #8B5CF6;">
+          <div class="bento-card-top">
+            <div class="bento-card-icon">🧠</div>
+            <span class="card-badge badge-brand">8.4ms ON PI 5</span>
+          </div>
+          <div class="bento-card-title">Edge AI &amp; Sensor Fusion Intelligence</div>
+          <div class="bento-card-desc">80-D rolling temporal tensor, XGBoost 2.0 classifier, and Mohr-Coulomb infinite slope stability physics consensus.</div>
+          <div class="bento-card-footer">
+            <span>VIEW ML PIPELINE</span>
+            <span class="bento-card-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 3: LoRa Radio Mesh -->
+        <a href="/communication" class="bento-nav-card col-4" style="border-top: 4px solid #10B981;">
+          <div class="bento-card-top">
+            <div class="bento-card-icon">📻</div>
+            <span class="card-badge badge-safe">868 MHz ISM</span>
+          </div>
+          <div class="bento-card-title">Air-Gapped LoRa Mesh Protocol</div>
+          <div class="bento-card-desc">40km non-line-of-sight self-healing radio mesh utilizing custom packed 32-byte binary frames with zero cloud reliance.</div>
+          <div class="bento-card-footer">
+            <span>EXPLORE RF PROTOCOL</span>
+            <span class="bento-card-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 4: In-Situ Sensing -->
+        <a href="/sensing" class="bento-nav-card col-4" style="border-top: 4px solid #F59E0B;">
+          <div class="bento-card-top">
+            <div class="bento-card-icon">🌊</div>
+            <span class="card-badge badge-warning">20 SENSOR CHANNELS</span>
+          </div>
+          <div class="bento-card-title">Multi-Hazard In-Situ Transducers</div>
+          <div class="bento-card-desc">TDR soil moisture probes, SS316 hydrostatic piezometers, MPU6050 6-DOF IMUs, and laser ToF riverbed ranging.</div>
+          <div class="bento-card-footer">
+            <span>EXPLORE TRANSDUCERS</span>
+            <span class="bento-card-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 5: Sub-120ms Actuation -->
+        <a href="/actuation" class="bento-nav-card col-4" style="border-top: 4px solid #EF4444;">
+          <div class="bento-card-top">
+            <div class="bento-card-icon">🚨</div>
+            <span class="card-badge badge-danger">SUB-120ms TRIP</span>
+          </div>
+          <div class="bento-card-title">Civil Defense Relays &amp; Actuators</div>
+          <div class="bento-card-desc">130dB multi-tone civil sirens, motorized road barriers, and autonomous MAVLink SAR drone dispatch.</div>
+          <div class="bento-card-footer">
+            <span>VIEW ACTUATORS</span>
+            <span class="bento-card-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 6: Forensic Case Studies -->
+        <a href="/research" class="bento-nav-card col-4" style="border-top: 4px solid #06B6D4;">
+          <div class="bento-card-top">
+            <div class="bento-card-icon">📜</div>
+            <span class="card-badge badge-brand">EMPIRICAL PROOF</span>
+          </div>
+          <div class="bento-card-title">10-Year Forensic Disaster Archive</div>
+          <div class="bento-card-desc">Real-world ground failure analyses and physical flume experiments for Wayanad, Kedarnath, and Bhopal.</div>
+          <div class="bento-card-footer">
+            <span>READ CASE STUDIES</span>
+            <span class="bento-card-arrow">&rarr;</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>

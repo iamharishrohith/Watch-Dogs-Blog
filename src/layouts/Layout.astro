@@ -48,29 +48,194 @@ const navItems = [
         <span style="color: var(--text-secondary); font-size: 0.72rem;">SIH 2026 RESEARCH PUBLICATION</span>
       </div>
 
-      <nav>
+      <nav style="display: flex; align-items: center; gap: 8px;">
         <ul class="nav-links">
-          {navItems.map((item) => (
-            <li>
-              <a 
-                href={item.href} 
-                class={activeNav === item.href.replace('/', '') || (item.href === '/' && activeNav === '') ? 'active' : ''}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          <li><a href="/" class={activeNav === '' || activeNav === 'index' ? 'active' : ''}>Overview</a></li>
+          <li><a href="/circuits" class={activeNav === 'circuits' ? 'active' : ''}>⚡ Circuits &amp; Pinouts</a></li>
+          <li><a href="/intelligence" class={activeNav === 'intelligence' ? 'active' : ''}>🧠 Edge AI</a></li>
+          <li><a href="/communication" class={activeNav === 'communication' ? 'active' : ''}>📻 LoRa Mesh</a></li>
+          <li><a href="/research" class={activeNav === 'research' ? 'active' : ''}>📜 Forensic Studies</a></li>
         </ul>
+
+        <!-- Bento Grid Nav Trigger Button -->
+        <button type="button" id="bento-hub-toggle" class="failure-trigger-btn" style="padding: 6px 14px; display: inline-flex; align-items: center; gap: 6px; font-weight: 800; background: #EFF6FF; border-color: #BFDBFE; color: var(--accent-primary);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+          <span>BENTO NAV</span>
+        </button>
       </nav>
 
       <div style="display: flex; align-items: center; gap: 12px;">
         <span class="status-badge">
           <span class="pulse-dot"></span>
-          <span>AIR-GAPPED MESH ACTIVE</span>
+          <span>AIR-GAPPED MESH</span>
         </span>
       </div>
     </div>
   </header>
+
+  <!-- Interactive Fullscreen Bento Navigation Hub Modal -->
+  <div id="bento-hub-modal" role="dialog" aria-modal="true">
+    <div class="bento-hub-container">
+      <div class="bento-hub-header">
+        <div>
+          <span class="card-badge badge-brand">WATCH-DOGS ECOSYSTEM MATRIX</span>
+          <h2 style="font-size: 1.5rem; font-weight: 900; margin: 4px 0 0; letter-spacing: -0.02em;">
+            Bento Grid Navigation Hub
+          </h2>
+        </div>
+        <button type="button" class="lightbox-btn" id="bento-hub-close" style="background: #F1F5F9; color: var(--text-primary); border-color: var(--border-subtle);">
+          ✕ CLOSE (ESC)
+        </button>
+      </div>
+
+      <!-- Category 1: Physical Circuits & Hardware -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">
+          ⚡ Physical Electronics &amp; Circuit Wiring
+        </div>
+        <div class="bento-nav-grid" style="margin: 0;">
+          <a href="/circuits" class={`bento-nav-card col-4 ${activeNav === 'circuits' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">⚡</div>
+              <span class="card-badge badge-brand">4 NODES + GATEWAY</span>
+            </div>
+            <div class="bento-card-title">Circuits &amp; Pinout Schematics</div>
+            <div class="bento-card-desc">Master wiring schematics for Hillside Sentinel, Riverbed Surge, Gas Sniffer, Gateway Hub &amp; MPPT Power Tree.</div>
+            <div class="bento-card-footer">
+              <span>EXPLORE SCHEMATICS</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="/hardware" class={`bento-nav-card col-4 ${activeNav === 'hardware' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">🛠️</div>
+              <span class="card-badge badge-safe">₹7,780 TOTAL BOM</span>
+            </div>
+            <div class="bento-card-title">Hardware Architecture &amp; BOM</div>
+            <div class="bento-card-desc">Component specifications, 82.7-day dark autonomy calculator, and IP67 weather-resistant enclosure CAD.</div>
+            <div class="bento-card-footer">
+              <span>VIEW HARDWARE BOM</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="/sensing" class={`bento-nav-card col-4 ${activeNav === 'sensing' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">🌊</div>
+              <span class="card-badge badge-warning">20 SENSOR NODES</span>
+            </div>
+            <div class="bento-card-title">In-Situ Sensing Transducers</div>
+            <div class="bento-card-desc">TDR soil moisture probes, piezometer hydrostatic head, MPU6050 6-DOF IMU, and laser ToF ranging.</div>
+            <div class="bento-card-footer">
+              <span>EXPLORE SENSORS</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 2: Intelligence & Mesh Communications -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">
+          🧠 Edge AI &amp; Air-Gapped Mesh Communications
+        </div>
+        <div class="bento-nav-grid" style="margin: 0;">
+          <a href="/intelligence" class={`bento-nav-card col-4 ${activeNav === 'intelligence' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">🧠</div>
+              <span class="card-badge badge-brand">8.4ms ON PI 5</span>
+            </div>
+            <div class="bento-card-title">Distributed Edge Intelligence</div>
+            <div class="bento-card-desc">80-dimensional feature tensor, XGBoost 2.0 classifier, and Mohr-Coulomb infinite slope physics consensus.</div>
+            <div class="bento-card-footer">
+              <span>INSPECT ML PIPELINE</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="/communication" class={`bento-nav-card col-4 ${activeNav === 'communication' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">📻</div>
+              <span class="card-badge badge-safe">868 MHz ISM</span>
+            </div>
+            <div class="bento-card-title">LoRa Mesh Radio Protocol</div>
+            <div class="bento-card-desc">40km non-line-of-sight binary radio protocol with packed 32-byte frames and zero cloud dependency.</div>
+            <div class="bento-card-footer">
+              <span>INSPECT RF PROTOCOL</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="/architecture" class={`bento-nav-card col-4 ${activeNav === 'architecture' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">🏛️</div>
+              <span class="card-badge badge-brand">4-LAYER STACK</span>
+            </div>
+            <div class="bento-card-title">System Architecture</div>
+            <div class="bento-card-desc">Full cyber-physical stack from in-situ sensor telemetry up to localized civil defense actuation.</div>
+            <div class="bento-card-footer">
+              <span>VIEW 4-LAYER STACK</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Category 3: Actuation, Evacuation & Forensics -->
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">
+          🚨 Civil Defense &amp; Forensic Research
+        </div>
+        <div class="bento-nav-grid" style="margin: 0;">
+          <a href="/actuation" class={`bento-nav-card col-4 ${activeNav === 'actuation' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">🚨</div>
+              <span class="card-badge badge-danger">SUB-120ms TRIP</span>
+            </div>
+            <div class="bento-card-title">Physical Actuation &amp; Sirens</div>
+            <div class="bento-card-desc">130dB civil defense sounders, motorized barrier relays, and autonomous MAVLink SAR drone dispatch.</div>
+            <div class="bento-card-footer">
+              <span>VIEW ACTUATORS</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="/evacuation" class={`bento-nav-card col-4 ${activeNav === 'evacuation' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">🧭</div>
+              <span class="card-badge badge-safe">DYNAMIC ROUTING</span>
+            </div>
+            <div class="bento-card-title">Dynamic Evacuation Guidance</div>
+            <div class="bento-card-desc">A* graph search accounting for road washouts, flood contours, and real-time safe zone capacity.</div>
+            <div class="bento-card-footer">
+              <span>VIEW ROUTING</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="/research" class={`bento-nav-card col-4 ${activeNav === 'research' ? 'active' : ''}`}>
+            <div class="bento-card-top">
+              <div class="bento-card-icon">📜</div>
+              <span class="card-badge badge-warning">10-YEAR ARCHIVE</span>
+            </div>
+            <div class="bento-card-title">Forensic Disaster Case Studies</div>
+            <div class="bento-card-desc">Real-world ground analyses of Wayanad 2024, Kedarnath 2013, Bhopal, and Chamoli debris flows.</div>
+            <div class="bento-card-footer">
+              <span>READ CASE STUDIES</span>
+              <span class="bento-card-arrow">&rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <main>
     <slot />
@@ -241,6 +406,40 @@ const navItems = [
           });
         });
       }
+
+      // Bento Navigation Hub Interaction
+      const bentoToggle = document.getElementById('bento-hub-toggle');
+      const bentoModal = document.getElementById('bento-hub-modal');
+      const bentoClose = document.getElementById('bento-hub-close');
+
+      function openBentoHub() {
+        if (!bentoModal) return;
+        bentoModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeBentoHub() {
+        if (!bentoModal) return;
+        bentoModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (bentoToggle) bentoToggle.addEventListener('click', openBentoHub);
+      if (bentoClose) bentoClose.addEventListener('click', closeBentoHub);
+
+      if (bentoModal) {
+        bentoModal.addEventListener('click', (e) => {
+          if (e.target === bentoModal) {
+            closeBentoHub();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && bentoModal && bentoModal.classList.contains('active')) {
+          closeBentoHub();
+        }
+      });
 
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', bindImages);

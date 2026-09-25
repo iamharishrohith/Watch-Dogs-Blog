@@ -23,26 +23,61 @@ import Layout from '../layouts/Layout.astro';
       Complete electrical wiring diagrams, sensor bus configurations (SPI, I2C, ADC, UART, PWM), power rails, and logic-level isolation across the physical WATCH-DOGS IoT mesh array.
     </p>
 
-    <!-- Interactive Node Selector Tabs -->
-    <div style="display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap;" id="circuit-tabs">
-      <button class="failure-trigger-btn active" data-target="system-bus" style="padding: 10px 20px;">
-        ⚡ MASTER SYSTEM BUS ARCHITECTURE
-      </button>
-      <button class="failure-trigger-btn" data-target="node-1" style="padding: 10px 20px;">
-        🏔️ NODE 1: HILLSIDE SENTINEL
-      </button>
-      <button class="failure-trigger-btn" data-target="node-2" style="padding: 10px 20px;">
-        🌊 NODE 2: RIVERBED SURGE SENTINEL
-      </button>
-      <button class="failure-trigger-btn" data-target="node-3" style="padding: 10px 20px;">
-        🏭 NODE 3: INDUSTRIAL &amp; GAS SENTINEL
-      </button>
-      <button class="failure-trigger-btn" data-target="node-4" style="padding: 10px 20px;">
-        📻 NODE 4 &amp; RPi 5: MASTER GATEWAY
-      </button>
-      <button class="failure-trigger-btn" data-target="power-tree" style="padding: 10px 20px;">
-        🔋 POWER HARVESTING &amp; MPPT
-      </button>
+    <!-- Interactive Bento Node Selector Grid -->
+    <div class="bento-node-grid" id="circuit-tabs">
+      <div class="bento-node-btn active" data-target="system-bus">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 1.1rem;">⚡</span>
+          <span class="card-badge badge-brand" style="font-size: 0.65rem;">TOPOLOGY</span>
+        </div>
+        <div class="bento-node-btn-title">System Bus &amp; Signal</div>
+        <div class="bento-node-btn-sub">Global GPIO &amp; RF Pathway</div>
+      </div>
+
+      <div class="bento-node-btn" data-target="node-1">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 1.1rem;">🏔️</span>
+          <span class="card-badge badge-brand" style="font-size: 0.65rem;">NODE 01</span>
+        </div>
+        <div class="bento-node-btn-title">Hillside Sentinel</div>
+        <div class="bento-node-btn-sub">Soil VWC &bull; MPU6050 &bull; Rain</div>
+      </div>
+
+      <div class="bento-node-btn" data-target="node-2">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 1.1rem;">🌊</span>
+          <span class="card-badge badge-safe" style="font-size: 0.65rem;">NODE 02</span>
+        </div>
+        <div class="bento-node-btn-title">Riverbed Surge</div>
+        <div class="bento-node-btn-sub">Ultrasonic &bull; Laser ToF &bull; DHT</div>
+      </div>
+
+      <div class="bento-node-btn" data-target="node-3">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 1.1rem;">🏭</span>
+          <span class="card-badge badge-warning" style="font-size: 0.65rem;">NODE 03</span>
+        </div>
+        <div class="bento-node-btn-title">Industrial Gas &amp; Shock</div>
+        <div class="bento-node-btn-sub">MQ-135 &bull; Seismic &bull; BMP280</div>
+      </div>
+
+      <div class="bento-node-btn" data-target="node-4">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 1.1rem;">📻</span>
+          <span class="card-badge badge-brand" style="font-size: 0.65rem;">NODE 04</span>
+        </div>
+        <div class="bento-node-btn-title">Base Station Hub</div>
+        <div class="bento-node-btn-sub">LoRa RX &bull; Audio &bull; RPi 5</div>
+      </div>
+
+      <div class="bento-node-btn" data-target="power-tree">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 1.1rem;">🔋</span>
+          <span class="card-badge badge-safe" style="font-size: 0.65rem;">POWER</span>
+        </div>
+        <div class="bento-node-btn-title">MPPT Power Tree</div>
+        <div class="bento-node-btn-sub">CN3791 &bull; LiFePO4 &bull; 82.7-Day</div>
+      </div>
     </div>
 
     <!-- ============================================================
@@ -688,7 +723,7 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Client-Side Tab Switcher Script -->
   <script is:inline>
-    const tabs = document.querySelectorAll('#circuit-tabs button');
+    const tabs = document.querySelectorAll('#circuit-tabs .bento-node-btn, #circuit-tabs button');
     const sections = document.querySelectorAll('.circuit-section');
 
     tabs.forEach(tab => {
