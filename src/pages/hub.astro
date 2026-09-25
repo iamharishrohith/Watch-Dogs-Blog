@@ -11,255 +11,222 @@ import Layout from '../layouts/Layout.astro';
 >
   <div class="portfolio-screen-container">
     
-    <!-- Top Portfolio Brand Header -->
+    <!-- Top Master Portfolio Header -->
     <header class="portfolio-header">
-      <div class="header-left">
+      <div class="header-brand">
         <div class="logo-stack">
-          <div class="logo-badge">
+          <div class="logo-box">
             <img src="/logos/Monarchs Logo.png" alt="Team Monarchs Logo" class="logo-img" />
           </div>
-          <div class="logo-badge">
-            <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" class="logo-img rounded" />
+          <div class="logo-box">
+            <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" class="logo-img round" />
           </div>
         </div>
-        <div class="title-stack">
-          <div class="team-label">TEAM MONARCHS &bull; UNIFIED GATEWAY</div>
-          <h1 class="project-headline">WATCH-DOGS</h1>
+        <div class="brand-titles">
+          <div class="team-sub">TEAM MONARCHS &bull; UNIFIED PROJECT GATEWAY</div>
+          <h1 class="project-title">WATCH-DOGS</h1>
         </div>
       </div>
 
       <div class="header-center">
-        <div class="acronym-title">Wireless Autonomous Telemetry, Critical Hazard Detection &amp; Optocoupled Ground System</div>
-        <div class="mission-tagline">Air-Gapped Multi-Hazard Edge Intelligence &bull; Physics-Informed Neural Networks (PINN) &bull; Sub-120ms Tripping</div>
+        <div class="acronym-text">Wireless Autonomous Telemetry, Critical Hazard Detection &amp; Optocoupled Ground System</div>
+        <div class="mission-text">Air-Gapped Edge Appliance &bull; Physics-Informed Neural Networks (PINN) &bull; Sub-120ms Civil Defense Relay Actuation</div>
       </div>
 
-      <div class="header-right">
-        <div class="badge-row">
-          <span class="status-chip safe">0% CLOUD</span>
-          <span class="status-chip brand">868 MHz MESH</span>
-          <span class="status-chip gold">BSA 2023 SEC 65B</span>
-          <span class="status-chip red">SUB-120ms TRIP</span>
-        </div>
+      <div class="header-badges">
+        <span class="chip chip-safe">0% CLOUD</span>
+        <span class="chip chip-brand">868 MHz MESH</span>
+        <span class="chip chip-gold">BSA 2023 SEC 65B</span>
+        <span class="chip chip-red">SUB-120ms TRIP</span>
       </div>
     </header>
 
-    <!-- Master Bento Portfolio Matrix (Compact Viewport Fit) -->
+    <!-- Master 3x2 Bento Portfolio Grid (Rich Content, Zero Void) -->
     <main class="portfolio-bento-grid">
       
-      <!-- Card 01: Core Engineering Repository (Hero Blue) -->
-      <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener noreferrer" class="portfolio-card card-repo">
-        <div class="card-main-content">
-          <div class="card-topbar">
-            <div class="icon-title-wrap">
-              <div class="card-icon blue">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-              </div>
-              <div class="card-title-group">
-                <span class="card-num blue">01 &bull; CORE SOURCE CODE</span>
-                <h2 class="card-title">Core Engineering Repository</h2>
-              </div>
-            </div>
-            <span class="card-arrow">&rarr;</span>
+      <!-- Card 01: Core Engineering Repository (Blue) -->
+      <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener noreferrer" class="portfolio-card card-blue">
+        <div class="card-head">
+          <div class="icon-circle icon-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
           </div>
-          
-          <div class="card-link-text blue">github.com/iamharishrohith/WATCH-DOGS ↗</div>
-          <p class="card-desc">4 ESP32-S3 firmware nodes, FastAPI edge server, PyTorch PINN model, physical flume datasets &amp; Section 65B SQLite WAL ledger.</p>
-
-          <div class="card-pill-cloud">
-            <span class="pill">ESP32-S3 Firmware (4 Nodes)</span>
-            <span class="pill">FastAPI Edge Server</span>
-            <span class="pill">PyTorch PINN Core</span>
-            <span class="pill">Flume Calibration Datasets</span>
-            <span class="pill">Section 65B WAL Ledger</span>
+          <div class="head-meta">
+            <span class="tag-num tag-blue">01 &bull; SOURCE REPOSITORY</span>
+            <h2 class="card-name">Core Engineering Repository</h2>
           </div>
         </div>
 
-        <div class="card-bottom-bar">
-          <span class="card-stat">Production Ready &bull; C++20 / Python 3.11</span>
-          <span class="card-action-btn blue">OPEN REPOSITORY ↗</span>
+        <div class="url-badge url-blue">github.com/iamharishrohith/WATCH-DOGS ↗</div>
+
+        <ul class="feature-list">
+          <li><strong>ESP32-S3 Firmware:</strong> 4 node microcontrollers in C++20 / FreeRTOS</li>
+          <li><strong>Edge Server:</strong> Raspberry Pi 5 + LibTorch C++ runtime &amp; FastAPI</li>
+          <li><strong>PINN Model:</strong> PyTorch Physics-Informed Mohr-Coulomb NN</li>
+          <li><strong>Datasets:</strong> Multi-sensor physical flume calibration CSVs</li>
+          <li><strong>Evidence Ledger:</strong> Section 65B SQLite WAL tamper-proof audit trail</li>
+        </ul>
+
+        <div class="btn-action btn-blue">
+          <span>OPEN REPOSITORY</span>
+          <span class="btn-arrow">&rarr;</span>
         </div>
       </a>
 
       <!-- Card 02: Geospatial 3D Digital Twin (Indigo) -->
-      <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card card-twin">
-        <div class="card-main-content">
-          <div class="card-topbar">
-            <div class="icon-title-wrap">
-              <div class="card-icon indigo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m21.12 6.4-6.05-4.06a2 2 0 0 0-2.17-.05L2.95 8.41a2 2 0 0 0-.95 1.7v5.78a2 2 0 0 0 .96 1.71l10 5.71a2 2 0 0 0 1.98 0l6.18-3.53a2 2 0 0 0 1-1.74V8.14a2 2 0 0 0-1.02-1.74z"/><path d="m3.27 6.96 9.73 5.55 9.73-5.55"/><path d="M12 22.08V12.51"/></svg>
-              </div>
-              <div class="card-title-group">
-                <span class="card-num indigo">02 &bull; 3D DIGITAL TWIN</span>
-                <h2 class="card-title">Geospatial 3D Digital Twin</h2>
-              </div>
-            </div>
-            <span class="card-arrow">&rarr;</span>
+      <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card card-indigo">
+        <div class="card-head">
+          <div class="icon-circle icon-indigo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m21.12 6.4-6.05-4.06a2 2 0 0 0-2.17-.05L2.95 8.41a2 2 0 0 0-.95 1.7v5.78a2 2 0 0 0 .96 1.71l10 5.71a2 2 0 0 0 1.98 0l6.18-3.53a2 2 0 0 0 1-1.74V8.14a2 2 0 0 0-1.02-1.74z"/><path d="m3.27 6.96 9.73 5.55 9.73-5.55"/><path d="M12 22.08V12.51"/></svg>
           </div>
-
-          <div class="card-link-text indigo">watch-dogs-3d.vercel.app ↗</div>
-          <p class="card-desc">Interactive WebGL 3D elevation terrain, real-time node telemetry visualization, dynamic flood surges &amp; dynamic A* evacuation routes.</p>
-
-          <div class="card-pill-cloud">
-            <span class="pill">7 Disaster Biomes (Wayanad, Kedarnath)</span>
-            <span class="pill">Live Mesh Telemetry</span>
-            <span class="pill">Flood Surge Simulation</span>
-            <span class="pill">A* Dynamic Evacuation Routing</span>
+          <div class="head-meta">
+            <span class="tag-num tag-indigo">02 &bull; 3D DIGITAL TWIN</span>
+            <h2 class="card-name">Geospatial 3D Digital Twin</h2>
           </div>
         </div>
 
-        <div class="card-bottom-bar">
-          <span class="card-stat">Three.js &bull; WebGL &bull; Real-Time</span>
-          <span class="card-action-btn indigo">LAUNCH 3D TWIN ↗</span>
+        <div class="url-badge url-indigo">watch-dogs-3d.vercel.app ↗</div>
+
+        <ul class="feature-list">
+          <li><strong>7 Indian Biomes:</strong> Real elevations for Wayanad, Kedarnath, Similipal</li>
+          <li><strong>Live Telemetry:</strong> Real-time 3D node status &amp; RF link indicators</li>
+          <li><strong>Hydrodynamic Surge:</strong> Dynamic particle flood &amp; debris flow simulation</li>
+          <li><strong>AI Evacuation:</strong> Dynamic A* Dijkstra graph search avoiding disaster fronts</li>
+          <li><strong>Zero Cloud Twin:</strong> 100% Client-side WebGL / Three.js physics renderer</li>
+        </ul>
+
+        <div class="btn-action btn-indigo">
+          <span>LAUNCH 3D DIGITAL TWIN</span>
+          <span class="btn-arrow">&rarr;</span>
         </div>
       </a>
 
-      <!-- Card 03: Research & Evidence Portal (Teal) -->
-      <a href="/" class="portfolio-card card-research">
-        <div class="card-main-content">
-          <div class="card-topbar">
-            <div class="icon-title-wrap">
-              <div class="card-icon teal">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-              </div>
-              <div class="card-title-group">
-                <span class="card-num teal">03 &bull; EVIDENCE DOSSIER</span>
-                <h2 class="card-title">Research &amp; Evidence Web Portal</h2>
-              </div>
-            </div>
-            <span class="card-arrow">&rarr;</span>
+      <!-- Card 03: Research & Evidence Web Portal (Teal) -->
+      <a href="/" class="portfolio-card card-teal">
+        <div class="card-head">
+          <div class="icon-circle icon-teal">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
           </div>
-
-          <div class="card-link-text teal">watch-dogs-research.vercel.app</div>
-          <p class="card-desc">Multi-hazard technical dossier, 10-year forensic case studies (Wayanad, Kedarnath), geomechanical PINN formulas &amp; legal proofs.</p>
-
-          <div class="card-pill-cloud">
-            <span class="pill">10-Year Forensic Disaster Audits</span>
-            <span class="pill">Mohr-Coulomb Geomechanics</span>
-            <span class="pill">Sub-120ms Tripping Consensus</span>
-            <span class="pill">BSA 2023 Cryptographic Proofs</span>
+          <div class="head-meta">
+            <span class="tag-num tag-teal">03 &bull; EVIDENCE DOSSIER</span>
+            <h2 class="card-name">Research &amp; Evidence Web Portal</h2>
           </div>
         </div>
 
-        <div class="card-bottom-bar">
-          <span class="card-stat">Interactive Scientific Dossier</span>
-          <span class="card-action-btn teal">EXPLORE PORTAL &rarr;</span>
+        <div class="url-badge url-teal">watch-dogs-research.vercel.app</div>
+
+        <ul class="feature-list">
+          <li><strong>10-Year Case Studies:</strong> Forensic audits of Wayanad 2024, Kedarnath 2013</li>
+          <li><strong>Geomechanical Math:</strong> Mohr-Coulomb &amp; infinite slope stability tensors</li>
+          <li><strong>Air-Gapped Protocol:</strong> 868 MHz binary LoRa mesh multi-hop consensus</li>
+          <li><strong>Sub-120ms Tripping:</strong> Hardware interrupt benchmarks &amp; timing verification</li>
+          <li><strong>Legal Admissibility:</strong> BSA 2023 §65B Certificate generation engine</li>
+        </ul>
+
+        <div class="btn-action btn-teal">
+          <span>EXPLORE EVIDENCE PORTAL</span>
+          <span class="btn-arrow">&rarr;</span>
         </div>
       </a>
 
       <!-- Card 04: Circuit Schematics & Pinouts (Emerald) -->
-      <a href="/circuits" class="portfolio-card card-circuits">
-        <div class="card-main-content">
-          <div class="card-topbar">
-            <div class="icon-title-wrap">
-              <div class="card-icon emerald">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
-              </div>
-              <div class="card-title-group">
-                <span class="card-num emerald">04 &bull; HARDWARE SCHEMATICS</span>
-                <h2 class="card-title">Circuit Schematics &amp; Pinouts</h2>
-              </div>
-            </div>
-            <span class="card-arrow">&rarr;</span>
+      <a href="/circuits" class="portfolio-card card-emerald">
+        <div class="card-head">
+          <div class="icon-circle icon-emerald">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
           </div>
-
-          <div class="card-link-text emerald">/circuits &bull; 8 Interactive HD Wiremaps</div>
-          <p class="card-desc">Full HD wiring schematics for Sentinel nodes, MPPT solar rails, LC decoupling filters &amp; optocoupled solid-state relays.</p>
-
-          <div class="card-pill-cloud">
-            <span class="pill">Hillside Sentinel Node</span>
-            <span class="pill">Riverbed Surge Node</span>
-            <span class="pill">Gas Sniffer Node</span>
-            <span class="pill">Gateway Hub</span>
-            <span class="pill">Optocoupled Relays</span>
+          <div class="head-meta">
+            <span class="tag-num tag-emerald">04 &bull; HARDWARE CIRCUITS</span>
+            <h2 class="card-name">Circuit Schematics &amp; Pinouts</h2>
           </div>
         </div>
 
-        <div class="card-bottom-bar">
-          <span class="card-stat">KiCad Schematics &bull; Full HD Pinouts</span>
-          <span class="card-action-btn emerald">VIEW SCHEMATICS &rarr;</span>
+        <div class="url-badge url-emerald">/circuits &bull; 8 Interactive HD Wiremaps</div>
+
+        <ul class="feature-list">
+          <li><strong>Hillside Sentinel:</strong> TDR moisture + MPU6050 6-DOF IMU + MPPT tree</li>
+          <li><strong>Riverbed Surge:</strong> Piezometer hydrostatic head + ToF laser range</li>
+          <li><strong>Gas Sniffer:</strong> MQ atmospheric transducer array + LoRa SX1262</li>
+          <li><strong>Optocoupled Isolation:</strong> PC817 galvanic safety &amp; 130dB siren relay</li>
+          <li><strong>Power Tree:</strong> LiFePO4 battery management &amp; 82.7-day autonomy</li>
+        </ul>
+
+        <div class="btn-action btn-emerald">
+          <span>VIEW INTERACTIVE SCHEMATICS</span>
+          <span class="btn-arrow">&rarr;</span>
         </div>
       </a>
 
-      <!-- Card 05: Physical Testbed Demonstration Video (Rose) -->
-      <a href="https://youtu.be/watch-dogs-demo" target="_blank" rel="noopener noreferrer" class="portfolio-card card-video">
-        <div class="card-main-content">
-          <div class="card-topbar">
-            <div class="icon-title-wrap">
-              <div class="card-icon rose">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m10 15 5-3-5-3v6Z"/><rect width="20" height="14" x="2" y="5" rx="2"/></svg>
-              </div>
-              <div class="card-title-group">
-                <span class="card-num rose">05 &bull; BENCHMARK VIDEO</span>
-                <h2 class="card-title">Physical Hardware Video Demo</h2>
-              </div>
-            </div>
-            <span class="card-arrow">&rarr;</span>
+      <!-- Card 05: Physical Hardware Video Demo (Rose) -->
+      <a href="https://youtu.be/watch-dogs-demo" target="_blank" rel="noopener noreferrer" class="portfolio-card card-rose">
+        <div class="card-head">
+          <div class="icon-circle icon-rose">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m10 15 5-3-5-3v6Z"/><rect width="20" height="14" x="2" y="5" rx="2"/></svg>
           </div>
-
-          <div class="card-link-text rose">youtu.be/watch-dogs-demo ↗</div>
-          <p class="card-desc">Live bench test: flume soil saturation, optical turbidity spike, LoRa mesh hops &amp; sub-120ms siren relay trip.</p>
-
-          <div class="card-pill-cloud">
-            <span class="pill">Flume Soil Saturation Trigger</span>
-            <span class="pill">Optical Turbidity Spike</span>
-            <span class="pill">LoRa Multi-Hop Mesh Test</span>
-            <span class="pill">130dB Civil Siren Failsafe</span>
+          <div class="head-meta">
+            <span class="tag-num tag-rose">05 &bull; BENCHMARK VIDEO</span>
+            <h2 class="card-name">Physical Hardware Video Demo</h2>
           </div>
         </div>
 
-        <div class="card-bottom-bar">
-          <span class="card-stat">Live Bench Testing Proof</span>
-          <span class="card-action-btn rose">WATCH VIDEO ↗</span>
+        <div class="url-badge url-rose">youtu.be/watch-dogs-demo ↗</div>
+
+        <ul class="feature-list">
+          <li><strong>Physical Flume Run:</strong> Soil saturation slope failure trigger live test</li>
+          <li><strong>Turbidity Spike:</strong> In-situ optical sediment detection &amp; threshold trip</li>
+          <li><strong>LoRa Multi-Hop:</strong> Real packet propagation across non-line-of-sight nodes</li>
+          <li><strong>Sub-120ms Tripping:</strong> Autonomous relay actuation without cloud lag</li>
+          <li><strong>Audio Proof:</strong> 130dB civil defense siren audible output test</li>
+        </ul>
+
+        <div class="btn-action btn-rose">
+          <span>WATCH HARDWARE DEMO</span>
+          <span class="btn-arrow">&rarr;</span>
         </div>
       </a>
 
       <!-- Card 06: Subsystem Matrix & Team Directory (Amber) -->
-      <div class="portfolio-card card-subsystems">
-        <div class="card-main-content">
-          <div class="card-topbar">
-            <div class="icon-title-wrap">
-              <div class="card-icon amber">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
-              </div>
-              <div class="card-title-group">
-                <span class="card-num amber">06 &bull; SUBSYSTEM DIRECTORY</span>
-                <h2 class="card-title">Interactive Subsystem Launcher</h2>
-              </div>
-            </div>
+      <div class="portfolio-card card-amber">
+        <div class="card-head">
+          <div class="icon-circle icon-amber">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
           </div>
-
-          <div class="subsystems-compact-grid">
-            <a href="/architecture" class="sub-btn">
-              <span class="sub-name">4-Layer Stack</span>
-              <span class="sub-arr">&rarr;</span>
-            </a>
-            <a href="/intelligence" class="sub-btn">
-              <span class="sub-name">PINN AI Engine</span>
-              <span class="sub-arr">&rarr;</span>
-            </a>
-            <a href="/communication" class="sub-btn">
-              <span class="sub-name">LoRa Mesh RF</span>
-              <span class="sub-arr">&rarr;</span>
-            </a>
-            <a href="/hardware" class="sub-btn">
-              <span class="sub-name">Hardware BOM</span>
-              <span class="sub-arr">&rarr;</span>
-            </a>
-            <a href="/research" class="sub-btn">
-              <span class="sub-name">Case Studies</span>
-              <span class="sub-arr">&rarr;</span>
-            </a>
-            <a href="/about" class="sub-btn highlight">
-              <span class="sub-name">Team Monarchs</span>
-              <span class="sub-arr">&rarr;</span>
-            </a>
+          <div class="head-meta">
+            <span class="tag-num tag-amber">06 &bull; SUBSYSTEM MATRIX</span>
+            <h2 class="card-name">Interactive Subsystem Launcher</h2>
           </div>
         </div>
 
-        <div class="card-bottom-bar">
-          <span class="card-stat">6 Specialized Micro-Modules</span>
-          <a href="/about" class="card-action-btn amber">TEAM PROFILE &rarr;</a>
+        <div class="subsystems-grid">
+          <a href="/architecture" class="sub-link">
+            <span class="sub-txt">4-Layer Architecture Stack</span>
+            <span class="sub-arr">&rarr;</span>
+          </a>
+          <a href="/intelligence" class="sub-link">
+            <span class="sub-txt">PINN Physics-AI Engine</span>
+            <span class="sub-arr">&rarr;</span>
+          </a>
+          <a href="/communication" class="sub-link">
+            <span class="sub-txt">868 MHz LoRa Mesh RF</span>
+            <span class="sub-arr">&rarr;</span>
+          </a>
+          <a href="/hardware" class="sub-link">
+            <span class="sub-txt">Hardware BOM &amp; Sensors</span>
+            <span class="sub-arr">&rarr;</span>
+          </a>
+          <a href="/research" class="sub-link">
+            <span class="sub-txt">10-Year Case Studies</span>
+            <span class="sub-arr">&rarr;</span>
+          </a>
+          <a href="/about" class="sub-link highlight">
+            <span class="sub-txt">Team Monarchs &amp; Testbed</span>
+            <span class="sub-arr">&rarr;</span>
+          </a>
         </div>
+
+        <a href="/about" class="btn-action btn-amber">
+          <span>VIEW TEAM MONARCHS PROFILE</span>
+          <span class="btn-arrow">&rarr;</span>
+        </a>
       </div>
 
     </main>
@@ -269,13 +236,13 @@ import Layout from '../layouts/Layout.astro';
       <div class="rail-left">
         <span class="rail-badge">TEAM MONARCHS</span>
         <span class="rail-sep">|</span>
-        <span>Mentor: <strong>Dr. K Arun Kumar</strong>, B.E., M.E., Ph.D. <span class="mentor-sub">(17 Yrs Cloud Tech &amp; Brain Computer Interface)</span></span>
+        <span>Academic Mentor: <strong>Dr. K Arun Kumar</strong>, B.E., M.E., Ph.D. <span class="mentor-note">(17 Yrs Cloud Tech &amp; Brain Computer Interface)</span></span>
         <span class="rail-sep">|</span>
         <span>Team Lead: <strong>Harish Rohith S</strong></span>
       </div>
       <div class="rail-right">
-        <span class="live-dot"></span>
-        <span class="rail-highlight">100% In-Situ Physical Autonomy &bull; Sub-120ms Tripping</span>
+        <span class="status-pulse"></span>
+        <span class="rail-status">100% In-Situ Physical Autonomy &bull; Sub-120ms Tripping</span>
       </div>
     </footer>
 
@@ -283,58 +250,58 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* ── Ultra-Modern Compact Viewport-Fit Layout (Zero Unwanted Space, Zero Scroll) ── */
+  /* ── Ultra-Modern High-Density Single Portfolio View (No Scroll, Rich Fill) ── */
   .portfolio-screen-container {
     height: 100vh;
     max-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 8px 14px 6px;
+    padding: 10px 16px 8px;
     max-width: 1560px;
     margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;
   }
 
-  /* ── Header Branding Bar (Compact Single Line) ── */
+  /* ── Master Brand Header ── */
   .portfolio-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    padding: 6px 14px;
+    gap: 16px;
+    padding: 8px 18px;
     background: #FFFFFF;
-    border: 1.5px solid var(--border-medium);
-    border-radius: var(--radius-md);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    margin-bottom: 6px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    margin-bottom: 8px;
     flex-shrink: 0;
   }
 
-  .header-left {
+  .header-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex-shrink: 0;
   }
 
   .logo-stack {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
 
-  .logo-badge {
-    width: 38px;
-    height: 38px;
+  .logo-box {
+    width: 44px;
+    height: 44px;
     background: #FFFFFF;
-    border: 1.5px solid var(--border-medium);
-    border-radius: var(--radius-sm);
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px;
+    padding: 3px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   }
 
@@ -343,31 +310,31 @@ import Layout from '../layouts/Layout.astro';
     height: 100%;
     object-fit: contain;
   }
-  .logo-img.rounded {
+  .logo-img.round {
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: 4px;
   }
 
-  .title-stack {
+  .brand-titles {
     display: flex;
     flex-direction: column;
   }
 
-  .team-label {
+  .team-sub {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     font-weight: 800;
-    color: var(--accent-primary);
-    letter-spacing: 0.04em;
+    color: #2563EB;
+    letter-spacing: 0.05em;
     line-height: 1;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
   }
 
-  .project-headline {
-    font-size: 1.35rem;
+  .project-title {
+    font-size: 1.55rem;
     font-weight: 900;
     letter-spacing: -0.02em;
-    color: var(--text-primary);
+    color: #0F172A;
     margin: 0;
     line-height: 1;
   }
@@ -375,158 +342,140 @@ import Layout from '../layouts/Layout.astro';
   .header-center {
     flex: 1;
     text-align: center;
-    padding: 0 8px;
+    padding: 0 12px;
     min-width: 0;
   }
 
-  .acronym-title {
+  .acronym-text {
     font-family: var(--font-editorial);
-    font-size: 0.82rem;
+    font-size: 0.88rem;
     font-weight: 800;
-    color: var(--text-primary);
-    line-height: 1.2;
+    color: #1E293B;
+    line-height: 1.25;
     letter-spacing: -0.01em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .mission-tagline {
+  .mission-text {
     font-family: var(--font-mono);
-    font-size: 0.66rem;
-    color: var(--text-secondary);
+    font-size: 0.68rem;
+    color: #64748B;
     font-weight: 600;
-    margin-top: 1px;
+    margin-top: 2px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .header-right {
+  .header-badges {
+    display: flex;
+    gap: 6px;
     flex-shrink: 0;
   }
 
-  .badge-row {
-    display: flex;
-    gap: 5px;
-    flex-wrap: nowrap;
-  }
-
-  .status-chip {
+  .chip {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     font-weight: 800;
-    padding: 3px 8px;
+    padding: 4px 9px;
     border-radius: 100px;
     letter-spacing: 0.02em;
     white-space: nowrap;
   }
-  .status-chip.safe { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
-  .status-chip.brand { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
-  .status-chip.gold { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
-  .status-chip.red { background: #FEE2E2; color: #DC2626; border: 1px solid #FECACA; }
+  .chip-safe { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+  .chip-brand { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
+  .chip-gold { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
+  .chip-red { background: #FEE2E2; color: #DC2626; border: 1px solid #FECACA; }
 
-  /* ── Master Bento Grid (3 Columns x 2 Rows) ── */
+  /* ── Master 3x2 Bento Portfolio Grid ── */
   .portfolio-bento-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    gap: 10px;
     flex: 1;
     min-height: 0;
   }
 
-  /* ── Bento Portfolio Card ── */
+  /* ── Bento Portfolio Card (Solid, Well-Filled, No Void) ── */
   .portfolio-card {
     background: #FFFFFF;
-    border: 1.5px solid var(--border-medium);
-    border-radius: var(--radius-md);
-    padding: 10px 14px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 14px 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-decoration: none;
     color: inherit;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.025);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
     position: relative;
     overflow: hidden;
   }
 
   .portfolio-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   }
 
-  /* Distinctive Colored Left Bars */
-  .card-repo { border-left: 4px solid #2563EB; }
-  .card-twin { border-left: 4px solid #4F46E5; }
-  .card-research { border-left: 4px solid #0D9488; }
-  .card-circuits { border-left: 4px solid #059669; }
-  .card-video { border-left: 4px solid #E11D48; }
-  .card-subsystems { border-left: 4px solid #D97706; }
+  /* Left Color Accent Rails */
+  .card-blue { border-left: 5px solid #2563EB; }
+  .card-indigo { border-left: 5px solid #4F46E5; }
+  .card-teal { border-left: 5px solid #0D9488; }
+  .card-emerald { border-left: 5px solid #059669; }
+  .card-rose { border-left: 5px solid #E11D48; }
+  .card-amber { border-left: 5px solid #D97706; }
 
-  .card-main-content {
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-  }
-
-  .card-topbar {
+  .card-head {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    margin-bottom: 3px;
+    gap: 10px;
+    margin-bottom: 6px;
   }
 
-  .icon-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 0;
-  }
-
-  .card-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-sm);
+  .icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
-  .card-icon.blue { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
-  .card-icon.indigo { background: #EEF2FF; color: #4F46E5; border: 1px solid #C7D2FE; }
-  .card-icon.teal { background: #CCFBF1; color: #0D9488; border: 1px solid #99F6E4; }
-  .card-icon.emerald { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
-  .card-icon.rose { background: #FFE4E6; color: #E11D48; border: 1px solid #FECDD3; }
-  .card-icon.amber { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
+  .icon-blue { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
+  .icon-indigo { background: #EEF2FF; color: #4F46E5; border: 1px solid #C7D2FE; }
+  .icon-teal { background: #CCFBF1; color: #0D9488; border: 1px solid #99F6E4; }
+  .icon-emerald { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+  .icon-rose { background: #FFE4E6; color: #E11D48; border: 1px solid #FECDD3; }
+  .icon-amber { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
 
-  .card-title-group {
+  .head-meta {
     min-width: 0;
   }
 
-  .card-num {
+  .tag-num {
     font-family: var(--font-mono);
-    font-size: 0.60rem;
+    font-size: 0.62rem;
     font-weight: 800;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     display: block;
     line-height: 1;
     margin-bottom: 2px;
   }
-  .card-num.blue { color: #2563EB; }
-  .card-num.indigo { color: #4F46E5; }
-  .card-num.teal { color: #0D9488; }
-  .card-num.emerald { color: #059669; }
-  .card-num.rose { color: #E11D48; }
-  .card-num.amber { color: #D97706; }
+  .tag-blue { color: #2563EB; }
+  .tag-indigo { color: #4F46E5; }
+  .tag-teal { color: #0D9488; }
+  .tag-emerald { color: #059669; }
+  .tag-rose { color: #E11D48; }
+  .tag-amber { color: #D97706; }
 
-  .card-title {
-    font-size: 1.05rem;
+  .card-name {
+    font-size: 1.15rem;
     font-weight: 800;
-    color: var(--text-primary);
+    color: #0F172A;
     margin: 0;
     line-height: 1.15;
     letter-spacing: -0.01em;
@@ -535,124 +484,85 @@ import Layout from '../layouts/Layout.astro';
     text-overflow: ellipsis;
   }
 
-  .card-arrow {
+  .url-badge {
     font-family: var(--font-mono);
-    font-size: 1.1rem;
-    font-weight: 900;
-    color: var(--text-muted);
-    transition: transform 0.2s ease, color 0.2s ease;
-    flex-shrink: 0;
-  }
-
-  .portfolio-card:hover .card-arrow {
-    color: var(--text-primary);
-    transform: translateX(3px);
-  }
-
-  .card-link-text {
-    font-family: var(--font-mono);
-    font-size: 0.70rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    margin-bottom: 4px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    display: inline-block;
+    align-self: flex-start;
   }
-  .card-link-text.blue { color: #2563EB; }
-  .card-link-text.indigo { color: #4F46E5; }
-  .card-link-text.teal { color: #0D9488; }
-  .card-link-text.emerald { color: #059669; }
-  .card-link-text.rose { color: #E11D48; }
+  .url-blue { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+  .url-indigo { background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; }
+  .url-teal { background: #F0FDFA; color: #0F766E; border: 1px solid #99F6E4; }
+  .url-emerald { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; }
+  .url-rose { background: #FFF1F2; color: #BE123C; border: 1px solid #FECDD3; }
 
-  .card-desc {
-    font-size: 0.74rem;
-    color: var(--text-secondary);
-    line-height: 1.35;
-    margin: 0 0 6px 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-pill-cloud {
+  /* Structured 5-Row Feature List (Fills the Card Body) */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 4px;
-    margin-bottom: 4px;
+    flex: 1;
   }
 
-  .pill {
-    background: #F8FAFC;
-    border: 1px solid var(--border-subtle);
-    border-radius: 3px;
-    padding: 2px 6px;
-    font-size: 0.68rem;
-    font-weight: 600;
+  .feature-list li {
+    font-size: 0.74rem;
     color: #334155;
-    line-height: 1.2;
-    white-space: nowrap;
+    line-height: 1.35;
+    position: relative;
+    padding-left: 12px;
   }
 
-  .card-bottom-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    border-top: 1px solid #F1F5F9;
-    padding-top: 5px;
-    margin-top: 4px;
+  .feature-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #94A3B8;
+    font-weight: bold;
   }
 
-  .card-stat {
-    color: var(--text-muted);
-    font-weight: 600;
+  .feature-list li strong {
+    color: #0F172A;
+    font-weight: 700;
   }
-
-  .card-action-btn {
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    font-size: 0.68rem;
-  }
-  .card-action-btn.blue { color: #2563EB; }
-  .card-action-btn.indigo { color: #4F46E5; }
-  .card-action-btn.teal { color: #0D9488; }
-  .card-action-btn.emerald { color: #059669; }
-  .card-action-btn.rose { color: #E11D48; }
-  .card-action-btn.amber { color: #D97706; }
 
   /* Subsystems 6-Button Grid */
-  .subsystems-compact-grid {
+  .subsystems-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-    margin: 4px 0 6px;
+    gap: 5px;
+    margin-bottom: 10px;
+    flex: 1;
   }
 
-  .sub-btn {
+  .sub-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #F8FAFC;
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
-    padding: 5px 7px;
-    font-size: 0.70rem;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.72rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #1E293B;
     text-decoration: none;
     transition: all 0.15s ease;
   }
 
-  .sub-btn:hover {
+  .sub-link:hover {
     background: #EFF6FF;
     border-color: #BFDBFE;
     color: #2563EB;
   }
 
-  .sub-btn.highlight {
+  .sub-link.highlight {
     background: #FEF3C7;
     border-color: #FDE68A;
     color: #92400E;
@@ -660,8 +570,51 @@ import Layout from '../layouts/Layout.astro';
 
   .sub-arr {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    color: var(--text-muted);
+    font-size: 0.65rem;
+    color: #94A3B8;
+  }
+
+  /* Full-Width Bottom Action Bar */
+  .btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    margin-top: auto;
+  }
+
+  .btn-blue { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+  .btn-blue:hover { background: #2563EB; color: #FFFFFF; }
+
+  .btn-indigo { background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; }
+  .btn-indigo:hover { background: #4F46E5; color: #FFFFFF; }
+
+  .btn-teal { background: #F0FDFA; color: #0F766E; border: 1px solid #99F6E4; }
+  .btn-teal:hover { background: #0D9488; color: #FFFFFF; }
+
+  .btn-emerald { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; }
+  .btn-emerald:hover { background: #059669; color: #FFFFFF; }
+
+  .btn-rose { background: #FFF1F2; color: #BE123C; border: 1px solid #FECDD3; }
+  .btn-rose:hover { background: #E11D48; color: #FFFFFF; }
+
+  .btn-amber { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+  .btn-amber:hover { background: #D97706; color: #FFFFFF; }
+
+  .btn-arrow {
+    font-size: 0.85rem;
+    transition: transform 0.15s ease;
+  }
+
+  .portfolio-card:hover .btn-arrow {
+    transform: translateX(3px);
   }
 
   /* ── Bottom Engineering Credential Rail ── */
@@ -670,13 +623,13 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 5px 12px;
+    padding: 6px 16px;
     background: #FFFFFF;
-    border: 1.5px solid var(--border-medium);
-    border-radius: var(--radius-sm);
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--text-secondary);
+    font-size: 0.70rem;
+    color: #475569;
     margin-top: 6px;
     flex-shrink: 0;
   }
@@ -690,20 +643,20 @@ import Layout from '../layouts/Layout.astro';
 
   .rail-badge {
     font-weight: 900;
-    color: var(--text-primary);
+    color: #0F172A;
     background: #F1F5F9;
-    padding: 2px 5px;
-    border-radius: 3px;
+    padding: 2px 6px;
+    border-radius: 4px;
     letter-spacing: 0.04em;
   }
 
   .rail-sep {
-    color: var(--border-medium);
+    color: #CBD5E1;
   }
 
-  .mentor-sub {
+  .mentor-note {
     color: #64748B;
-    font-size: 0.62rem;
+    font-size: 0.65rem;
   }
 
   .rail-right {
@@ -713,7 +666,7 @@ import Layout from '../layouts/Layout.astro';
     flex-shrink: 0;
   }
 
-  .live-dot {
+  .status-pulse {
     width: 6px;
     height: 6px;
     border-radius: 50%;
@@ -721,12 +674,12 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: 0 0 6px #10B981;
   }
 
-  .rail-highlight {
+  .rail-status {
     font-weight: 700;
     color: #047857;
   }
 
-  /* ── Mobile Responsive Overrides (< 1080px and < 768px) ── */
+  /* ── Responsive Overrides (< 1080px and < 768px) ── */
   @media (max-width: 1080px) {
     .portfolio-screen-container {
       height: auto;
@@ -752,17 +705,17 @@ import Layout from '../layouts/Layout.astro';
       gap: 8px;
       padding: 10px;
     }
-    .header-left {
+    .header-brand {
       justify-content: flex-start;
     }
     .header-center {
       text-align: left;
       padding: 0;
     }
-    .acronym-title, .mission-tagline {
+    .acronym-text, .mission-text {
       white-space: normal;
     }
-    .badge-row {
+    .header-badges {
       justify-content: flex-start;
       flex-wrap: wrap;
     }
