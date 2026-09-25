@@ -206,7 +206,7 @@ const hardwarePhotos = [
     <h2 class="section-title">Field Hardware &amp; Gateway Engineering</h2>
     <div class="bento-grid" style="gap: 16px; margin-bottom: 40px;">
       {hardwarePhotos.map(h => (
-        <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 3px solid var(--accent-success);">
+        <div class="bento-card col-4" style="padding: 0; overflow: hidden; border-top: 3px solid var(--accent-success); background: #FFFFFF;">
           <img src={h.img} alt={h.title} style="width: 100%; height: 210px; object-fit: cover;" />
           <div style="padding: 16px;">
             <h4 style="font-size: 1.0rem; font-weight: 800; margin: 0 0 6px;">{h.title}</h4>
@@ -214,6 +214,181 @@ const hardwarePhotos = [
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- 05. SCIENTIFIC REFERENCES & 5 LIVE PROJECT ARTIFACTS SECTION -->
+    <div style="margin-bottom: 40px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <span class="hero-pill" style="margin-bottom: 6px;">PEER-REVIEWED CORPUS &bull; LIVE ARTIFACTS</span>
+          <h2 style="font-size: 1.5rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">Scientific References &amp; Project Verification Links</h2>
+        </div>
+        <span class="card-badge badge-brand" style="padding: 6px 12px; font-weight: 800;">5 LIVE ECOSYSTEM ARTIFACTS</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 24px; align-items: start;">
+        
+        <!-- Left Column: Scientific References Matrix -->
+        <div class="bento-card col-12" style="background: #FFFFFF; padding: 20px; border-top: 4px solid var(--accent-primary);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0; color: var(--text-primary);">Scientific References Matrix</h3>
+            <span class="card-badge badge-safe">MATHEMATICAL GROUNDING</span>
+          </div>
+
+          <div class="table-container" style="max-height: 520px; overflow-y: auto;">
+            <table class="data-table" style="min-width: 100%; font-size: 0.78rem;">
+              <thead>
+                <tr>
+                  <th style="width: 45%;">Primary Citation</th>
+                  <th>Edge Action in WATCH-DOGS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Torrence &amp; Compo (1998)</strong><br/><span style="color: var(--text-secondary);">Bull. AMS, 79(1)</span></td>
+                  <td>Pi 5 wavelet sonar decomposition at 100Hz; provides 15–45 min flash flood crest lead time.</td>
+                </tr>
+                <tr>
+                  <td><strong>Fredlund &amp; Rahardjo (1993)</strong><br/><span style="color: var(--text-secondary);">Soil Mechanics (Wiley)</span></td>
+                  <td>Fuses soil VWC and tilt; triggers 130dB siren when Factor of Safety (FS &lt; 1.05).</td>
+                </tr>
+                <tr>
+                  <td><strong>Adelantado et al. (2017)</strong><br/><span style="color: var(--text-secondary);">IEEE Comms Magazine</span></td>
+                  <td>SX1262 modems establish 15km air-gapped LoRa mesh with 0% cellular reliance.</td>
+                </tr>
+                <tr>
+                  <td><strong>ISO 7027-1:2016 &bull; CPCB</strong><br/><span style="color: var(--text-secondary);">Water Quality Standard</span></td>
+                  <td>TS-300B optical probe tracks river silt; triggers sub-120ms relay to isolate intake valves.</td>
+                </tr>
+                <tr>
+                  <td><strong>Hart et al. (1968)</strong><br/><span style="color: var(--text-secondary);">IEEE Trans. SSC (A*)</span></td>
+                  <td>Dynamic A* Dijkstra path routing vectors ambulances to high ridges avoiding flooded bridges.</td>
+                </tr>
+                <tr>
+                  <td><strong>Drysdale, D. (2011)</strong><br/><span style="color: var(--text-secondary);">Fire Dynamics (Wiley)</span></td>
+                  <td>MQ-135 detects terpene/pinene VOC plumes during early smoldering phase.</td>
+                </tr>
+                <tr>
+                  <td><strong>FreeRTOS Kernel &bull; Liu (1973)</strong><br/><span style="color: var(--text-secondary);">Deterministic RTOS</span></td>
+                  <td>Allocates Core 0 to 100Hz DSP and Core 1 to LoRa mesh with zero latency jitter.</td>
+                </tr>
+                <tr>
+                  <td><strong>Erickson &amp; Maksimovic</strong><br/><span style="color: var(--text-secondary);">Springer Power Electronics</span></td>
+                  <td>CN3791 MPPT charging LiFePO4 cells; delivers 18.4 days continuous dark autonomy.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right Column: 5 Live Project Links & QR Verification Hub -->
+        <div class="bento-card col-12" style="background: #FFFFFF; padding: 20px; border-top: 4px solid var(--accent-success);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0; color: var(--text-primary);">Project Verification &amp; Live Links</h3>
+            <span class="card-badge badge-brand">TOTAL 5 ECOSYSTEM LINKS</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            
+            <!-- Link 1: GitHub Core -->
+            <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener noreferrer" style="display: flex; gap: 14px; align-items: center; padding: 12px 14px; background: #F8FAFC; border: 1.5px solid var(--border-medium); border-radius: var(--radius-sm); text-decoration: none; color: inherit; transition: all 0.15s ease;">
+              <div style="width: 44px; height: 44px; border-radius: 4px; background: #EFF6FF; border: 1px solid #BFDBFE; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 900; color: var(--accent-primary); flex-shrink: 0;">
+                01
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+                  <span style="font-size: 0.88rem; font-weight: 800; color: var(--text-primary);">Core Engineering Repository</span>
+                  <span class="card-badge badge-brand" style="font-size: 0.65rem;">GITHUB</span>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  github.com/iamharishrohith/WATCH-DOGS
+                </div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); margin-top: 2px;">
+                  Complete ESP32-S3 firmware, Raspberry Pi 5 edge AI hub, PINN models, datasets &amp; BOM.
+                </div>
+              </div>
+            </a>
+
+            <!-- Link 2: Research Portal -->
+            <a href="https://watch-dogs-research.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: flex; gap: 14px; align-items: center; padding: 12px 14px; background: #F8FAFC; border: 1.5px solid var(--border-medium); border-radius: var(--radius-sm); text-decoration: none; color: inherit; transition: all 0.15s ease;">
+              <div style="width: 44px; height: 44px; border-radius: 4px; background: #EFF6FF; border: 1px solid #BFDBFE; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 900; color: var(--accent-primary); flex-shrink: 0;">
+                02
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+                  <span style="font-size: 0.88rem; font-weight: 800; color: var(--text-primary);">Research &amp; Documentation Portal</span>
+                  <span class="card-badge badge-safe" style="font-size: 0.65rem;">LIVE WEB</span>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  watch-dogs-research.vercel.app
+                </div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); margin-top: 2px;">
+                  Interactive technical dossier, 10-year forensic disaster audits &amp; geomechanical formulas.
+                </div>
+              </div>
+            </a>
+
+            <!-- Link 3: 3D Twin -->
+            <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: flex; gap: 14px; align-items: center; padding: 12px 14px; background: #F8FAFC; border: 1.5px solid var(--border-medium); border-radius: var(--radius-sm); text-decoration: none; color: inherit; transition: all 0.15s ease;">
+              <div style="width: 44px; height: 44px; border-radius: 4px; background: #EFF6FF; border: 1px solid #BFDBFE; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 900; color: var(--accent-primary); flex-shrink: 0;">
+                03
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+                  <span style="font-size: 0.88rem; font-weight: 800; color: var(--text-primary);">Geospatial 3D Digital Twin</span>
+                  <span class="card-badge badge-brand" style="font-size: 0.65rem;">WEBGL 3D</span>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  watch-dogs-3d.vercel.app
+                </div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); margin-top: 2px;">
+                  Interactive 3D elevation terrain, real-time node telemetry visualization &amp; evacuation simulation.
+                </div>
+              </div>
+            </a>
+
+            <!-- Link 4: Circuit Schematics -->
+            <a href="/circuits" style="display: flex; gap: 14px; align-items: center; padding: 12px 14px; background: #F8FAFC; border: 1.5px solid var(--border-medium); border-radius: var(--radius-sm); text-decoration: none; color: inherit; transition: all 0.15s ease;">
+              <div style="width: 44px; height: 44px; border-radius: 4px; background: #EFF6FF; border: 1px solid #BFDBFE; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 900; color: var(--accent-primary); flex-shrink: 0;">
+                04
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+                  <span style="font-size: 0.88rem; font-weight: 800; color: var(--text-primary);">Circuit Schematics &amp; Pinout Branch</span>
+                  <span class="card-badge badge-safe" style="font-size: 0.65rem;">SCHEMATICS</span>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  watch-dogs-research.vercel.app/circuits
+                </div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); margin-top: 2px;">
+                  Full HD circuit schematics, multi-node pinouts, power distribution &amp; optocoupler relays.
+                </div>
+              </div>
+            </a>
+
+            <!-- Link 5: YouTube Testbed Video -->
+            <a href="https://youtu.be/watch-dogs-demo" target="_blank" rel="noopener noreferrer" style="display: flex; gap: 14px; align-items: center; padding: 12px 14px; background: #F8FAFC; border: 1.5px solid var(--border-medium); border-radius: var(--radius-sm); text-decoration: none; color: inherit; transition: all 0.15s ease;">
+              <div style="width: 44px; height: 44px; border-radius: 4px; background: #EFF6FF; border: 1px solid #BFDBFE; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 900; color: var(--accent-primary); flex-shrink: 0;">
+                05
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+                  <span style="font-size: 0.88rem; font-weight: 800; color: var(--text-primary);">Physical Testbed Demonstration Video</span>
+                  <span class="card-badge badge-danger" style="font-size: 0.65rem;">YOUTUBE</span>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  youtu.be/watch-dogs-demo
+                </div>
+                <div style="font-size: 0.74rem; color: var(--text-secondary); margin-top: 2px;">
+                  Live 4-node physical hardware execution, flume infiltration &amp; 130dB acoustic siren trip proof.
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </div>
