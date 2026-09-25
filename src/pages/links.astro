@@ -3,316 +3,404 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout 
-  title="WATCH-DOGS — Unified Project Gateway & Bento Matrix" 
-  description="Single centralized launchpad for WATCH-DOGS: GitHub Repository, Research Portal, 3D Digital Twin, Circuit Schematics, and Hardware Demonstration."
+  title="WATCH-DOGS — Unified Portfolio Gateway & Bento Matrix" 
+  description="Single centralized portfolio launchpad for WATCH-DOGS: GitHub Repository, Research Portal, 3D Digital Twin, Circuit Schematics, and Hardware Demonstration."
   activeNav="links"
   hideFooter={true}
 >
-  <div class="bento-viewport-wrapper">
-    <!-- Compact Top Brand Bar -->
-    <header class="bento-top-bar">
-      <div class="brand-group">
-        <div class="logo-box">
-          <img src="/logos/Monarchs Logo.png" alt="Team Monarchs Logo" class="brand-img" />
+  <div class="portfolio-screen-container">
+    
+    <!-- Top Portfolio Brand Header -->
+    <header class="portfolio-header">
+      <div class="header-left">
+        <div class="logo-stack">
+          <div class="logo-badge">
+            <img src="/logos/Monarchs Logo.png" alt="Team Monarchs Logo" class="logo-img" />
+          </div>
+          <div class="logo-badge">
+            <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" class="logo-img rounded" />
+          </div>
         </div>
-        <div class="logo-box">
-          <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" class="brand-img round" />
-        </div>
-        <div class="brand-titles">
-          <div class="brand-sup">TEAM MONARCHS &bull; UNIFIED PROJECT GATEWAY</div>
-          <h1 class="brand-main">WATCH-DOGS</h1>
+        <div class="title-stack">
+          <div class="team-label">TEAM MONARCHS &bull; ENGINEERING PORTFOLIO GATEWAY</div>
+          <h1 class="project-headline">WATCH-DOGS</h1>
         </div>
       </div>
-      <div class="acronym-tag">
-        <span>Wireless Autonomous Telemetry, Critical Hazard Detection &amp; Optocoupled Ground System</span>
+
+      <div class="header-center">
+        <div class="acronym-title">Wireless Autonomous Telemetry, Critical Hazard Detection &amp; Optocoupled Ground System</div>
+        <div class="mission-tagline">Air-Gapped Edge Appliance &bull; Physics-Informed Neural Networks (PINN) &bull; Sub-120ms Civil Defense Relay Actuation</div>
       </div>
-      <div class="pill-badges">
-        <span class="badge-chip safe">0% CLOUD</span>
-        <span class="badge-chip brand">868 MHz MESH</span>
-        <span class="badge-chip gold">BSA 2023 / SEC 65B</span>
+
+      <div class="header-right">
+        <div class="badge-row">
+          <span class="status-chip safe">0% CLOUD</span>
+          <span class="status-chip brand">868 MHz MESH</span>
+          <span class="status-chip gold">BSA 2023 SEC 65B</span>
+          <span class="status-chip red">SUB-120ms TRIP</span>
+        </div>
       </div>
     </header>
 
-    <!-- Master Bento Grid (Fits Viewport on Desktop) -->
-    <main class="bento-master-grid">
+    <!-- Master Bento Portfolio Matrix (Viewport-Fit on Desktop) -->
+    <main class="portfolio-bento-grid">
       
-      <!-- Tile 1: Core GitHub Repository (Hero Tile) -->
-      <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener noreferrer" class="bento-tile tile-repo">
-        <div class="tile-header">
-          <div class="tile-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      <!-- Card 01: Core Engineering Repository (Hero Blue) -->
+      <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener noreferrer" class="portfolio-card card-repo">
+        <div class="card-topbar">
+          <div class="icon-title-wrap">
+            <div class="card-icon blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </div>
+            <div>
+              <span class="card-num blue">01 &bull; CORE SOURCE CODE</span>
+              <h2 class="card-title">Core Engineering Repository</h2>
+            </div>
           </div>
-          <span class="tile-tag tag-blue">01 &bull; SOURCE REPOSITORY</span>
-          <div class="tile-arrow">&rarr;</div>
+          <span class="card-arrow">&rarr;</span>
         </div>
-        <div class="tile-body">
-          <h2 class="tile-title">Core Engineering Repository</h2>
-          <div class="tile-url">github.com/iamharishrohith/WATCH-DOGS</div>
-          <p class="tile-desc">4 ESP32-S3 firmware nodes, FastAPI edge server, PyTorch PINN model, flume datasets &amp; Section 65B SQLite WAL ledger.</p>
+        
+        <div class="card-link-text blue">github.com/iamharishrohith/WATCH-DOGS ↗</div>
+
+        <div class="card-pill-cloud">
+          <span class="pill">ESP32-S3 C/C++ Firmware (4 Nodes)</span>
+          <span class="pill">FastAPI Edge Server</span>
+          <span class="pill">PyTorch PINN Physics Core</span>
+          <span class="pill">Flume Datasets</span>
+          <span class="pill">Section 65B SQLite WAL Ledger</span>
         </div>
-        <div class="tile-footer">
-          <span class="meta-tag">C/C++ &bull; Python</span>
-          <span class="meta-status">OPEN SOURCE ↗</span>
+
+        <div class="card-bottom-bar">
+          <span class="card-stat">Production Ready &bull; C++20 / Python 3.11</span>
+          <span class="card-action-btn blue">OPEN REPOSITORY ↗</span>
         </div>
       </a>
 
-      <!-- Tile 2: Geospatial 3D Digital Twin -->
-      <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="bento-tile tile-twin">
-        <div class="tile-header">
-          <div class="tile-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.12 6.4-6.05-4.06a2 2 0 0 0-2.17-.05L2.95 8.41a2 2 0 0 0-.95 1.7v5.78a2 2 0 0 0 .96 1.71l10 5.71a2 2 0 0 0 1.98 0l6.18-3.53a2 2 0 0 0 1-1.74V8.14a2 2 0 0 0-1.02-1.74z"/><path d="m3.27 6.96 9.73 5.55 9.73-5.55"/><path d="M12 22.08V12.51"/></svg>
+      <!-- Card 02: Geospatial 3D Digital Twin (Indigo) -->
+      <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-card card-twin">
+        <div class="card-topbar">
+          <div class="icon-title-wrap">
+            <div class="card-icon indigo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m21.12 6.4-6.05-4.06a2 2 0 0 0-2.17-.05L2.95 8.41a2 2 0 0 0-.95 1.7v5.78a2 2 0 0 0 .96 1.71l10 5.71a2 2 0 0 0 1.98 0l6.18-3.53a2 2 0 0 0 1-1.74V8.14a2 2 0 0 0-1.02-1.74z"/><path d="m3.27 6.96 9.73 5.55 9.73-5.55"/><path d="M12 22.08V12.51"/></svg>
+            </div>
+            <div>
+              <span class="card-num indigo">02 &bull; 3D DIGITAL TWIN</span>
+              <h2 class="card-title">Geospatial 3D Digital Twin</h2>
+            </div>
           </div>
-          <span class="tile-tag tag-indigo">02 &bull; 3D SIMULATOR</span>
-          <div class="tile-arrow">&rarr;</div>
+          <span class="card-arrow">&rarr;</span>
         </div>
-        <div class="tile-body">
-          <h2 class="tile-title">Geospatial 3D Digital Twin</h2>
-          <div class="tile-url">watch-dogs-3d.vercel.app</div>
-          <p class="tile-desc">Interactive WebGL 3D elevation terrain, real-time node telemetry visualization, flood surges &amp; dynamic A* evacuation routes.</p>
+
+        <div class="card-link-text indigo">watch-dogs-3d.vercel.app ↗</div>
+
+        <div class="card-pill-cloud">
+          <span class="pill">7 Disaster Biomes (Wayanad, Kedarnath)</span>
+          <span class="pill">Live Mesh Telemetry</span>
+          <span class="pill">Dynamic Flood Surge Engine</span>
+          <span class="pill">A* Dynamic Evacuation Routing</span>
         </div>
-        <div class="tile-footer">
-          <span class="meta-tag">Three.js &bull; WebGL</span>
-          <span class="meta-status">LIVE TWIN ↗</span>
+
+        <div class="card-bottom-bar">
+          <span class="card-stat">Three.js &bull; WebGL &bull; Real-Time</span>
+          <span class="card-action-btn indigo">LAUNCH 3D TWIN ↗</span>
         </div>
       </a>
 
-      <!-- Tile 3: Research & Evidence Portal -->
-      <a href="/" class="bento-tile tile-research">
-        <div class="tile-header">
-          <div class="tile-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      <!-- Card 03: Research & Evidence Portal (Teal) -->
+      <a href="/" class="portfolio-card card-research">
+        <div class="card-topbar">
+          <div class="icon-title-wrap">
+            <div class="card-icon teal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <div>
+              <span class="card-num teal">03 &bull; EVIDENCE DOSSIER</span>
+              <h2 class="card-title">Research &amp; Evidence Web Portal</h2>
+            </div>
           </div>
-          <span class="tile-tag tag-teal">03 &bull; EVIDENCE PORTAL</span>
-          <div class="tile-arrow">&rarr;</div>
+          <span class="card-arrow">&rarr;</span>
         </div>
-        <div class="tile-body">
-          <h2 class="tile-title">Research &amp; Evidence Web Portal</h2>
-          <div class="tile-url">watch-dogs-research.vercel.app</div>
-          <p class="tile-desc">Multi-hazard technical dossier, 10-year forensic case studies (Wayanad, Kedarnath), geomechanical PINN formulas &amp; legal proofs.</p>
+
+        <div class="card-link-text teal">watch-dogs-research.vercel.app</div>
+
+        <div class="card-pill-cloud">
+          <span class="pill">10-Year Forensic Disaster Audits</span>
+          <span class="pill">Mohr-Coulomb Geomechanics</span>
+          <span class="pill">Sub-120ms Tripping Consensus</span>
+          <span class="pill">BSA 2023 Cryptographic Proofs</span>
         </div>
-        <div class="tile-footer">
-          <span class="meta-tag">Astro &bull; Pure CSS</span>
-          <span class="meta-status">EXPLORE DOSSIER &rarr;</span>
+
+        <div class="card-bottom-bar">
+          <span class="card-stat">Interactive Scientific Dossier</span>
+          <span class="card-action-btn teal">EXPLORE PORTAL &rarr;</span>
         </div>
       </a>
 
-      <!-- Tile 4: Circuit Schematics & Pinout Branch -->
-      <a href="/circuits" class="bento-tile tile-circuits">
-        <div class="tile-header">
-          <div class="tile-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+      <!-- Card 04: Circuit Schematics & Pinouts (Emerald) -->
+      <a href="/circuits" class="portfolio-card card-circuits">
+        <div class="card-topbar">
+          <div class="icon-title-wrap">
+            <div class="card-icon emerald">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+            </div>
+            <div>
+              <span class="card-num emerald">04 &bull; HARDWARE SCHEMATICS</span>
+              <h2 class="card-title">Circuit Schematics &amp; Pinout Wiremaps</h2>
+            </div>
           </div>
-          <span class="tile-tag tag-emerald">04 &bull; HD SCHEMATICS</span>
-          <div class="tile-arrow">&rarr;</div>
+          <span class="card-arrow">&rarr;</span>
         </div>
-        <div class="tile-body">
-          <h2 class="tile-title">Circuit Schematics &amp; Pinouts</h2>
-          <div class="tile-url">/circuits &bull; 8 Interactive Diagrams</div>
-          <p class="tile-desc">Full HD schematics for Sentinel nodes, MPPT power trees, optocoupler isolation &amp; 130dB relay triggers.</p>
+
+        <div class="card-link-text emerald">/circuits &bull; 8 Interactive HD Wiremaps</div>
+
+        <div class="card-pill-cloud">
+          <span class="pill">Hillside Sentinel Node</span>
+          <span class="pill">Riverbed Surge Node</span>
+          <span class="pill">Gas Sniffer Node</span>
+          <span class="pill">Gateway Hub</span>
+          <span class="pill">Optocoupled Relays</span>
         </div>
-        <div class="tile-footer">
-          <span class="meta-tag">KiCad &bull; SVG</span>
-          <span class="meta-status">VIEW CIRCUITS &rarr;</span>
+
+        <div class="card-bottom-bar">
+          <span class="card-stat">KiCad Schematics &bull; Full HD Pinouts</span>
+          <span class="card-action-btn emerald">VIEW SCHEMATICS &rarr;</span>
         </div>
       </a>
 
-      <!-- Tile 5: Physical Benchmark Video Proof -->
-      <a href="https://youtu.be/watch-dogs-demo" target="_blank" rel="noopener noreferrer" class="bento-tile tile-video">
-        <div class="tile-header">
-          <div class="tile-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10 15 5-3-5-3v6Z"/><rect width="20" height="14" x="2" y="5" rx="2"/></svg>
+      <!-- Card 05: Physical Testbed Demonstration Video (Rose) -->
+      <a href="https://youtu.be/watch-dogs-demo" target="_blank" rel="noopener noreferrer" class="portfolio-card card-video">
+        <div class="card-topbar">
+          <div class="icon-title-wrap">
+            <div class="card-icon rose">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m10 15 5-3-5-3v6Z"/><rect width="20" height="14" x="2" y="5" rx="2"/></svg>
+            </div>
+            <div>
+              <span class="card-num rose">05 &bull; BENCHMARK VIDEO</span>
+              <h2 class="card-title">Physical Hardware Video Demo</h2>
+            </div>
           </div>
-          <span class="tile-tag tag-rose">05 &bull; VIDEO PROOF</span>
-          <div class="tile-arrow">&rarr;</div>
+          <span class="card-arrow">&rarr;</span>
         </div>
-        <div class="tile-body">
-          <h2 class="tile-title">Physical Testbed Video Demo</h2>
-          <div class="tile-url">youtu.be/watch-dogs-demo</div>
-          <p class="tile-desc">Live physical testbed run: flume soil saturation, optical turbidity spike, LoRa mesh hops &amp; sub-120ms siren trip.</p>
+
+        <div class="card-link-text rose">youtu.be/watch-dogs-demo ↗</div>
+
+        <div class="card-pill-cloud">
+          <span class="pill">Flume Soil Saturation Trigger</span>
+          <span class="pill">Optical Turbidity Spike</span>
+          <span class="pill">LoRa Multi-Hop Mesh Test</span>
+          <span class="pill">130dB Civil Siren Failsafe</span>
         </div>
-        <div class="tile-footer">
-          <span class="meta-tag">Hardware Benchmark</span>
-          <span class="meta-status">WATCH DEMO ↗</span>
+
+        <div class="card-bottom-bar">
+          <span class="card-stat">Live Bench Testing Proof</span>
+          <span class="card-action-btn rose">WATCH VIDEO ↗</span>
         </div>
       </a>
 
-      <!-- Tile 6: Quick Subsystem Direct Launcher -->
-      <div class="bento-tile tile-subsystems">
-        <div class="tile-header">
-          <div class="tile-icon-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+      <!-- Card 06: Subsystem Matrix & Team Directory (Amber) -->
+      <div class="portfolio-card card-subsystems">
+        <div class="card-topbar">
+          <div class="icon-title-wrap">
+            <div class="card-icon amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+            </div>
+            <div>
+              <span class="card-num amber">06 &bull; SUBSYSTEM DIRECTORY</span>
+              <h2 class="card-title">Interactive Subsystem Launcher</h2>
+            </div>
           </div>
-          <span class="tile-tag tag-amber">06 &bull; SUBSYSTEM MATRIX</span>
         </div>
-        <div class="subsystems-grid">
-          <a href="/architecture" class="subsystem-pill">
-            <span class="subsystem-name">4-Layer Stack</span>
-            <span class="subsystem-arrow">&rarr;</span>
+
+        <div class="subsystems-compact-grid">
+          <a href="/architecture" class="sub-btn">
+            <span class="sub-name">4-Layer Stack</span>
+            <span class="sub-arr">&rarr;</span>
           </a>
-          <a href="/intelligence" class="subsystem-pill">
-            <span class="subsystem-name">PINN AI Engine</span>
-            <span class="subsystem-arrow">&rarr;</span>
+          <a href="/intelligence" class="sub-btn">
+            <span class="sub-name">PINN AI Engine</span>
+            <span class="sub-arr">&rarr;</span>
           </a>
-          <a href="/communication" class="subsystem-pill">
-            <span class="subsystem-name">LoRa Mesh RF</span>
-            <span class="subsystem-arrow">&rarr;</span>
+          <a href="/communication" class="sub-btn">
+            <span class="sub-name">LoRa Mesh RF</span>
+            <span class="sub-arr">&rarr;</span>
           </a>
-          <a href="/hardware" class="subsystem-pill">
-            <span class="subsystem-name">Hardware BOM</span>
-            <span class="subsystem-arrow">&rarr;</span>
+          <a href="/hardware" class="sub-btn">
+            <span class="sub-name">Hardware BOM</span>
+            <span class="sub-arr">&rarr;</span>
           </a>
-          <a href="/research" class="subsystem-pill">
-            <span class="subsystem-name">Case Studies</span>
-            <span class="subsystem-arrow">&rarr;</span>
+          <a href="/research" class="sub-btn">
+            <span class="sub-name">Case Studies</span>
+            <span class="sub-arr">&rarr;</span>
           </a>
-          <a href="/about" class="subsystem-pill highlight">
-            <span class="subsystem-name">Team &amp; Lab</span>
-            <span class="subsystem-arrow">&rarr;</span>
+          <a href="/about" class="sub-btn highlight">
+            <span class="sub-name">Team Monarchs</span>
+            <span class="sub-arr">&rarr;</span>
           </a>
         </div>
-        <div class="tile-footer">
-          <span class="meta-tag">6 Micro-Modules</span>
-          <a href="/about" class="meta-status">TEAM PROFILE &rarr;</a>
+
+        <div class="card-bottom-bar">
+          <span class="card-stat">6 Specialized Micro-Modules</span>
+          <a href="/about" class="card-action-btn amber">TEAM PROFILE &rarr;</a>
         </div>
       </div>
 
     </main>
 
-    <!-- Sleek Micro Status Rail -->
-    <footer class="bento-bottom-rail">
+    <!-- Bottom Engineering Credential Rail -->
+    <footer class="portfolio-footer-rail">
       <div class="rail-left">
-        <span class="rail-lead">Team Monarchs</span>
-        <span class="rail-sep">&bull;</span>
-        <span>Advisor: <strong>Dr. K Arun Kumar</strong>, B.E., M.E., Ph.D.</span>
-        <span class="rail-sep">&bull;</span>
-        <span>Lead: <strong>Harish Rohith S</strong></span>
+        <span class="rail-badge">TEAM MONARCHS</span>
+        <span class="rail-sep">|</span>
+        <span>Mentor: <strong>Dr. K Arun Kumar</strong>, B.E., M.E., Ph.D. <span class="mentor-sub">(17 Yrs Cloud Tech &amp; Brain Computer Interface)</span></span>
+        <span class="rail-sep">|</span>
+        <span>Team Lead: <strong>Harish Rohith S</strong></span>
       </div>
       <div class="rail-right">
-        <span class="status-indicator"></span>
-        <span>100% In-Situ Physical Autonomy &bull; Sub-120ms Tripping</span>
+        <span class="live-dot"></span>
+        <span class="rail-highlight">100% Physical In-Situ Autonomy &bull; Sub-120ms Tripping</span>
       </div>
     </footer>
+
   </div>
 </Layout>
 
 <style>
-  /* ── Ultra-Modern Single-Page Bento Layout (Viewport-Fit on Desktop) ── */
-  .bento-viewport-wrapper {
+  /* ── Ultra-Modern Viewport-Fit Portfolio Layout (Zero Scroll on Desktop) ── */
+  .portfolio-screen-container {
     height: calc(100vh - 54px);
     max-height: calc(100vh - 54px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 12px 20px 8px;
-    max-width: 1400px;
+    padding: 10px 16px 8px;
+    max-width: 1560px;
     margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;
   }
 
-  /* ── Compact Top Brand Bar ── */
-  .bento-top-bar {
+  /* ── Header Branding Bar ── */
+  .portfolio-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 14px;
+    gap: 16px;
     padding: 8px 16px;
     background: #FFFFFF;
     border: 1.5px solid var(--border-medium);
     border-radius: var(--radius-md);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-    margin-bottom: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    margin-bottom: 8px;
     flex-shrink: 0;
   }
 
-  .brand-group {
+  .header-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
     flex-shrink: 0;
   }
 
-  .logo-box {
-    width: 34px;
-    height: 34px;
+  .logo-stack {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-badge {
+    width: 48px;
+    height: 48px;
     background: #FFFFFF;
-    border: 1px solid var(--border-subtle);
+    border: 1.5px solid var(--border-medium);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    padding: 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
-  .brand-img {
+  .logo-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
-  .brand-img.round {
+  .logo-img.rounded {
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: 4px;
   }
 
-  .brand-titles {
+  .title-stack {
     display: flex;
     flex-direction: column;
   }
 
-  .brand-sup {
+  .team-label {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.68rem;
     font-weight: 800;
     color: var(--accent-primary);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
   }
 
-  .brand-main {
-    font-size: 1.2rem;
+  .project-headline {
+    font-size: 1.6rem;
     font-weight: 900;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
     margin: 0;
-    line-height: 1.1;
+    line-height: 1;
   }
 
-  .acronym-tag {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--text-secondary);
-    text-align: center;
+  .header-center {
     flex: 1;
-    padding: 0 10px;
-    line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    text-align: center;
+    padding: 0 12px;
   }
 
-  .pill-badges {
-    display: flex;
-    gap: 6px;
+  .acronym-title {
+    font-family: var(--font-editorial);
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .mission-tagline {
+    font-family: var(--font-mono);
+    font-size: 0.70rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .header-right {
     flex-shrink: 0;
   }
 
-  .badge-chip {
+  .badge-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+  }
+
+  .status-chip {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     font-weight: 800;
-    padding: 3px 8px;
+    padding: 4px 9px;
     border-radius: 100px;
     letter-spacing: 0.02em;
     white-space: nowrap;
   }
-  .badge-chip.safe { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
-  .badge-chip.brand { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
-  .badge-chip.gold { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
+  .status-chip.safe { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+  .status-chip.brand { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
+  .status-chip.gold { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
+  .status-chip.red { background: #FEE2E2; color: #DC2626; border: 1px solid #FECACA; }
 
-  /* ── Master Bento Grid (3 Columns x 2 Rows on Desktop) ── */
-  .bento-master-grid {
+  /* ── Master Bento Grid (3 Columns x 2 Rows) ── */
+  .portfolio-bento-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -321,8 +409,8 @@ import Layout from '../layouts/Layout.astro';
     min-height: 0;
   }
 
-  /* ── Bento Tile Component ── */
-  .bento-tile {
+  /* ── Bento Portfolio Card ── */
+  .portfolio-card {
     background: #FFFFFF;
     border: 1.5px solid var(--border-medium);
     border-radius: var(--radius-md);
@@ -332,27 +420,26 @@ import Layout from '../layouts/Layout.astro';
     justify-content: space-between;
     text-decoration: none;
     color: inherit;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
     position: relative;
     overflow: hidden;
   }
 
-  .bento-tile:hover {
-    border-color: var(--accent-primary);
+  .portfolio-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   }
 
-  /* Tile Accents */
-  .tile-repo { border-left: 4px solid #2563EB; }
-  .tile-twin { border-left: 4px solid #4F46E5; }
-  .tile-research { border-left: 4px solid #0D9488; }
-  .tile-circuits { border-left: 4px solid #059669; }
-  .tile-video { border-left: 4px solid #E11D48; }
-  .tile-subsystems { border-left: 4px solid #D97706; }
+  /* Distinctive Colored Left Bars */
+  .card-repo { border-left: 5px solid #2563EB; }
+  .card-twin { border-left: 5px solid #4F46E5; }
+  .card-research { border-left: 5px solid #0D9488; }
+  .card-circuits { border-left: 5px solid #059669; }
+  .card-video { border-left: 5px solid #E11D48; }
+  .card-subsystems { border-left: 5px solid #D97706; }
 
-  .tile-header {
+  .card-topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -360,168 +447,190 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 6px;
   }
 
-  .tile-icon-box {
-    width: 30px;
-    height: 30px;
+  .icon-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .card-icon {
+    width: 38px;
+    height: 38px;
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
+  .card-icon.blue { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
+  .card-icon.indigo { background: #EEF2FF; color: #4F46E5; border: 1px solid #C7D2FE; }
+  .card-icon.teal { background: #CCFBF1; color: #0D9488; border: 1px solid #99F6E4; }
+  .card-icon.emerald { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+  .card-icon.rose { background: #FFE4E6; color: #E11D48; border: 1px solid #FECDD3; }
+  .card-icon.amber { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
 
-  .tile-repo .tile-icon-box { background: #EFF6FF; color: #2563EB; }
-  .tile-twin .tile-icon-box { background: #EEF2FF; color: #4F46E5; }
-  .tile-research .tile-icon-box { background: #CCFBF1; color: #0D9488; }
-  .tile-circuits .tile-icon-box { background: #ECFDF5; color: #059669; }
-  .tile-video .tile-icon-box { background: #FFE4E6; color: #E11D48; }
-  .tile-subsystems .tile-icon-box { background: #FEF3C7; color: #D97706; }
-
-  .tile-tag {
+  .card-num {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     font-weight: 800;
-    padding: 2px 6px;
-    border-radius: 4px;
-    letter-spacing: 0.03em;
-    flex: 1;
-    margin-left: 4px;
+    letter-spacing: 0.05em;
+    display: block;
+    line-height: 1;
+    margin-bottom: 2px;
   }
+  .card-num.blue { color: #2563EB; }
+  .card-num.indigo { color: #4F46E5; }
+  .card-num.teal { color: #0D9488; }
+  .card-num.emerald { color: #059669; }
+  .card-num.rose { color: #E11D48; }
+  .card-num.amber { color: #D97706; }
 
-  .tag-blue { background: #EFF6FF; color: #1D4ED8; }
-  .tag-indigo { background: #EEF2FF; color: #4338CA; }
-  .tag-teal { background: #F0FDFA; color: #0F766E; }
-  .tag-emerald { background: #ECFDF5; color: #047857; }
-  .tag-rose { background: #FFF1F2; color: #BE123C; }
-  .tag-amber { background: #FFFBEB; color: #B45309; }
-
-  .tile-arrow {
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    font-weight: 900;
-    color: var(--text-muted);
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-
-  .bento-tile:hover .tile-arrow {
-    color: var(--accent-primary);
-    transform: translateX(3px);
-  }
-
-  .tile-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 6px;
-  }
-
-  .tile-title {
-    font-size: 0.98rem;
+  .card-title {
+    font-size: 1.12rem;
     font-weight: 800;
     color: var(--text-primary);
-    margin: 0 0 2px;
+    margin: 0;
     line-height: 1.2;
     letter-spacing: -0.01em;
-  }
-
-  .tile-url {
-    font-family: var(--font-mono);
-    font-size: 0.70rem;
-    font-weight: 700;
-    color: var(--accent-primary);
-    margin-bottom: 3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .tile-desc {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    line-height: 1.35;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .card-arrow {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--text-muted);
+    transition: transform 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
   }
 
-  .tile-footer {
+  .portfolio-card:hover .card-arrow {
+    color: var(--text-primary);
+    transform: translateX(4px);
+  }
+
+  .card-link-text {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-link-text.blue { color: #2563EB; }
+  .card-link-text.indigo { color: #4F46E5; }
+  .card-link-text.teal { color: #0D9488; }
+  .card-link-text.emerald { color: #059669; }
+  .card-link-text.rose { color: #E11D48; }
+
+  .card-pill-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+    flex: 1;
+    align-content: center;
+  }
+
+  .pill {
+    background: #F8FAFC;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 3px 7px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #334155;
+    line-height: 1.2;
+  }
+
+  .card-bottom-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: var(--font-mono);
-    font-size: 0.66rem;
+    font-size: 0.68rem;
     border-top: 1px solid #F1F5F9;
     padding-top: 6px;
+    margin-top: auto;
   }
 
-  .meta-tag {
+  .card-stat {
     color: var(--text-muted);
     font-weight: 600;
   }
 
-  .meta-status {
-    color: var(--accent-primary);
+  .card-action-btn {
     font-weight: 800;
     letter-spacing: 0.02em;
     text-decoration: none;
+    font-size: 0.70rem;
   }
+  .card-action-btn.blue { color: #2563EB; }
+  .card-action-btn.indigo { color: #4F46E5; }
+  .card-action-btn.teal { color: #0D9488; }
+  .card-action-btn.emerald { color: #059669; }
+  .card-action-btn.rose { color: #E11D48; }
+  .card-action-btn.amber { color: #D97706; }
 
-  /* Subsystems Grid within Tile 6 */
-  .subsystems-grid {
+  /* Subsystems 6-Button Grid */
+  .subsystems-compact-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5px;
-    margin: 4px 0 6px;
+    margin-bottom: 8px;
+    flex: 1;
+    align-content: center;
   }
 
-  .subsystem-pill {
+  .sub-btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #F8FAFC;
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-xs);
-    padding: 5px 7px;
-    font-size: 0.70rem;
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-size: 0.72rem;
     font-weight: 700;
     color: var(--text-primary);
     text-decoration: none;
     transition: all 0.15s ease;
   }
 
-  .subsystem-pill:hover {
+  .sub-btn:hover {
     background: #EFF6FF;
     border-color: #BFDBFE;
-    color: var(--accent-primary);
+    color: #2563EB;
   }
 
-  .subsystem-pill.highlight {
+  .sub-btn.highlight {
     background: #FEF3C7;
     border-color: #FDE68A;
     color: #92400E;
   }
 
-  .subsystem-arrow {
+  .sub-arr {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
   }
 
-  /* ── Sleek Micro Status Rail ── */
-  .bento-bottom-rail {
+  /* ── Bottom Engineering Credential Rail ── */
+  .portfolio-footer-rail {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
     padding: 6px 14px;
     background: #FFFFFF;
-    border: 1px solid var(--border-subtle);
+    border: 1.5px solid var(--border-medium);
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.70rem;
     color: var(--text-secondary);
     margin-top: 8px;
     flex-shrink: 0;
@@ -531,83 +640,96 @@ import Layout from '../layouts/Layout.astro';
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: nowrap;
   }
 
-  .rail-lead {
-    font-weight: 800;
+  .rail-badge {
+    font-weight: 900;
     color: var(--text-primary);
+    background: #F1F5F9;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
   }
 
   .rail-sep {
     color: var(--border-medium);
   }
 
+  .mentor-sub {
+    color: #64748B;
+    font-size: 0.65rem;
+  }
+
   .rail-right {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-weight: 600;
-    color: var(--text-muted);
+    flex-shrink: 0;
   }
 
-  .status-indicator {
-    width: 6px;
-    height: 6px;
+  .live-dot {
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: #10B981;
-    box-shadow: 0 0 6px #10B981;
+    box-shadow: 0 0 8px #10B981;
   }
 
-  /* ── Mobile Responsive Optimizations (< 1024px and < 768px) ── */
-  @media (max-width: 1024px) {
-    .bento-viewport-wrapper {
+  .rail-highlight {
+    font-weight: 700;
+    color: #047857;
+  }
+
+  /* ── Mobile Responsive Overrides (< 1080px and < 768px) ── */
+  @media (max-width: 1080px) {
+    .portfolio-screen-container {
       height: auto;
       max-height: none;
       overflow-y: auto;
     }
-    .bento-master-grid {
+    .portfolio-bento-grid {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto;
     }
   }
 
   @media (max-width: 768px) {
-    .bento-viewport-wrapper {
-      padding: 12px 12px 24px;
+    .portfolio-screen-container {
+      padding: 10px 10px 20px;
       height: auto;
       max-height: none;
       overflow-y: auto;
     }
-    .bento-top-bar {
+    .portfolio-header {
       flex-direction: column;
       align-items: stretch;
       gap: 10px;
       padding: 12px;
     }
-    .brand-group {
+    .header-left {
       justify-content: flex-start;
     }
-    .acronym-tag {
+    .header-center {
       text-align: left;
       padding: 0;
-      font-size: 0.70rem;
     }
-    .pill-badges {
+    .badge-row {
       justify-content: flex-start;
       flex-wrap: wrap;
     }
-    .bento-master-grid {
+    .portfolio-bento-grid {
       grid-template-columns: 1fr;
       gap: 10px;
     }
-    .bento-tile {
-      padding: 14px;
-    }
-    .bento-bottom-rail {
+    .portfolio-footer-rail {
       flex-direction: column;
       align-items: flex-start;
       gap: 6px;
       padding: 10px 12px;
+    }
+    .rail-left {
+      flex-wrap: wrap;
     }
   }
 </style>
