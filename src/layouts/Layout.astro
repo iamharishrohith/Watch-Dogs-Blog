@@ -437,39 +437,50 @@ const navItems = [
         }
       });
 
-      // Attach click-to-open handlers to all schematics, circuit diagrams, and gallery images
-      function bindImages() {
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-          // Skip header/footer tiny logos
-          if (img.width <= 40 && img.height <= 40) return;
-          if (img.closest('.research-header') || img.closest('.editorial-footer')) return;
+      // Global click delegation for all buttons, image triggers, and clickable images
+      document.addEventListener('click', (e) => {
+        // 1. Check if clicked on a lightbox trigger button or wrapper
+        const trigger = e.target.closest('.image-lightbox-trigger, .screen-fit-inspect-btn, .zoom-hint-badge, .zoom-trigger-btn');
+        if (trigger) {
+          e.preventDefault();
+          e.stopPropagation();
           
-          img.style.cursor = 'zoom-in';
-          img.title = img.title || 'Click to view screen-fit high-resolution';
-
-          img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const altText = img.getAttribute('alt') || 'High-Resolution Diagram';
-            const caption = img.getAttribute('data-caption') || altText;
-            openModal(img.src, altText, caption);
-          });
-        });
-
-        // Also bind any zoom hint buttons
-        document.querySelectorAll('.zoom-hint-badge, .zoom-trigger-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const container = btn.closest('.screen-fit-container') || btn.closest('.bento-card');
-            if (container) {
-              const img = container.querySelector('img');
-              if (img) {
-                openModal(img.src, img.alt, img.alt);
-              }
+          const src = trigger.getAttribute('data-lightbox-src') || trigger.dataset.lightboxSrc;
+          const title = trigger.getAttribute('data-lightbox-title') || trigger.dataset.lightboxTitle;
+          const caption = trigger.getAttribute('data-lightbox-caption') || trigger.dataset.lightboxCaption;
+          
+          if (src) {
+            openModal(src, title, caption);
+            return;
+          }
+          
+          // Otherwise look for image inside nearby container
+          const container = trigger.closest('.screen-fit-container, .bento-card, .circuit-section') || trigger.parentElement;
+          if (container) {
+            const img = container.querySelector('img');
+            if (img && img.src) {
+              openModal(img.src, img.alt, img.dataset.caption || img.alt);
+              return;
             }
-          });
-        });
-      }
+          }
+        }
+
+        // 2. Direct click on content image (excluding navbar/footer icons)
+        const img = e.target.closest('img');
+        if (img) {
+          if (img.closest('.research-header') || img.closest('.editorial-footer') || img.closest('#global-image-lightbox')) return;
+          if (img.width > 0 && img.width <= 36 && img.height <= 36) return;
+          
+          e.stopPropagation();
+          const altText = img.getAttribute('alt') || 'High-Resolution Diagram';
+          const caption = img.getAttribute('data-caption') || altText;
+          openModal(img.src, altText, caption);
+        }
+      });
+
+      // Expose globally
+      window.openLightboxModal = openModal;
+      window.closeLightboxModal = closeModal;
 
       // Bento Navigation Hub Interaction
       const bentoToggle = document.getElementById('bento-hub-toggle');
@@ -504,12 +515,6 @@ const navItems = [
           closeBentoHub();
         }
       });
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', bindImages);
-      } else {
-        bindImages();
-      }
     })();
   </script>
 </body>
