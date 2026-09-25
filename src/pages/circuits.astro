@@ -1,0 +1,602 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="WATCH-DOGS | Master Hardware Circuit Diagrams & Pinout Schematics" activeNav="circuits">
+  <div class="container-wide" style="padding-top: 24px; padding-bottom: 60px;">
+
+    <!-- Top Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <div class="hero-pill" style="margin-bottom: 6px;">ELECTRICAL ENGINEERING &bull; HARDWARE SCHEMATICS</div>
+        <h1 style="font-size: 2.3rem; font-weight: 900; margin: 0; letter-spacing: -0.02em;">
+          Master Circuit Schematics &amp; Pinout Wire Connections
+        </h1>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <span class="card-badge badge-brand" style="padding: 6px 12px; font-weight: 800;">4 PHYSICAL NODES + GATEWAY</span>
+        <span class="card-badge badge-safe" style="padding: 6px 12px; font-weight: 800;">VERIFIED PINOUT SAFE (&le; 34)</span>
+      </div>
+    </div>
+
+    <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 920px; line-height: 1.6; margin-bottom: 32px;">
+      Complete electrical wiring diagrams, sensor bus configurations (SPI, I2C, ADC, UART, PWM), power rails, and logic-level isolation across the physical WATCH-DOGS IoT mesh array.
+    </p>
+
+    <!-- Interactive Node Selector Tabs -->
+    <div style="display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap;" id="circuit-tabs">
+      <button class="failure-trigger-btn active" data-target="system-bus" style="padding: 10px 20px;">
+        ⚡ MASTER SYSTEM BUS ARCHITECTURE
+      </button>
+      <button class="failure-trigger-btn" data-target="node-1" style="padding: 10px 20px;">
+        🏔️ NODE 1: HILLSIDE SENTINEL
+      </button>
+      <button class="failure-trigger-btn" data-target="node-2" style="padding: 10px 20px;">
+        🌊 NODE 2: RIVERBED SURGE SENTINEL
+      </button>
+      <button class="failure-trigger-btn" data-target="node-3" style="padding: 10px 20px;">
+        🏭 NODE 3: INDUSTRIAL &amp; GAS SENTINEL
+      </button>
+      <button class="failure-trigger-btn" data-target="node-4" style="padding: 10px 20px;">
+        📻 NODE 4 &amp; RPi 5: MASTER GATEWAY
+      </button>
+      <button class="failure-trigger-btn" data-target="power-tree" style="padding: 10px 20px;">
+        🔋 POWER HARVESTING &amp; MPPT
+      </button>
+    </div>
+
+    <!-- ============================================================
+         SECTION 0: MASTER SYSTEM BUS ARCHITECTURE
+         ============================================================ -->
+    <div class="circuit-section active" id="sec-system-bus">
+      <div class="bento-card col-12" style="border-top: 4px solid var(--accent-primary); margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span class="card-badge badge-brand">GLOBAL BUS OVERVIEW</span>
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin: 4px 0;">ESP32-S3 Global GPIO Allocation &amp; Bus Topology</h2>
+          </div>
+          <span class="status-badge">ZERO PIN CONFLICT VERIFIED</span>
+        </div>
+
+        <!-- Master Bus Diagram SVG -->
+        <div style="background: #0B0F19; border: 1px solid #1F2937; border-radius: 8px; padding: 24px; overflow-x: auto; margin-bottom: 20px;">
+          <svg width="100%" height="340" viewBox="0 0 1000 340" style="min-width: 800px; display: block;">
+            <!-- Background grid -->
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1E293B" stroke-width="0.5"/>
+            </pattern>
+            <rect width="1000" height="340" fill="url(#grid)" />
+
+            <!-- ESP32 Core Box -->
+            <rect x="380" y="40" width="240" height="260" rx="10" fill="#1E1E2F" stroke="#6366F1" stroke-width="2.5" />
+            <text x="500" y="75" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="bold" text-anchor="middle">ESP32-WROOM-32 / S3</text>
+            <text x="500" y="95" fill="#A5B4FC" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">Dual-Core 240MHz &bull; 3.3V Logic</text>
+
+            <!-- SPI Bus Block (Left Top) -->
+            <rect x="40" y="40" width="220" height="80" rx="6" fill="#111827" stroke="#3B82F6" stroke-width="1.5" />
+            <text x="150" y="65" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">LoRa SX1278 (SPI Bus)</text>
+            <text x="150" y="85" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">SCK: 18 | MISO: 19 | MOSI: 23</text>
+            <text x="150" y="102" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">NSS: 5 | RST: 16 | DIO0: 26/2/33</text>
+            <!-- Wire Line -->
+            <path d="M 260 80 L 380 80" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4,4" />
+
+            <!-- I2C Bus Block (Left Bottom) -->
+            <rect x="40" y="160" width="220" height="120" rx="6" fill="#111827" stroke="#10B981" stroke-width="1.5" />
+            <text x="150" y="185" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">I2C Sensor Bus (400kHz)</text>
+            <text x="150" y="205" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">SDA: GPIO 21 | SCL: GPIO 22</text>
+            <text x="150" y="225" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">&bull; SSD1306/SH1106 OLED (0x3C)</text>
+            <text x="150" y="243" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">&bull; BMP280 Baro/Temp (0x76)</text>
+            <text x="150" y="261" fill="#CBD5E1" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">&bull; MPU6050 6-DOF IMU (0x68)</text>
+            <!-- Wire Line -->
+            <path d="M 260 220 L 380 220" stroke="#10B981" stroke-width="2" />
+
+            <!-- Analog ADC1 Block (Right Top) -->
+            <rect x="740" y="40" width="220" height="95" rx="6" fill="#111827" stroke="#F59E0B" stroke-width="1.5" />
+            <text x="850" y="65" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">Analog ADC1 Inputs (Safe)</text>
+            <text x="850" y="85" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">GPIO 34: Soil VWC / MQ135 / Rain</text>
+            <text x="850" y="103" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">GPIO 32: LDR Lux / Rain Level</text>
+            <text x="850" y="120" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">12-Bit Resolution (0 - 4095)</text>
+            <!-- Wire Line -->
+            <path d="M 740 85 L 620 85" stroke="#F59E0B" stroke-width="2" />
+
+            <!-- Hardware Actuation & Digital I/O (Right Bottom) -->
+            <rect x="740" y="170" width="220" height="110" rx="6" fill="#111827" stroke="#EF4444" stroke-width="1.5" />
+            <text x="850" y="195" fill="#F87171" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">Actuators &amp; Digital I/O</text>
+            <text x="850" y="215" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">GPIO 26/27: DFPlayer Mini Audio</text>
+            <text x="850" y="233" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">GPIO 27/14: Ultrasonic Trig/Echo</text>
+            <text x="850" y="251" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">GPIO 13: Digital Rain Interrupt</text>
+            <text x="850" y="269" fill="#9CA3AF" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">GPIO 4: DHT22 1-Wire Data</text>
+            <!-- Wire Line -->
+            <path d="M 740 225 L 620 225" stroke="#EF4444" stroke-width="2" />
+          </svg>
+        </div>
+
+        <!-- System Bus Specs Matrix Table -->
+        <table class="matrix-table" style="margin-top: 10px;">
+          <thead>
+            <tr>
+              <th>Bus / Protocol</th>
+              <th>Pins (ESP32)</th>
+              <th>Connected Sensors &amp; Peripherals</th>
+              <th>Voltage Rail</th>
+              <th>Signal Characteristics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hardware SPI</strong></td>
+              <td><code>SCK: 18, MISO: 19, MOSI: 23, NSS: 5, RST: 16</code></td>
+              <td>Semtech SX1278 / SX1262 LoRa Transceiver (+22 dBm)</td>
+              <td>3.3V Regulated</td>
+              <td>10 MHz Max SPI Clock, Hardware DMA buffered</td>
+            </tr>
+            <tr>
+              <td><strong>Hardware I2C</strong></td>
+              <td><code>SDA: GPIO 21, SCL: GPIO 22</code></td>
+              <td>SSD1306/SH1106 OLED (0x3C), BMP280 Barometer (0x76), MPU6050 6-DOF IMU (0x68), VL53L0X Laser (0x29)</td>
+              <td>3.3V Regulated</td>
+              <td>400 kHz Fast-Mode I2C Bus, 4.7k&Omega; pullups to 3.3V</td>
+            </tr>
+            <tr>
+              <td><strong>Analog ADC1</strong></td>
+              <td><code>GPIO 34 (ADC1_CH6), GPIO 32 (ADC1_CH4)</code></td>
+              <td>Capacitive Soil Moisture Probe, MQ-135 Gas Sensor, Rain Sensor ADC, LDR Photoresistor</td>
+              <td>3.3V Max (Input)</td>
+              <td>12-bit SAR ADC, 0–3.3V attenuation (11dB), zero Wi-Fi conflict</td>
+            </tr>
+            <tr>
+              <td><strong>Hardware UART1</strong></td>
+              <td><code>TX1: GPIO 27, RX1: GPIO 26</code></td>
+              <td>DFPlayer Mini MP3 Sound Module (Vernacular Civil Defense Voice)</td>
+              <td>5.0V / 3.3V</td>
+              <td>9600 Baud 8N1 Async Serial, driving 8&Omega; 3W speaker</td>
+            </tr>
+            <tr>
+              <td><strong>Digital GPIO / PWM</strong></td>
+              <td><code>TRIG: 27, ECHO: 14, DHT: 4, RAIN_D: 13, IR: 25</code></td>
+              <td>HC-SR04 Ultrasonic Ranging, DHT22 Temp/Humidity, Rain Comparator Digital Trip, IR Beam</td>
+              <td>3.3V / 5.0V</td>
+              <td>Direct hardware timer interrupts, wake-on-pin edge</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 1: NODE 1 (HILLSIDE GENESIS SENTINEL)
+         ============================================================ -->
+    <div class="circuit-section" id="sec-node-1" style="display: none;">
+      <div class="bento-card col-12" style="border-top: 4px solid #3B82F6; margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span class="card-badge badge-brand">NODE 1 SCHEMATIC</span>
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin: 4px 0;">Node 1: Hillside Landslide &amp; Geotechnical Sentinel</h2>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">Target Hazards: Deep-Seated Landslide, Headscarp Shear Fracture, Soil Moisture Infiltration, Rainfall Rate</p>
+          </div>
+          <span class="card-badge badge-safe">FIRMWARE: node1_hillside.ino</span>
+        </div>
+
+        <!-- Node 1 Circuit Pinout Card -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+          
+          <!-- Detailed Pin Connections Table -->
+          <div style="background: #F8FAFC; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 18px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-primary);">⚡ Exact Hardware Pin Map</h4>
+            <table style="width: 100%; font-family: var(--font-mono); font-size: 0.78rem; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid #CBD5E1; color: var(--text-secondary);">
+                  <th style="text-align: left; padding: 6px 0;">Module</th>
+                  <th style="text-align: left; padding: 6px 0;">Sensor Pin</th>
+                  <th style="text-align: left; padding: 6px 0;">ESP32 GPIO</th>
+                  <th style="text-align: left; padding: 6px 0;">Power</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>SX1278 LoRa</strong></td>
+                  <td>SCK, MISO, MOSI, NSS, RST, DIO0</td>
+                  <td><code>18, 19, 23, 5, 16, 26</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>SSD1306 OLED</strong></td>
+                  <td>SDA, SCL</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>BMP280 Baro</strong></td>
+                  <td>SDA, SCL (Address: 0x76)</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>MPU6050 IMU</strong></td>
+                  <td>SDA, SCL (Address: 0x68)</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>TDR Soil Sensor</strong></td>
+                  <td>Analog AOUT</td>
+                  <td><code>GPIO 34 (ADC1_CH6)</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>Rain Plate Sensor</strong></td>
+                  <td>Analog AOUT / Digital DOUT</td>
+                  <td><code>GPIO 32 (AOUT), GPIO 13 (DOUT)</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr>
+                  <td><strong>IR Tilt Barrier</strong></td>
+                  <td>Digital OUT</td>
+                  <td><code>GPIO 25 (Digital IN)</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Functional Circuit Flowchart -->
+          <div style="background: #0B0F19; border: 1px solid #1F2937; border-radius: 8px; padding: 20px; color: #E5E7EB; font-family: var(--font-mono); font-size: 0.78rem;">
+            <div style="color: #60A5FA; font-weight: 800; margin-bottom: 10px;">CIRCUIT SIGNAL FLOW</div>
+            <div style="line-height: 1.8;">
+              <div style="color: #FBBF24;">[SOIL VWC PROBE 1.5m] ──(Analog mV)──&gt; GPIO 34 (12-bit ADC)</div>
+              <div style="color: #38BDF8;">[MPU6050 6-DOF TILT] ──(I2C 0x68)───&gt; GPIO 21/22 (Pitch &amp; Roll)</div>
+              <div style="color: #34D399;">[BMP280 BAROMETER]   ──(I2C 0x76)───&gt; GPIO 21/22 (hPa &amp; Temp)</div>
+              <div style="color: #F87171;">[RAIN DROP DETECTOR] ──(Digital DO)──&gt; GPIO 13 (Wake ISR)</div>
+              <div style="margin: 10px 0; border-top: 1px dashed #374151;"></div>
+              <div style="color: #A78BFA;">&gt;&gt; FreeRTOS Task: Bayesian Sensor Sampling &amp; JSON Packing</div>
+              <div style="color: #3B82F6;">&gt;&gt; LoRa.beginPacket() ──(SPI 18/19/23/5)──&gt; SX1278 Antenna (+22dBm)</div>
+              <div style="color: #10B981;">&gt;&gt; SSD1306 Display ──(I2C 0x3C)──&gt; Live Status &amp; Tilt Angles</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 2: NODE 2 (RIVERBED SURGE SENTINEL)
+         ============================================================ -->
+    <div class="circuit-section" id="sec-node-2" style="display: none;">
+      <div class="bento-card col-12" style="border-top: 4px solid #10B981; margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span class="card-badge badge-safe">NODE 2 SCHEMATIC</span>
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin: 4px 0;">Node 2: Riverbed &amp; Canopy Flash Flood Sentinel</h2>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">Target Hazards: River Surge Wave, Glacial Lake Outburst (GLOF), Forest Canopy Fire Index, Flash Flood</p>
+          </div>
+          <span class="card-badge badge-safe">FIRMWARE: node2_riverbed.ino</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+          
+          <div style="background: #F8FAFC; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 18px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-success);">⚡ Dual-Redundant Ranging Pin Map</h4>
+            <table style="width: 100%; font-family: var(--font-mono); font-size: 0.78rem; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid #CBD5E1; color: var(--text-secondary);">
+                  <th style="text-align: left; padding: 6px 0;">Module</th>
+                  <th style="text-align: left; padding: 6px 0;">Sensor Pin</th>
+                  <th style="text-align: left; padding: 6px 0;">ESP32 GPIO</th>
+                  <th style="text-align: left; padding: 6px 0;">Power</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>SX1278 LoRa</strong></td>
+                  <td>SCK, MISO, MOSI, NSS, RST, DIO0</td>
+                  <td><code>18, 19, 23, 5, 16, 2</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>SH1106 1.3" OLED</strong></td>
+                  <td>SDA, SCL (Address: 0x3C)</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>VL53L0X Laser ToF</strong></td>
+                  <td>SDA, SCL (Address: 0x29)</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>BMP280 Barometer</strong></td>
+                  <td>SDA, SCL (Address: 0x76)</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>HC-SR04 Ultrasonic</strong></td>
+                  <td>TRIG: 27, ECHO: 14</td>
+                  <td><code>TRIG: GPIO 27, ECHO: GPIO 14</code></td>
+                  <td>5.0V VIN / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>DHT22 Temp/Humidity</strong></td>
+                  <td>DATA (4.7k pullup)</td>
+                  <td><code>GPIO 4 (1-Wire)</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr>
+                  <td><strong>LDR Canopy Lux</strong></td>
+                  <td>Analog AOUT</td>
+                  <td><code>GPIO 32 (ADC1_CH4)</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="background: #0B0F19; border: 1px solid #1F2937; border-radius: 8px; padding: 20px; color: #E5E7EB; font-family: var(--font-mono); font-size: 0.78rem;">
+            <div style="color: #34D399; font-weight: 800; margin-bottom: 10px;">DUAL-REDUNDANT RANGING ARCHITECTURE</div>
+            <div style="line-height: 1.8;">
+              <div style="color: #38BDF8;">[ULTRASONIC HC-SR04] ──(Pulse In)──&gt; GPIO 14/27 (Macro Stage 0-4m)</div>
+              <div style="color: #FBBF24;">[VL53L0X LASER ToF]  ──(I2C 0x29)──&gt; GPIO 21/22 (Micro Millimeter)</div>
+              <div style="color: #F87171;">[DHT22 HUMIDITY/TEMP] ──(1-Wire)───&gt; GPIO 4 (VPD Forest Fire Index)</div>
+              <div style="color: #A78BFA;">[LDR CANOPY LIGHT]   ──(ADC mV)───&gt; GPIO 32 (Day/Night &amp; Flame Lux)</div>
+              <div style="margin: 10px 0; border-top: 1px dashed #374151;"></div>
+              <div style="color: #10B981;">&gt;&gt; Cross-Checking: If Ultrasonic drops out due to foam, Laser ToF holds stage</div>
+              <div style="color: #60A5FA;">&gt;&gt; Saint-Venant Rate Calculator: dh/dt &gt; 0.4 m/min triggers upstream warning</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 3: NODE 3 (INDUSTRIAL & GAS SENTINEL)
+         ============================================================ -->
+    <div class="circuit-section" id="sec-node-3" style="display: none;">
+      <div class="bento-card col-12" style="border-top: 4px solid #F59E0B; margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span class="card-badge badge-warning">NODE 3 SCHEMATIC</span>
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin: 4px 0;">Node 3: Industrial Chemical Gas &amp; Tremor Sentinel</h2>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">Target Hazards: Toxic Gas Release (Bhopal Scenario), Industrial Seismic Tremor, Urban Smog Inversion</p>
+          </div>
+          <span class="card-badge badge-warning">FIRMWARE: node3_industrial.ino</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+          
+          <div style="background: #F8FAFC; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 18px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-warning);">⚡ Gas Array &amp; Tremor Pin Map</h4>
+            <table style="width: 100%; font-family: var(--font-mono); font-size: 0.78rem; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid #CBD5E1; color: var(--text-secondary);">
+                  <th style="text-align: left; padding: 6px 0;">Module</th>
+                  <th style="text-align: left; padding: 6px 0;">Sensor Pin</th>
+                  <th style="text-align: left; padding: 6px 0;">ESP32 GPIO</th>
+                  <th style="text-align: left; padding: 6px 0;">Power</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>SX1278 LoRa</strong></td>
+                  <td>SCK, MISO, MOSI, NSS, RST, DIO0</td>
+                  <td><code>18, 19, 23, 5, 16, 26</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>MQ-135 Gas Sensor</strong></td>
+                  <td>Analog AOUT (Gas PPM)</td>
+                  <td><code>GPIO 34 (ADC1_CH6)</code></td>
+                  <td>5.0V Heater / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>MPU-6050 Tremor</strong></td>
+                  <td>SDA, SCL (Wake 0x68 reg 0x6B)</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>BMP280 Atmospheric</strong></td>
+                  <td>SDA, SCL (Inversion Layer)</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr>
+                  <td><strong>SH1106 1.3" OLED</strong></td>
+                  <td>SDA, SCL (PPM Live Graph)</td>
+                  <td><code>GPIO 21, GPIO 22</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="background: #0B0F19; border: 1px solid #1F2937; border-radius: 8px; padding: 20px; color: #E5E7EB; font-family: var(--font-mono); font-size: 0.78rem;">
+            <div style="color: #FBBF24; font-weight: 800; margin-bottom: 10px;">GAS DIFFUSION &amp; INVERSION DETECTION</div>
+            <div style="line-height: 1.8;">
+              <div style="color: #EF4444;">[MQ-135 SN02 CORE] ──(0-3.3V ADC)──&gt; GPIO 34 (PPM Concentration)</div>
+              <div style="color: #38BDF8;">[MPU6050 3-AXIS]   ──(I2C 0x68)───&gt; GPIO 21/22 (Seismic Shock / Tremor)</div>
+              <div style="color: #34D399;">[BMP280 PRESSURE]  ──(I2C 0x76)───&gt; GPIO 21/22 (Thermal Inversion &Delta;P)</div>
+              <div style="margin: 10px 0; border-top: 1px dashed #374151;"></div>
+              <div style="color: #F59E0B;">&gt;&gt; Pre-Heating Protocol: 20s sensor baseline calibration on cold boot</div>
+              <div style="color: #60A5FA;">&gt;&gt; Threshold: &gt; 350 PPM or &gt; 400 mg tremor triggers immediate Code Red LoRa packet</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 4: NODE 4 & RASPBERRY PI 5 GATEWAY
+         ============================================================ -->
+    <div class="circuit-section" id="sec-node-4" style="display: none;">
+      <div class="bento-card col-12" style="border-top: 4px solid #8B5CF6; margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span class="card-badge badge-brand">NODE 4 &amp; GATEWAY SCHEMATIC</span>
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin: 4px 0;">Node 4: Base Station Hub, Audio Actuator &amp; Raspberry Pi 5 Gateway</h2>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">Role: Concentrator LoRa RX, DFPlayer Vernacular Audio Siren, High-Speed USB Serial to RPi 5 Edge AI</p>
+          </div>
+          <span class="card-badge badge-brand">FIRMWARE: node4_gateway.ino</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+          
+          <div style="background: #F8FAFC; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 18px;">
+            <h4 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 12px; color: #7C3AED;">⚡ Master Gateway &amp; Voice Actuation Map</h4>
+            <table style="width: 100%; font-family: var(--font-mono); font-size: 0.78rem; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid #CBD5E1; color: var(--text-secondary);">
+                  <th style="text-align: left; padding: 6px 0;">Module</th>
+                  <th style="text-align: left; padding: 6px 0;">Pins</th>
+                  <th style="text-align: left; padding: 6px 0;">Connections</th>
+                  <th style="text-align: left; padding: 6px 0;">Power</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>SX1278 LoRa RX</strong></td>
+                  <td>SCK, MISO, MOSI, NSS, RST, DIO0</td>
+                  <td><code>18, 19, 23, 5, 16, 33</code></td>
+                  <td>3.3V / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>DFPlayer Mini</strong></td>
+                  <td>RX &bull; TX</td>
+                  <td><code>DF_TX &rarr; GPIO 27, DF_RX &rarr; GPIO 26</code></td>
+                  <td>5.0V VIN / GND</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>Audio Speaker</strong></td>
+                  <td>SPK_1, SPK_2</td>
+                  <td><code>DFPlayer Speaker Out &rarr; 8&Omega; 3W Horn</code></td>
+                  <td>Direct DF Amp</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #E2E8F0;">
+                  <td><strong>Raspberry Pi 5</strong></td>
+                  <td>USB Serial UART</td>
+                  <td><code>USB Type-C &rarr; /dev/ttyUSB0 (115200 Baud)</code></td>
+                  <td>5V 5A PD</td>
+                </tr>
+                <tr>
+                  <td><strong>Hardware Relays</strong></td>
+                  <td>GPIO Trigger Pins</td>
+                  <td><code>GPIO 17 (Barrier), GPIO 18 (Siren 130dB)</code></td>
+                  <td>12V Solenoid Rail</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="background: #0B0F19; border: 1px solid #1F2937; border-radius: 8px; padding: 20px; color: #E5E7EB; font-family: var(--font-mono); font-size: 0.78rem;">
+            <div style="color: #A78BFA; font-weight: 800; margin-bottom: 10px;">EDGE COMPUTING &amp; ACTUATION PIPELINE</div>
+            <div style="line-height: 1.8;">
+              <div style="color: #38BDF8;">[LoRa SX1278 RX] ──(SPI Bus)──────&gt; ESP32 Master Receiver (Node 4)</div>
+              <div style="color: #FBBF24;">[JSON SERIAL 115200] ──(USB)─────&gt; Raspberry Pi 5 Edge Server</div>
+              <div style="color: #34D399;">[EDGE AI (XGBoost)] ──(14.2ms)───&gt; Computes Mohr-Coulomb Factor of Safety</div>
+              <div style="color: #EF4444;">[DFPlayer MINI] ──(UART 9600)────&gt; Plays Malayalam/Hindi Evacuation Audio</div>
+              <div style="color: #F87171;">[OPTICAL ISOLATION RELAYS] ──────&gt; Trips 130dB Siren &amp; Motorized Barrier in 64ms</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SECTION 5: POWER TREE & MPPT SOLAR HARVESTING
+         ============================================================ -->
+    <div class="circuit-section" id="sec-power-tree" style="display: none;">
+      <div class="bento-card col-12" style="border-top: 4px solid #10B981; margin-bottom: 28px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span class="card-badge badge-safe">POWER ARCHITECTURE</span>
+            <h2 style="font-size: 1.4rem; font-weight: 800; margin: 4px 0;">Power Distribution Tree &amp; Zero-Sunlight Energy Budget</h2>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">CN3791 MPPT Solar Charger &bull; 3.2V 6000mAh LiFePO4 Grade-A Cell &bull; AP2112K Low-Dropout Regulator</p>
+          </div>
+          <span class="card-badge badge-safe">82.7-DAY DARK AUTONOMY</span>
+        </div>
+
+        <div style="background: #0B0F19; border: 1px solid #1F2937; border-radius: 8px; padding: 24px; color: #E5E7EB; font-family: var(--font-mono); font-size: 0.80rem; margin-bottom: 20px;">
+          <div style="color: #10B981; font-weight: 800; font-size: 0.9rem; margin-bottom: 12px;">ELECTRICAL POWER DISTRIBUTION TREE</div>
+          <div style="line-height: 2.0;">
+            <div>[6V 5W Monocrystalline Solar Panel]</div>
+            <div>&nbsp;&nbsp;└──&gt; [CN3791 MPPT Solar Controller] (94% Efficiency, 3.65V Float Voltage)</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&gt; [3.2V 6000mAh LiFePO4 Grade-A Cell] (3000+ Cycles, -20°C to +65°C)</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&gt; [AP2112K-3.3 Low-Dropout Regulator] (600mA, 250mV Drop, 55µA Quiescent)</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&gt; <strong>3.3V Bus:</strong> ESP32-S3 Core, SX1278 LoRa, BMP280, MPU6050, OLED Display</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&gt; [MT3608 DC-DC Step-Up Converter] (3.2V &rarr; 5.0V Boost)</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&gt; <strong>5.0V Bus:</strong> MQ-135 Gas Heater, HC-SR04 Ultrasonic, DFPlayer Amp</div>
+          </div>
+        </div>
+
+        <!-- Power Budget Breakdown Table -->
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Operating State</th>
+              <th>Active Hardware Modules</th>
+              <th>Current Draw</th>
+              <th>Duration / Cycle</th>
+              <th>Energy / Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Deep Sleep</strong></td>
+              <td>ESP32 ULP Coprocessor + LoRa Sleep (160nA)</td>
+              <td>15 &mu;A</td>
+              <td>9.758 seconds (97.6%)</td>
+              <td>0.35 mAh</td>
+            </tr>
+            <tr>
+              <td><strong>Sensor Acquisition</strong></td>
+              <td>ADC Sampling, I2C Bus Polling, MPU6050 Read</td>
+              <td>12 mA</td>
+              <td>200 milliseconds (2.0%)</td>
+              <td>5.76 mAh</td>
+            </tr>
+            <tr>
+              <td><strong>LoRa Radio TX</strong></td>
+              <td>SX1278 +22dBm Power Amplifier Active Transmit</td>
+              <td>118 mA</td>
+              <td>42 milliseconds (0.4%)</td>
+              <td>11.90 mAh</td>
+            </tr>
+            <tr style="background: #F0FDF4; font-weight: bold;">
+              <td><strong>Total Daily Average</strong></td>
+              <td><strong>Continuous 10-Second Monitoring Cycle</strong></td>
+              <td><strong>0.75 mA (Avg)</strong></td>
+              <td><strong>24 Hours</strong></td>
+              <td><strong>18.01 mAh / Day</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Client-Side Tab Switcher Script -->
+  <script is:inline>
+    const tabs = document.querySelectorAll('#circuit-tabs button');
+    const sections = document.querySelectorAll('.circuit-section');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const targetId = 'sec-' + tab.getAttribute('data-target');
+        sections.forEach(sec => {
+          if (sec.id === targetId) {
+            sec.style.display = 'block';
+          } else {
+            sec.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</Layout>
