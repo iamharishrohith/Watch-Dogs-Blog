@@ -122,5 +122,132 @@ const navItems = [
       </div>
     </div>
   </footer>
+
+  <!-- Universal Screen-Fit Fullscreen Image Lightbox Modal -->
+  <div id="global-image-lightbox" role="dialog" aria-modal="true">
+    <div class="lightbox-topbar">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="card-badge badge-brand" style="padding: 4px 8px; font-size: 0.7rem;">HD SCREEN-FIT VIEW</span>
+        <span id="lightbox-title" style="font-weight: 700; color: #FFFFFF; font-size: 0.85rem;">Inspection Mode</span>
+      </div>
+      <div class="lightbox-actions">
+        <button type="button" class="lightbox-btn" id="lightbox-zoom-toggle">🔍 100% ACTUAL SIZE</button>
+        <button type="button" class="lightbox-btn" id="lightbox-close-btn" style="background: rgba(220, 38, 38, 0.4); border-color: #EF4444;">✕ CLOSE (ESC)</button>
+      </div>
+    </div>
+
+    <div class="lightbox-content-area" id="lightbox-backdrop">
+      <div class="lightbox-img-wrapper" id="lightbox-wrapper">
+        <img id="lightbox-image" src="" alt="Zoomed View" />
+      </div>
+    </div>
+
+    <div class="lightbox-caption" id="lightbox-caption">
+      Click anywhere outside or press ESC to exit screen-fit view
+    </div>
+  </div>
+
+  <script is:inline>
+    (function initLightbox() {
+      const modal = document.getElementById('global-image-lightbox');
+      const imgElem = document.getElementById('lightbox-image');
+      const titleElem = document.getElementById('lightbox-title');
+      const captionElem = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close-btn');
+      const zoomToggle = document.getElementById('lightbox-zoom-toggle');
+      const wrapper = document.getElementById('lightbox-wrapper');
+      const backdrop = document.getElementById('lightbox-backdrop');
+
+      let isZoomed = false;
+
+      function openModal(src, title, caption) {
+        if (!modal || !imgElem) return;
+        imgElem.src = src;
+        imgElem.alt = title || 'Technical Diagram';
+        if (titleElem) titleElem.textContent = title || 'Technical Schematic & Visual Proof';
+        if (captionElem) captionElem.textContent = caption || (title ? `${title} — Screen-Fit High Resolution View` : 'Press ESC or Click Outside to Return');
+        
+        isZoomed = false;
+        if (wrapper) wrapper.style.transform = 'scale(1)';
+        if (zoomToggle) zoomToggle.textContent = '🔍 150% ZOOM';
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function toggleZoom() {
+        isZoomed = !isZoomed;
+        if (wrapper) {
+          wrapper.style.transform = isZoomed ? 'scale(1.5)' : 'scale(1)';
+        }
+        if (zoomToggle) {
+          zoomToggle.textContent = isZoomed ? '🔍 FIT SCREEN' : '🔍 150% ZOOM';
+        }
+      }
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (zoomToggle) zoomToggle.addEventListener('click', toggleZoom);
+
+      if (backdrop) {
+        backdrop.addEventListener('click', (e) => {
+          if (e.target === backdrop || e.target === wrapper) {
+            closeModal();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // Attach click-to-open handlers to all schematics, circuit diagrams, and gallery images
+      function bindImages() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+          // Skip header/footer tiny logos
+          if (img.width <= 40 && img.height <= 40) return;
+          if (img.closest('.research-header') || img.closest('.editorial-footer')) return;
+          
+          img.style.cursor = 'zoom-in';
+          img.title = img.title || 'Click to view screen-fit high-resolution';
+
+          img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const altText = img.getAttribute('alt') || 'High-Resolution Diagram';
+            const caption = img.getAttribute('data-caption') || altText;
+            openModal(img.src, altText, caption);
+          });
+        });
+
+        // Also bind any zoom hint buttons
+        document.querySelectorAll('.zoom-hint-badge, .zoom-trigger-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const container = btn.closest('.screen-fit-container') || btn.closest('.bento-card');
+            if (container) {
+              const img = container.querySelector('img');
+              if (img) {
+                openModal(img.src, img.alt, img.alt);
+              }
+            }
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindImages);
+      } else {
+        bindImages();
+      }
+    })();
+  </script>
 </body>
 </html>
