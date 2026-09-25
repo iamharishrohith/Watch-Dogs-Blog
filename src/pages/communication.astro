@@ -116,16 +116,16 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Live Interactive Decoder Script -->
-      <div style="background: #0f172a; color: #f8fafc; border-radius: var(--radius-md); padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 0.80rem;">
-        <div style="color: #38bdf8; margin-bottom: 8px;">// RAW RF HEX STREAM RECEIVED VIA SX1262 SPI INTERRUPT:</div>
-        <div style="word-break: break-all; color: #a5f3fc; margin-bottom: 12px;">
+      <div style="background: #F8FAFC; border: 1.5px solid var(--border-medium); color: var(--text-primary); border-radius: var(--radius-md); padding: 18px; font-family: 'JetBrains Mono', monospace; font-size: 0.80rem;">
+        <div style="color: var(--accent-primary); font-weight: 700; margin-bottom: 8px;">// RAW RF HEX STREAM RECEIVED VIA SX1262 SPI INTERRUPT:</div>
+        <div style="word-break: break-all; color: #0f172a; background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 10px 14px; border-radius: var(--radius-sm); font-weight: 700; margin-bottom: 12px;">
           0x 00 00 A1 04 66 F4 3D 81 09 C4 03 A2 00 42 FE 18 01 10 00 E8 FA 83 C1 D9 4A 22 18 B3 03 01 A7 9C
         </div>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; border-top: 1px solid #334155; padding-top: 10px; color: #94a3b8;">
-          <div>&bull; Node: <span style="color: #f8fafc; font-weight: bold;">NODE_SENTINEL_04</span></div>
-          <div>&bull; Pore Press: <span style="color: #4ade80; font-weight: bold;">25.00 kPa</span></div>
-          <div>&bull; Soil Moisture: <span style="color: #4ade80; font-weight: bold;">93.0 %VWC</span></div>
-          <div>&bull; Mesh Hops: <span style="color: #fbbf24; font-weight: bold;">3 Hops (RSS -98dBm)</span></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; border-top: 1px solid var(--border-subtle); padding-top: 12px; color: var(--text-secondary);">
+          <div>&bull; Node: <span style="color: var(--text-primary); font-weight: 800;">NODE_SENTINEL_04</span></div>
+          <div>&bull; Pore Press: <span style="color: var(--accent-hazard); font-weight: 800;">25.00 kPa</span></div>
+          <div>&bull; Soil Moisture: <span style="color: var(--accent-hazard); font-weight: 800;">93.0 %VWC</span></div>
+          <div>&bull; Mesh Hops: <span style="color: var(--accent-primary); font-weight: 800;">3 Hops (RSS -98dBm)</span></div>
         </div>
       </div>
     </div>

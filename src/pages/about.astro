@@ -246,13 +246,13 @@ const workbenchPrototypes = [
         {labTestbedImages.map((item, idx) => (
           <div class={`bento-card ${idx === 0 ? 'col-8' : idx === 1 ? 'col-4' : 'col-4'}`} style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-primary); background: #FFFFFF;">
             <div class="screen-fit-container" style="margin: 0; border: none; border-radius: 0;">
-              <div class="screen-fit-header" style="background: #0f172a; color: #FFFFFF; padding: 8px 12px;">
-                <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: #93C5FD;">{item.tag}</span>
-                <button type="button" class="screen-fit-inspect-btn image-lightbox-trigger" data-lightbox-src={item.src} data-lightbox-title={item.title} data-lightbox-caption={item.desc} style="background: #1e293b; color: #FFFFFF; border: 1px solid #334155; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; cursor: pointer;">
+              <div class="screen-fit-header" style="background: #F8FAFC; padding: 8px 12px; border-bottom: 1px solid var(--border-subtle);">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--accent-primary);">{item.tag}</span>
+                <button type="button" class="screen-fit-inspect-btn image-lightbox-trigger" data-lightbox-src={item.src} data-lightbox-title={item.title} data-lightbox-caption={item.desc}>
                   EXPAND SCREEN-FIT
                 </button>
               </div>
-              <div class="screen-fit-image-wrapper image-lightbox-trigger" data-lightbox-src={item.src} data-lightbox-title={item.title} data-lightbox-caption={item.desc} style="height: 220px; cursor: pointer;">
+              <div class="screen-fit-image-wrapper image-lightbox-trigger" data-lightbox-src={item.src} data-lightbox-title={item.title} data-lightbox-caption={item.desc} style="height: 220px; cursor: pointer; background: #FFFFFF;">
                 <img src={item.src} alt={item.title} style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
             </div>
@@ -279,13 +279,13 @@ const workbenchPrototypes = [
         {workbenchPrototypes.map((proto) => (
           <div class="bento-card col-6" style="padding: 0; overflow: hidden; border-top: 4px solid var(--accent-success); background: #FFFFFF;">
             <div class="screen-fit-container" style="margin: 0; border: none; border-radius: 0;">
-              <div class="screen-fit-header" style="background: #0f172a; color: #FFFFFF; padding: 8px 12px;">
-                <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: #86EFAC;">{proto.tag}</span>
-                <button type="button" class="screen-fit-inspect-btn image-lightbox-trigger" data-lightbox-src={proto.src} data-lightbox-title={proto.title} data-lightbox-caption={proto.desc} style="background: #1e293b; color: #FFFFFF; border: 1px solid #334155; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; cursor: pointer;">
+              <div class="screen-fit-header" style="background: #F8FAFC; padding: 8px 12px; border-bottom: 1px solid var(--border-subtle);">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--accent-success);">{proto.tag}</span>
+                <button type="button" class="screen-fit-inspect-btn image-lightbox-trigger" data-lightbox-src={proto.src} data-lightbox-title={proto.title} data-lightbox-caption={proto.desc}>
                   EXPAND SCREEN-FIT
                 </button>
               </div>
-              <div class="screen-fit-image-wrapper image-lightbox-trigger" data-lightbox-src={proto.src} data-lightbox-title={proto.title} data-lightbox-caption={proto.desc} style="height: 220px; cursor: pointer;">
+              <div class="screen-fit-image-wrapper image-lightbox-trigger" data-lightbox-src={proto.src} data-lightbox-title={proto.title} data-lightbox-caption={proto.desc} style="height: 220px; cursor: pointer; background: #FFFFFF;">
                 <img src={proto.src} alt={proto.title} style="width: 100%; height: 100%; object-fit: cover;" />
               </div>
             </div>

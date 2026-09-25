@@ -664,6 +664,37 @@ table code,
   color: var(--text-primary);
 }
 
+.screen-fit-image-wrapper {
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.screen-fit-inspect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #EFF6FF;
+  color: var(--accent-primary);
+  border: 1px solid #BFDBFE;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.screen-fit-inspect-btn:hover {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+}
+
 .screen-fit-img {
   width: 100%;
   height: auto;
