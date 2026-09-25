@@ -51,10 +51,10 @@ const navItems = [
       <nav style="display: flex; align-items: center; gap: 8px;">
         <ul class="nav-links">
           <li><a href="/" class={activeNav === '' || activeNav === 'index' ? 'active' : ''}>Overview</a></li>
-          <li><a href="/circuits" class={activeNav === 'circuits' ? 'active' : ''}>⚡ Circuits &amp; Pinouts</a></li>
-          <li><a href="/intelligence" class={activeNav === 'intelligence' ? 'active' : ''}>🧠 Edge AI</a></li>
-          <li><a href="/communication" class={activeNav === 'communication' ? 'active' : ''}>📻 LoRa Mesh</a></li>
-          <li><a href="/research" class={activeNav === 'research' ? 'active' : ''}>📜 Forensic Studies</a></li>
+          <li><a href="/circuits" class={activeNav === 'circuits' ? 'active' : ''}>Circuits &amp; Pinouts</a></li>
+          <li><a href="/intelligence" class={activeNav === 'intelligence' ? 'active' : ''}>Edge AI</a></li>
+          <li><a href="/communication" class={activeNav === 'communication' ? 'active' : ''}>LoRa Mesh</a></li>
+          <li><a href="/research" class={activeNav === 'research' ? 'active' : ''}>Forensics</a></li>
         </ul>
 
         <!-- Bento Grid Nav Trigger Button -->
@@ -65,7 +65,7 @@ const navItems = [
             <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
             <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
           </svg>
-          <span>BENTO NAV</span>
+          <span>INDEX MATRIX</span>
         </button>
       </nav>
 
@@ -83,42 +83,46 @@ const navItems = [
     <div class="bento-hub-container">
       <div class="bento-hub-header">
         <div>
-          <span class="card-badge badge-brand">WATCH-DOGS ECOSYSTEM MATRIX</span>
-          <h2 style="font-size: 1.5rem; font-weight: 900; margin: 4px 0 0; letter-spacing: -0.02em;">
+          <span class="card-badge badge-brand">SYSTEM MATRIX</span>
+          <h2 style="font-size: 1.4rem; font-weight: 900; margin: 4px 0 0; letter-spacing: -0.02em;">
             Bento Grid Navigation Hub
           </h2>
         </div>
         <button type="button" class="lightbox-btn" id="bento-hub-close" style="background: #F1F5F9; color: var(--text-primary); border-color: var(--border-subtle);">
-          ✕ CLOSE (ESC)
+          CLOSE (ESC)
         </button>
       </div>
 
       <!-- Category 1: Physical Circuits & Hardware -->
       <div style="margin-bottom: 24px;">
         <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">
-          ⚡ Physical Electronics &amp; Circuit Wiring
+          Physical Electronics &amp; Circuit Schematics
         </div>
         <div class="bento-nav-grid" style="margin: 0;">
           <a href="/circuits" class={`bento-nav-card col-4 ${activeNav === 'circuits' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">⚡</div>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h4l2-6 4 12 2-6h4"/></svg>
+              </div>
               <span class="card-badge badge-brand">4 NODES + GATEWAY</span>
             </div>
-            <div class="bento-card-title">Circuits &amp; Pinout Schematics</div>
+            <div class="bento-card-title">Circuits &amp; Pinout Wiremaps</div>
             <div class="bento-card-desc">Master wiring schematics for Hillside Sentinel, Riverbed Surge, Gas Sniffer, Gateway Hub &amp; MPPT Power Tree.</div>
             <div class="bento-card-footer">
-              <span>EXPLORE SCHEMATICS</span>
+              <span>VIEW SCHEMATICS</span>
               <span class="bento-card-arrow">&rarr;</span>
             </div>
           </a>
 
           <a href="/hardware" class={`bento-nav-card col-4 ${activeNav === 'hardware' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">🛠️</div>
-              <span class="card-badge badge-safe">₹7,780 TOTAL BOM</span>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <span class="card-badge badge-safe">BOM SPECIFICATION</span>
             </div>
             <div class="bento-card-title">Hardware Architecture &amp; BOM</div>
-            <div class="bento-card-desc">Component specifications, 82.7-day dark autonomy calculator, and IP67 weather-resistant enclosure CAD.</div>
+            <div class="bento-card-desc">Component specifications, 82.7-day dark autonomy calculator, and IP67 weather-resistant enclosure.</div>
             <div class="bento-card-footer">
               <span>VIEW HARDWARE BOM</span>
               <span class="bento-card-arrow">&rarr;</span>
@@ -127,8 +131,10 @@ const navItems = [
 
           <a href="/sensing" class={`bento-nav-card col-4 ${activeNav === 'sensing' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">🌊</div>
-              <span class="card-badge badge-warning">20 SENSOR NODES</span>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12c2.5-3 5-3 7.5 0s5 3 7.5 0 5-3 7.5 0"/></svg>
+              </div>
+              <span class="card-badge badge-warning">20 CHANNELS</span>
             </div>
             <div class="bento-card-title">In-Situ Sensing Transducers</div>
             <div class="bento-card-desc">TDR soil moisture probes, piezometer hydrostatic head, MPU6050 6-DOF IMU, and laser ToF ranging.</div>
@@ -143,13 +149,15 @@ const navItems = [
       <!-- Category 2: Intelligence & Mesh Communications -->
       <div style="margin-bottom: 24px;">
         <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">
-          🧠 Edge AI &amp; Air-Gapped Mesh Communications
+          Edge AI &amp; Air-Gapped Mesh Communications
         </div>
         <div class="bento-nav-grid" style="margin: 0;">
           <a href="/intelligence" class={`bento-nav-card col-4 ${activeNav === 'intelligence' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">🧠</div>
-              <span class="card-badge badge-brand">8.4ms ON PI 5</span>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3m9-9h-3M6 12H3"/></svg>
+              </div>
+              <span class="card-badge badge-brand">8.4ms INFERENCE</span>
             </div>
             <div class="bento-card-title">Distributed Edge Intelligence</div>
             <div class="bento-card-desc">80-dimensional feature tensor, XGBoost 2.0 classifier, and Mohr-Coulomb infinite slope physics consensus.</div>
@@ -161,7 +169,9 @@ const navItems = [
 
           <a href="/communication" class={`bento-nav-card col-4 ${activeNav === 'communication' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">📻</div>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.93 19.07a10 10 0 0 1 0-14.14M7.76 16.24a6 6 0 0 1 0-8.48M12 12h.01"/></svg>
+              </div>
               <span class="card-badge badge-safe">868 MHz ISM</span>
             </div>
             <div class="bento-card-title">LoRa Mesh Radio Protocol</div>
@@ -174,7 +184,9 @@ const navItems = [
 
           <a href="/architecture" class={`bento-nav-card col-4 ${activeNav === 'architecture' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">🏛️</div>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
               <span class="card-badge badge-brand">4-LAYER STACK</span>
             </div>
             <div class="bento-card-title">System Architecture</div>
@@ -190,12 +202,14 @@ const navItems = [
       <!-- Category 3: Actuation, Evacuation & Forensics -->
       <div>
         <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">
-          🚨 Civil Defense &amp; Forensic Research
+          Civil Defense &amp; Forensic Research
         </div>
         <div class="bento-nav-grid" style="margin: 0;">
           <a href="/actuation" class={`bento-nav-card col-4 ${activeNav === 'actuation' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">🚨</div>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              </div>
               <span class="card-badge badge-danger">SUB-120ms TRIP</span>
             </div>
             <div class="bento-card-title">Physical Actuation &amp; Sirens</div>
@@ -208,7 +222,9 @@ const navItems = [
 
           <a href="/evacuation" class={`bento-nav-card col-4 ${activeNav === 'evacuation' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">🧭</div>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              </div>
               <span class="card-badge badge-safe">DYNAMIC ROUTING</span>
             </div>
             <div class="bento-card-title">Dynamic Evacuation Guidance</div>
@@ -221,7 +237,9 @@ const navItems = [
 
           <a href="/research" class={`bento-nav-card col-4 ${activeNav === 'research' ? 'active' : ''}`}>
             <div class="bento-card-top">
-              <div class="bento-card-icon">📜</div>
+              <div class="bento-card-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
               <span class="card-badge badge-warning">10-YEAR ARCHIVE</span>
             </div>
             <div class="bento-card-title">Forensic Disaster Case Studies</div>
@@ -296,8 +314,8 @@ const navItems = [
         <span id="lightbox-title" style="font-weight: 700; color: #FFFFFF; font-size: 0.85rem;">Inspection Mode</span>
       </div>
       <div class="lightbox-actions">
-        <button type="button" class="lightbox-btn" id="lightbox-zoom-toggle">🔍 100% ACTUAL SIZE</button>
-        <button type="button" class="lightbox-btn" id="lightbox-close-btn" style="background: rgba(220, 38, 38, 0.4); border-color: #EF4444;">✕ CLOSE (ESC)</button>
+        <button type="button" class="lightbox-btn" id="lightbox-zoom-toggle">ZOOM (150%)</button>
+        <button type="button" class="lightbox-btn" id="lightbox-close-btn" style="background: rgba(220, 38, 38, 0.4); border-color: #EF4444;">CLOSE (ESC)</button>
       </div>
     </div>
 
@@ -334,7 +352,7 @@ const navItems = [
         
         isZoomed = false;
         if (wrapper) wrapper.style.transform = 'scale(1)';
-        if (zoomToggle) zoomToggle.textContent = '🔍 150% ZOOM';
+        if (zoomToggle) zoomToggle.textContent = '150% ZOOM';
 
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -352,7 +370,7 @@ const navItems = [
           wrapper.style.transform = isZoomed ? 'scale(1.5)' : 'scale(1)';
         }
         if (zoomToggle) {
-          zoomToggle.textContent = isZoomed ? '🔍 FIT SCREEN' : '🔍 150% ZOOM';
+          zoomToggle.textContent = isZoomed ? 'FIT SCREEN' : '150% ZOOM';
         }
       }
 
