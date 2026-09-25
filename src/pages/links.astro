@@ -1,179 +1,606 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const primaryLinks = [
-  {
-    id: "01",
-    title: "Core Engineering Repository",
-    tag: "GITHUB REPOSITORY",
-    badgeType: "badge-brand",
-    url: "https://github.com/iamharishrohith/WATCH-DOGS",
-    displayUrl: "github.com/iamharishrohith/WATCH-DOGS",
-    desc: "Complete ESP32-S3 C/C++ firmware, Raspberry Pi 5 edge server, PyTorch PINN models, calibrated datasets & hardware BOM.",
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>`
-  },
-  {
-    id: "02",
-    title: "Research & Documentation Portal",
-    tag: "LIVE WEB PORTAL",
-    badgeType: "badge-safe",
-    url: "https://watch-dogs-research.vercel.app/",
-    displayUrl: "watch-dogs-research.vercel.app",
-    desc: "Interactive technical dossier, 10-year empirical forensic disaster audits, geomechanical formulas & legal compliance ledger.",
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`
-  },
-  {
-    id: "03",
-    title: "Geospatial 3D Digital Twin",
-    tag: "WEBGL 3D SIMULATOR",
-    badgeType: "badge-brand",
-    url: "https://watch-dogs-3d.vercel.app/",
-    displayUrl: "watch-dogs-3d.vercel.app",
-    desc: "Interactive 3D elevation terrain, real-time node telemetry visualization, dynamic flood surges & AI evacuation path routing.",
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.12 6.4-6.05-4.06a2 2 0 0 0-2.17-.05L2.95 8.41a2 2 0 0 0-.95 1.7v5.78a2 2 0 0 0 .96 1.71l10 5.71a2 2 0 0 0 1.98 0l6.18-3.53a2 2 0 0 0 1-1.74V8.14a2 2 0 0 0-1.02-1.74z"/><path d="m3.27 6.96 9.73 5.55 9.73-5.55"/><path d="M12 22.08V12.51"/></svg>`
-  },
-  {
-    id: "04",
-    title: "Circuit Schematics & Pinout Branch",
-    tag: "FULL HD SCHEMATICS",
-    badgeType: "badge-safe",
-    url: "https://watch-dogs-research.vercel.app/circuits",
-    displayUrl: "watch-dogs-research.vercel.app/circuits",
-    desc: "Board schematics for all 4 sentinel nodes, power distribution circuits, LC decoupling filters & optocoupler solid-state relays.",
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>`
-  },
-  {
-    id: "05",
-    title: "Physical Testbed Demonstration Video",
-    tag: "YOUTUBE VIDEO PROOF",
-    badgeType: "badge-danger",
-    url: "https://youtu.be/watch-dogs-demo",
-    displayUrl: "youtu.be/watch-dogs-demo",
-    desc: "Video proof of 4-node physical mesh synchronization, flume soil saturation, optical turbidity detection & 130dB siren trip.",
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10 15 5-3-5-3v6Z"/><rect width="20" height="14" x="2" y="5" rx="2"/></svg>`
-  }
-];
-
-const subSections = [
-  { title: "4-Layer Architecture", href: "/architecture", badge: "SYSTEMS" },
-  { title: "PINN Physics-AI Core", href: "/intelligence", badge: "AI ENGINE" },
-  { title: "868 MHz LoRa Mesh", href: "/communication", badge: "WIRELESS" },
-  { title: "Hardware BOM & Sensors", href: "/hardware", badge: "SILICON" },
-  { title: "10-Year Case Studies", href: "/research", badge: "FORENSICS" },
-  { title: "Team Monarchs Profile", href: "/about", badge: "TEAM" }
-];
 ---
 
-<Layout title="WATCH-DOGS Unified Gateway — Single Project Hub" activeNav="">
-  <div class="container" style="max-width: 820px; padding-top: 36px; padding-bottom: 60px;">
+<Layout 
+  title="WATCH-DOGS — Unified Project Gateway & Bento Matrix" 
+  description="Single centralized launchpad for WATCH-DOGS: GitHub Repository, Research Portal, 3D Digital Twin, Circuit Schematics, and Hardware Demonstration."
+  activeNav="links"
+>
+  <div class="bento-viewport-wrapper">
+    <!-- Compact Top Brand Bar -->
+    <header class="bento-top-bar">
+      <div class="brand-group">
+        <div class="logo-box">
+          <img src="/logos/Monarchs Logo.png" alt="Team Monarchs Logo" class="brand-img" />
+        </div>
+        <div class="logo-box">
+          <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" class="brand-img round" />
+        </div>
+        <div class="brand-titles">
+          <div class="brand-sup">TEAM MONARCHS &bull; UNIFIED PROJECT GATEWAY</div>
+          <h1 class="brand-main">WATCH-DOGS</h1>
+        </div>
+      </div>
+      <div class="acronym-tag">
+        <span>Wireless Autonomous Telemetry, Critical Hazard Detection &amp; Optocoupled Ground System</span>
+      </div>
+      <div class="pill-badges">
+        <span class="badge-chip safe">0% CLOUD</span>
+        <span class="badge-chip brand">868 MHz MESH</span>
+        <span class="badge-chip gold">BSA 2023 / SEC 65B</span>
+      </div>
+    </header>
 
-    <!-- Central Branding Card -->
-    <div class="bento-card col-12" style="text-align: center; padding: 36px 24px; background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%); border: 1.5px solid var(--border-medium); margin-bottom: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+    <!-- Master Bento Grid (Fits Viewport on Desktop) -->
+    <main class="bento-master-grid">
       
-      <!-- Dual Logo Header -->
-      <div style="display: flex; justify-content: center; align-items: center; gap: 16px; margin-bottom: 18px;">
-        <div style="background: #FFFFFF; border: 1.5px solid var(--border-medium); border-radius: 8px; padding: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <img src="/logos/Monarchs Logo.png" alt="Team Monarchs Logo" style="width: 52px; height: 52px; object-fit: contain;" />
+      <!-- Tile 1: Core GitHub Repository (Hero Tile) -->
+      <a href="https://github.com/iamharishrohith/WATCH-DOGS" target="_blank" rel="noopener noreferrer" class="bento-tile tile-repo">
+        <div class="tile-header">
+          <div class="tile-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </div>
+          <span class="tile-tag tag-blue">01 &bull; SOURCE REPOSITORY</span>
+          <div class="tile-arrow">&rarr;</div>
         </div>
-        <div style="background: #FFFFFF; border: 1.5px solid var(--border-medium); border-radius: 8px; padding: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <img src="/logos/watchdogs_logo.jpg" alt="WATCH-DOGS Logo" style="width: 52px; height: 52px; object-fit: cover; border-radius: 4px;" />
+        <div class="tile-body">
+          <h2 class="tile-title">Core Engineering Repository</h2>
+          <div class="tile-url">github.com/iamharishrohith/WATCH-DOGS</div>
+          <p class="tile-desc">4 ESP32-S3 firmware nodes, FastAPI edge server, PyTorch PINN model, flume datasets &amp; Section 65B SQLite WAL ledger.</p>
         </div>
-      </div>
+        <div class="tile-footer">
+          <span class="meta-tag">C/C++ &bull; Python</span>
+          <span class="meta-status">OPEN SOURCE ↗</span>
+        </div>
+      </a>
 
-      <div style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.76rem; font-weight: 800; color: var(--accent-primary); background: #EFF6FF; border: 1px solid #BFDBFE; padding: 4px 12px; border-radius: 100px; margin-bottom: 12px;">
-        <span class="pulse-dot" style="background: var(--accent-primary);"></span>
-        <span>TEAM MONARCHS &bull; UNIFIED PROJECT GATEWAY</span>
-      </div>
-
-      <h1 style="font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; margin: 0 0 8px; color: var(--text-primary);">
-        WATCH-DOGS
-      </h1>
-
-      <div style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 800; color: var(--accent-primary); max-width: 600px; margin: 0 auto 14px; line-height: 1.4;">
-        Wireless Autonomous Telemetry, Critical Hazard Detection &amp; Optocoupled Ground System
-      </div>
-
-      <p style="font-size: 0.90rem; color: var(--text-secondary); max-width: 620px; margin: 0 auto; line-height: 1.55;">
-        Air-Gapped, Zero-Cloud Multi-Hazard Early Warning Mesh Appliance with Physics-Informed Neural Networks (PINN) and Sub-120ms Civil Defense Relay Actuation.
-      </p>
-
-      <div style="display: flex; justify-content: center; gap: 8px; margin-top: 18px; flex-wrap: wrap;">
-        <span class="card-badge badge-brand" style="padding: 4px 10px; font-weight: 800;">0% CLOUD DEPENDENCY</span>
-        <span class="card-badge badge-safe" style="padding: 4px 10px; font-weight: 800;">868 MHz LORA MESH</span>
-        <span class="card-badge badge-brand" style="padding: 4px 10px; font-weight: 800;">BSA 2023 / SEC 65B LEDGER</span>
-      </div>
-    </div>
-
-    <!-- Section Heading -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding: 0 4px;">
-      <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 800; color: var(--text-primary); text-transform: uppercase;">
-        Official Project Artifacts &amp; Live Platforms
-      </span>
-      <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-primary); font-weight: 700;">
-        5 VERIFIED ENDPOINTS
-      </span>
-    </div>
-
-    <!-- 5 Primary Link Action Cards -->
-    <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px;">
-      {primaryLinks.map(link => (
-        <a 
-          href={link.url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="bento-card col-12"
-          style="display: flex; gap: 16px; align-items: center; padding: 18px 20px; background: #FFFFFF; border: 1.5px solid var(--border-medium); border-left: 5px solid var(--accent-primary); text-decoration: none; color: inherit; transition: all 0.2s ease;"
-        >
-          <div style="width: 48px; height: 48px; border-radius: var(--radius-sm); background: #EFF6FF; border: 1.5px solid #BFDBFE; display: flex; align-items: center; justify-content: center; color: var(--accent-primary); flex-shrink: 0;">
-            <Fragment set:html={link.icon} />
+      <!-- Tile 2: Geospatial 3D Digital Twin -->
+      <a href="https://watch-dogs-3d.vercel.app/" target="_blank" rel="noopener noreferrer" class="bento-tile tile-twin">
+        <div class="tile-header">
+          <div class="tile-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.12 6.4-6.05-4.06a2 2 0 0 0-2.17-.05L2.95 8.41a2 2 0 0 0-.95 1.7v5.78a2 2 0 0 0 .96 1.71l10 5.71a2 2 0 0 0 1.98 0l6.18-3.53a2 2 0 0 0 1-1.74V8.14a2 2 0 0 0-1.02-1.74z"/><path d="m3.27 6.96 9.73 5.55 9.73-5.55"/><path d="M12 22.08V12.51"/></svg>
           </div>
+          <span class="tile-tag tag-indigo">02 &bull; 3D SIMULATOR</span>
+          <div class="tile-arrow">&rarr;</div>
+        </div>
+        <div class="tile-body">
+          <h2 class="tile-title">Geospatial 3D Digital Twin</h2>
+          <div class="tile-url">watch-dogs-3d.vercel.app</div>
+          <p class="tile-desc">Interactive WebGL 3D elevation terrain, real-time node telemetry visualization, flood surges &amp; dynamic A* evacuation routes.</p>
+        </div>
+        <div class="tile-footer">
+          <span class="meta-tag">Three.js &bull; WebGL</span>
+          <span class="meta-status">LIVE TWIN ↗</span>
+        </div>
+      </a>
 
-          <div style="flex: 1; min-width: 0;">
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 2px;">
-              <h2 style="font-size: 1.05rem; font-weight: 800; margin: 0; color: var(--text-primary);">
-                {link.title}
-              </h2>
-              <span class={`card-badge ${link.badgeType}`} style="font-size: 0.65rem; padding: 2px 6px;">
-                {link.tag}
-              </span>
-            </div>
-
-            <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-              {link.displayUrl}
-            </div>
-
-            <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0; line-height: 1.45;">
-              {link.desc}
-            </p>
+      <!-- Tile 3: Research & Evidence Portal -->
+      <a href="/" class="bento-tile tile-research">
+        <div class="tile-header">
+          <div class="tile-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
           </div>
+          <span class="tile-tag tag-teal">03 &bull; EVIDENCE PORTAL</span>
+          <div class="tile-arrow">&rarr;</div>
+        </div>
+        <div class="tile-body">
+          <h2 class="tile-title">Research &amp; Evidence Web Portal</h2>
+          <div class="tile-url">watch-dogs-research.vercel.app</div>
+          <p class="tile-desc">Multi-hazard technical dossier, 10-year forensic case studies (Wayanad, Kedarnath), geomechanical PINN formulas &amp; legal proofs.</p>
+        </div>
+        <div class="tile-footer">
+          <span class="meta-tag">Astro &bull; Pure CSS</span>
+          <span class="meta-status">EXPLORE DOSSIER &rarr;</span>
+        </div>
+      </a>
 
-          <div style="font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent-primary); font-weight: 900; padding-left: 4px;">
-            &rarr;
+      <!-- Tile 4: Circuit Schematics & Pinout Branch -->
+      <a href="/circuits" class="bento-tile tile-circuits">
+        <div class="tile-header">
+          <div class="tile-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
           </div>
-        </a>
-      ))}
-    </div>
+          <span class="tile-tag tag-emerald">04 &bull; HD SCHEMATICS</span>
+          <div class="tile-arrow">&rarr;</div>
+        </div>
+        <div class="tile-body">
+          <h2 class="tile-title">Circuit Schematics &amp; Pinouts</h2>
+          <div class="tile-url">/circuits &bull; 8 Interactive Diagrams</div>
+          <p class="tile-desc">Full HD schematics for Sentinel nodes, MPPT power trees, optocoupler isolation &amp; 130dB relay triggers.</p>
+        </div>
+        <div class="tile-footer">
+          <span class="meta-tag">KiCad &bull; SVG</span>
+          <span class="meta-status">VIEW CIRCUITS &rarr;</span>
+        </div>
+      </a>
 
-    <!-- Quick Exploration Grid -->
-    <div class="bento-card col-12" style="background: #FFFFFF; padding: 20px; border: 1.5px solid var(--border-medium); margin-bottom: 24px;">
-      <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 800; color: var(--text-primary); text-transform: uppercase; margin-bottom: 12px;">
-        Direct Documentation &amp; Subsystem Links
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
-        {subSections.map(sub => (
-          <a href={sub.href} style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: #F8FAFC; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); text-decoration: none; color: inherit; font-size: 0.80rem; font-weight: 700; transition: all 0.15s ease;">
-            <span style="color: var(--text-primary);">{sub.title}</span>
-            <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-primary);">&rarr;</span>
+      <!-- Tile 5: Physical Benchmark Video Proof -->
+      <a href="https://youtu.be/watch-dogs-demo" target="_blank" rel="noopener noreferrer" class="bento-tile tile-video">
+        <div class="tile-header">
+          <div class="tile-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10 15 5-3-5-3v6Z"/><rect width="20" height="14" x="2" y="5" rx="2"/></svg>
+          </div>
+          <span class="tile-tag tag-rose">05 &bull; VIDEO PROOF</span>
+          <div class="tile-arrow">&rarr;</div>
+        </div>
+        <div class="tile-body">
+          <h2 class="tile-title">Physical Testbed Video Demo</h2>
+          <div class="tile-url">youtu.be/watch-dogs-demo</div>
+          <p class="tile-desc">Live physical testbed run: flume soil saturation, optical turbidity spike, LoRa mesh hops &amp; sub-120ms siren trip.</p>
+        </div>
+        <div class="tile-footer">
+          <span class="meta-tag">Hardware Benchmark</span>
+          <span class="meta-status">WATCH DEMO ↗</span>
+        </div>
+      </a>
+
+      <!-- Tile 6: Quick Subsystem Direct Launcher -->
+      <div class="bento-tile tile-subsystems">
+        <div class="tile-header">
+          <div class="tile-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          </div>
+          <span class="tile-tag tag-amber">06 &bull; SUBSYSTEM MATRIX</span>
+        </div>
+        <div class="subsystems-grid">
+          <a href="/architecture" class="subsystem-pill">
+            <span class="subsystem-name">4-Layer Stack</span>
+            <span class="subsystem-arrow">&rarr;</span>
           </a>
-        ))}
+          <a href="/intelligence" class="subsystem-pill">
+            <span class="subsystem-name">PINN AI Engine</span>
+            <span class="subsystem-arrow">&rarr;</span>
+          </a>
+          <a href="/communication" class="subsystem-pill">
+            <span class="subsystem-name">LoRa Mesh RF</span>
+            <span class="subsystem-arrow">&rarr;</span>
+          </a>
+          <a href="/hardware" class="subsystem-pill">
+            <span class="subsystem-name">Hardware BOM</span>
+            <span class="subsystem-arrow">&rarr;</span>
+          </a>
+          <a href="/research" class="subsystem-pill">
+            <span class="subsystem-name">Case Studies</span>
+            <span class="subsystem-arrow">&rarr;</span>
+          </a>
+          <a href="/about" class="subsystem-pill highlight">
+            <span class="subsystem-name">Team &amp; Lab</span>
+            <span class="subsystem-arrow">&rarr;</span>
+          </a>
+        </div>
+        <div class="tile-footer">
+          <span class="meta-tag">6 Micro-Modules</span>
+          <a href="/about" class="meta-status">TEAM PROFILE &rarr;</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Footer Note -->
-    <div style="text-align: center; font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted); line-height: 1.6;">
-      <div>Team Monarchs &bull; Academic Advisor: Dr. K Arun Kumar, B.E., M.E., Ph.D.</div>
-      <div>Team Lead: Harish Rohith S &bull; 5 Engineering Researchers &bull; Physical Silicon Validated</div>
-    </div>
+    </main>
 
+    <!-- Sleek Micro Status Rail -->
+    <footer class="bento-bottom-rail">
+      <div class="rail-left">
+        <span class="rail-lead">Team Monarchs</span>
+        <span class="rail-sep">&bull;</span>
+        <span>Advisor: <strong>Dr. K Arun Kumar</strong>, B.E., M.E., Ph.D.</span>
+        <span class="rail-sep">&bull;</span>
+        <span>Lead: <strong>Harish Rohith S</strong></span>
+      </div>
+      <div class="rail-right">
+        <span class="status-indicator"></span>
+        <span>100% In-Situ Physical Autonomy &bull; Sub-120ms Tripping</span>
+      </div>
+    </footer>
   </div>
 </Layout>
+
+<style>
+  /* ── Ultra-Modern Single-Page Bento Layout (Viewport-Fit on Desktop) ── */
+  .bento-viewport-wrapper {
+    min-height: calc(100vh - 54px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 24px 12px;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* ── Compact Top Brand Bar ── */
+  .bento-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 18px;
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    margin-bottom: 12px;
+    flex-wrap: nowrap;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .logo-box {
+    width: 36px;
+    height: 36px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  .brand-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .brand-img.round {
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .brand-titles {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-sup {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    letter-spacing: 0.04em;
+  }
+
+  .brand-main {
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .acronym-tag {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-align: center;
+    flex: 1;
+    padding: 0 12px;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .pill-badges {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .badge-chip {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .badge-chip.safe { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+  .badge-chip.brand { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
+  .badge-chip.gold { background: #FEF3C7; color: #D97706; border: 1px solid #FDE68A; }
+
+  /* ── Master Bento Grid (3 Columns x 2 Rows on Desktop) ── */
+  .bento-master-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* ── Bento Tile Component ── */
+  .bento-tile {
+    background: #FFFFFF;
+    border: 1.5px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.025);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bento-tile:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.09);
+  }
+
+  /* Tile Accents */
+  .tile-repo { border-left: 4px solid #2563EB; }
+  .tile-twin { border-left: 4px solid #4F46E5; }
+  .tile-research { border-left: 4px solid #0D9488; }
+  .tile-circuits { border-left: 4px solid #059669; }
+  .tile-video { border-left: 4px solid #E11D48; }
+  .tile-subsystems { border-left: 4px solid #D97706; }
+
+  .tile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .tile-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .tile-repo .tile-icon-box { background: #EFF6FF; color: #2563EB; }
+  .tile-twin .tile-icon-box { background: #EEF2FF; color: #4F46E5; }
+  .tile-research .tile-icon-box { background: #CCFBF1; color: #0D9488; }
+  .tile-circuits .tile-icon-box { background: #ECFDF5; color: #059669; }
+  .tile-video .tile-icon-box { background: #FFE4E6; color: #E11D48; }
+  .tile-subsystems .tile-icon-box { background: #FEF3C7; color: #D97706; }
+
+  .tile-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    flex: 1;
+    margin-left: 4px;
+  }
+
+  .tag-blue { background: #EFF6FF; color: #1D4ED8; }
+  .tag-indigo { background: #EEF2FF; color: #4338CA; }
+  .tag-teal { background: #F0FDFA; color: #0F766E; }
+  .tag-emerald { background: #ECFDF5; color: #047857; }
+  .tag-rose { background: #FFF1F2; color: #BE123C; }
+  .tag-amber { background: #FFFBEB; color: #B45309; }
+
+  .tile-arrow {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--text-muted);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .bento-tile:hover .tile-arrow {
+    color: var(--accent-primary);
+    transform: translateX(3px);
+  }
+
+  .tile-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .tile-title {
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 2px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .tile-url {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tile-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .tile-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    border-top: 1px solid #F1F5F9;
+    padding-top: 8px;
+  }
+
+  .meta-tag {
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .meta-status {
+    color: var(--accent-primary);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  /* Subsystems Grid within Tile 6 */
+  .subsystems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin: 6px 0 8px;
+  }
+
+  .subsystem-pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F8FAFC;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xs);
+    padding: 6px 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .subsystem-pill:hover {
+    background: #EFF6FF;
+    border-color: #BFDBFE;
+    color: var(--accent-primary);
+  }
+
+  .subsystem-pill.highlight {
+    background: #FEF3C7;
+    border-color: #FDE68A;
+    color: #92400E;
+  }
+
+  .subsystem-arrow {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Sleek Micro Status Rail ── */
+  .bento-bottom-rail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.70rem;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .rail-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rail-lead {
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .rail-sep {
+    color: var(--border-medium);
+  }
+
+  .rail-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .status-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 6px #10B981;
+  }
+
+  /* ── Mobile Responsive Optimizations (< 980px and < 640px) ── */
+  @media (max-width: 1024px) {
+    .bento-viewport-wrapper {
+      min-height: auto;
+      height: auto;
+    }
+    .bento-master-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .bento-viewport-wrapper {
+      padding: 12px 12px 24px;
+    }
+    .bento-top-bar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      padding: 12px;
+    }
+    .brand-group {
+      justify-content: flex-start;
+    }
+    .acronym-tag {
+      text-align: left;
+      padding: 0;
+      font-size: 0.70rem;
+    }
+    .pill-badges {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .bento-master-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .bento-tile {
+      padding: 14px;
+    }
+    .bento-bottom-rail {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 10px 12px;
+    }
+  }
+</style>

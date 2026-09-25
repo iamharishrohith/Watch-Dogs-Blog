@@ -1027,3 +1027,89 @@ table code,
 
 
 
+
+
+/* ── Mobile-First Responsive & Touch UI/UX Enhancements ── */
+@media (max-width: 840px) {
+  .research-header-inner {
+    height: 52px;
+    padding: 0 4px;
+  }
+  .nav-links {
+    display: none !important;
+  }
+  .status-badge {
+    display: none !important;
+  }
+  .bento-nav-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .bento-nav-card.col-4,
+  .bento-nav-card.col-6,
+  .bento-nav-card.col-12 {
+    grid-column: span 1 !important;
+  }
+  .editorial-footer div[style*="grid-template-columns: 1.5fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .screen-fit-img {
+    padding: 8px !important;
+  }
+  .lightbox-topbar {
+    padding: 6px 0;
+  }
+  .lightbox-btn {
+    padding: 8px 12px;
+    font-size: 0.72rem;
+  }
+  #lightbox-image {
+    max-width: 98vw;
+    max-height: 75vh;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container,
+  .container-narrow,
+  .container-fluid {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  .headline-display {
+    font-size: 1.9rem !important;
+    line-height: 1.15 !important;
+  }
+  .bento-hub-modal {
+    padding: 20px 8px 8px !important;
+  }
+  .bento-hub-container {
+    padding: 16px 12px !important;
+    border-radius: var(--radius-md) !important;
+  }
+  .bento-node-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .bento-node-btn {
+    padding: 10px 12px !important;
+    min-height: 48px;
+  }
+  .semantic-tab-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
